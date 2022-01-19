@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Built-By: chrys
+Build-Jdk: 17.0.1
+Implementation-Title: rental Maven Webapp
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: org.cbn
+Implementation-URL: https://spring.io/projects/spring-boot/rental
+Created-By: Maven Integration for Eclipse
+
