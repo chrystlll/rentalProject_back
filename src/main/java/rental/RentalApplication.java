@@ -23,10 +23,7 @@ public class RentalApplication {
 		context.setConfigLocation(file.toURI());
 		
 		logger.info("Rental application started.");
-		logger.debug("Rental application started.");
-		logger.debug("Debug Message Logged !!!");
-	      logger.info("Info Message Logged !!!");
-	      logger.error("Error Message Logged !!!", new NullPointerException("NullError"));
+		
 		SpringApplication.run(RentalApplication.class, args);
 	}
 }
