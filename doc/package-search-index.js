@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"org.cbn.demo"},{"l":"rental"},{"l":"rental.address"},{"l":"rental.contract"},{"l":"rental.enumeration"},{"l":"rental.mainTenant"},{"l":"rental.person"},{"l":"rental.price"},{"l":"rental.property"},{"l":"rental.renter"},{"l":"rental.utils"},{"l":"rental.vehicle"}];updateSearchResults();

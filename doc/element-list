@@ -1,0 +1,12 @@
+org.cbn.demo
+rental
+rental.address
+rental.contract
+rental.enumeration
+rental.mainTenant
+rental.person
+rental.price
+rental.property
+rental.renter
+rental.utils
+rental.vehicle

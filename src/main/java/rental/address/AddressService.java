@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import rental.enumeration.Gender;
 import rental.mainTenant.MainTenant;
 import rental.mainTenant.MainTenantRepository;
 import rental.renter.Renter;
@@ -35,9 +36,8 @@ public class AddressService {
 	}
 
 	public void addNewAddress(Address address) {
-		// TODO Auto-generated method stub
 		Optional<Address> addressById = addressRepository.findAddressByAddress1(address.getAddress1());
-		MainTenant mt = new MainTenant();
+		MainTenant mt = new MainTenant("ghhgj", Gender.M);
 		mainTenantRepository.save(mt);
 		Renter renter = new Renter();
 		renterRepository.save(renter);
@@ -45,7 +45,7 @@ public class AddressService {
 		address.setMainTenant(mt);
 
 		if (addressById.isPresent()) {
-			throw new IllegalStateException("Address exist");
+			throw new RuntimeException();
 		} else {
 			addressRepository.save(address);
 			System.out.println("Save Done !!!");
@@ -60,8 +60,12 @@ public class AddressService {
 			address =  addressRepository.findById(addressId).get();
 			addressRepository.deleteById(addressId);
 			return new ResponseEntity<Address>(address,HttpStatus.OK);
+			
+			 
 		}else {
-			return new ResponseEntity(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<Address>(HttpStatus.NOT_FOUND);
+			//throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("No resource found for id (%s)", addressId));			    
+			
 		}
 	}
 

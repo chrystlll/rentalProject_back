@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import rental.enumeration.Country;
 import rental.mainTenant.MainTenant;
 import rental.renter.Renter;
@@ -32,7 +34,6 @@ public class Address {
 	private Renter renter;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	
 	private MainTenant mainTenant;
 
 	
@@ -80,6 +81,7 @@ public class Address {
 	/**
 	 * @return the mainTenant
 	 */
+	@JsonIgnore
 	public MainTenant getMainTenant() {
 		return mainTenant;
 	}
@@ -94,6 +96,7 @@ public class Address {
 	/**
 	 * @return the renter
 	 */
+	@JsonIgnore
 	public Renter getRenter() {
 		return renter;
 	}

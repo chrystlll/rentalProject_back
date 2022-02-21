@@ -52,11 +52,11 @@ public class AddressController {
 
 	/* Update of the complete Address entity with all parameters */
 
-	@PutMapping(path = "{addressId}")
-	private void updateCompleteAddressr Long addressId,
-			@RequestParam(required = false) String address1) {
-		// TODO Auto-generated method stub
-		addressService.updateAddress(addressId, address1);
-	}
+//	@PutMapping(path = "{addressId}")
+//	private void updateCompleteAddressr Long addressId,
+//			@RequestParam(required = false) String address1) {
+//		// TODO Auto-generated method stub
+//		addressService.updateAddress(addressId, address1);
+//	}
 
 }

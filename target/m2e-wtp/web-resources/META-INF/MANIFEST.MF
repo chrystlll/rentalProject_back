@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Built-By: chrys
-Build-Jdk: 17.0.1
+Build-Jdk: 17.0.2
 Implementation-Title: rental Maven Webapp
 Implementation-Version: 0.0.1-SNAPSHOT
 Implementation-Vendor-Id: org.cbn

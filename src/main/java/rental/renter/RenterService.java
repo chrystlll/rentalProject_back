@@ -19,4 +19,9 @@ public class RenterService {
 		return renterRepository.findAll();
 	}
 
+	public void addNewRenter(Renter renter) {
+		renterRepository.save(renter);
+	}
+
+
 }

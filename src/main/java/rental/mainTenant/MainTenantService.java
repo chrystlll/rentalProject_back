@@ -18,5 +18,10 @@ public class MainTenantService {
 	public List<MainTenant> getMainTenant() {
 		return mainTenantRepository.findAll();
 	}
+	
+	public void addNewTenant(MainTenant mT) {
+		mainTenantRepository.save(mT);
+		
+	}
 
 }

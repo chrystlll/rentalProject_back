@@ -1,7 +1,7 @@
 package rental.enumeration;
 
 public enum Gender {
-	
-	M,MME
+
+	M, MME, AUTRE;
 
 }
