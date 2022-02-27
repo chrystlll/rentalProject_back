@@ -1,4 +1,4 @@
-package rental.property;
+package rental.place;
 
 import java.util.List;
 
@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "api/v1/property")
-public class PropertyController {
+public class PlaceController {
 
 
-	private final PropertyService propertyService;
+	private final PlaceService propertyService;
 
 	@Autowired
-	public PropertyController(PropertyService propertyService) {
+	public PlaceController(PlaceService propertyService) {
 		this.propertyService = propertyService;
 	}
 
 	@GetMapping
-	public List<Property> getProperty() {
+	public List<Place> getProperty() {
 		return propertyService.getProperty();
 	}
 }

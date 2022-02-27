@@ -3,6 +3,8 @@ package rental.price;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,12 +27,13 @@ public class Price {
 	private Date startDate;
 	private Date endDate;
 	private Float amount;
-	private Enum<Currency> currency;
+	@Enumerated(EnumType.STRING)
+	private Currency currency;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	private Contract contract;
 
-	public Price(long id, Date startDate, Date endDate, Float amount, Enum<Currency> currency, Contract contract) {
+	public Price(long id, Date startDate, Date endDate, Float amount, Currency currency, Contract contract) {
 		super();
 		this.id = id;
 		this.startDate = startDate;
@@ -40,7 +43,7 @@ public class Price {
 		this.contract = contract;
 	}
 
-	public Price(Date startDate, Date endDate, Float amount, Enum<Currency> currency, Contract contract) {
+	public Price(Date startDate, Date endDate, Float amount, Currency currency, Contract contract) {
 		super();
 		this.startDate = startDate;
 		this.endDate = endDate;
@@ -90,7 +93,7 @@ public class Price {
 		return currency;
 	}
 
-	public void setCurrency(Enum<Currency> currency) {
+	public void setCurrency(Currency currency) {
 		this.currency = currency;
 	}
 

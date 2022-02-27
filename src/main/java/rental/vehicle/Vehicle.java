@@ -1,6 +1,8 @@
 package rental.vehicle;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,10 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import rental.contract.Contract;
+
+import rental.enumeration.VehiculeType;
+import rental.place.Place;
 
 @Entity
-@Table (name = "vehicle")
+@Table(name = "vehicle")
 public class Vehicle {
 
 	@Id
@@ -20,43 +24,32 @@ public class Vehicle {
 	private Long id;
 	private String registrationNumber;
 	private String name;
-	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	private Contract contract;
-	
+
+	@Enumerated(EnumType.STRING)
+	private VehiculeType vehiculeType;
+
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	private Place place;
 
 	public Vehicle(String registrationNumber, String name) {
 		super();
 		this.registrationNumber = registrationNumber;
 		this.name = name;
 	}
-	
-	
 
 	public Vehicle(String name) {
 		super();
 		this.name = name;
 	}
 
-	
-
-	/**
-	 * @return the contract
-	 */
-	public Contract getContract() {
-		return contract;
+	public Vehicle(Long id, String registrationNumber, String name, VehiculeType vehiculeType, Place place) {
+		super();
+		this.id = id;
+		this.registrationNumber = registrationNumber;
+		this.name = name;
+		this.vehiculeType = vehiculeType;
+		this.place = place;
 	}
-
-
-
-	/**
-	 * @param contract the contract to set
-	 */
-	public void setContract(Contract contract) {
-		this.contract = contract;
-	}
-
-
 
 	/**
 	 * @return the id
@@ -100,9 +93,38 @@ public class Vehicle {
 		this.name = name;
 	}
 
+	/**
+	 * @return the vehiculeType
+	 */
+	public VehiculeType getVehiculeType() {
+		return vehiculeType;
+	}
+
+	/**
+	 * @param vehiculeType the vehiculeType to set
+	 */
+	public void setVehiculeType(VehiculeType vehiculeType) {
+		this.vehiculeType = vehiculeType;
+	}
+
+	/**
+	 * @return the place
+	 */
+	public Place getPlace() {
+		return place;
+	}
+
+	/**
+	 * @param place the place to set
+	 */
+	public void setPlace(Place place) {
+		this.place = place;
+	}
+
 	@Override
 	public String toString() {
-		return "Vehicle [id=" + id + ", registrationNumber=" + registrationNumber + ", name=" + name + "]";
+		return "Vehicle [id=" + id + ", registrationNumber=" + registrationNumber + ", name=" + name + ", vehiculeType="
+				+ vehiculeType + ", place=" + place + "]";
 	}
 
 }

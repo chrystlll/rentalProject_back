@@ -22,24 +22,26 @@ import rental.utils.RegExpMatching;
 public abstract class Person {
 
 	static Logger LOGGER = LogManager.getLogger(Person.class);
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "person_sequence")
 	@SequenceGenerator(name = "person_sequence", sequenceName = "person_sequence", allocationSize = 1)
 	private long id;
 	private String firstName;
 	private String lastName;
-	
+
 	@Column(length = 10)
 	private Date dob;
-	
+
 	@Enumerated(EnumType.STRING)
-	@Column(name="gender")
+	@Column(name = "gender")
 	private Gender gender;
-	
+
 	private String email;
 	@Column(length = 15)
 	private String socialNumber;
+	private String phoneNumber1;
+	private String phoneNumber2;
 
 	public Person() {
 		super();
@@ -50,7 +52,7 @@ public abstract class Person {
 		this.firstName = firstName;
 		this.gender = gender;
 	}
-	
+
 	public Person(String firstName, Gender gender, String email) {
 		super();
 		this.firstName = firstName;
@@ -120,9 +122,9 @@ public abstract class Person {
 
 	/**
 	 * @param dob the dob to set
-	 * @throws ParseException 
+	 * @throws ParseException
 	 */
-	public void setDob(Date dob){
+	public void setDob(Date dob) {
 		this.dob = dob;
 	}
 
@@ -133,10 +135,12 @@ public abstract class Person {
 		return gender;
 	}
 
-	/** Cast the gender in Enumeration
+	/**
+	 * Cast the gender in Enumeration
+	 * 
 	 * @param gender the gender to set
 	 */
-	public void setGender(String gender) {	
+	public void setGender(String gender) {
 		this.gender = Gender.valueOf(gender);
 	}
 
@@ -154,7 +158,8 @@ public abstract class Person {
 	 */
 	public void setEmail(String email) {
 		if (!email.isEmpty() && !RegExpMatching.isValidEmail(email)) {
-			LOGGER.error("L'email : " +email+ " est invalide!");;
+			LOGGER.error("L'email : " + email + " est invalide!");
+			;
 			throw new RuntimeException("Email is not valid !!!");
 		} else {
 			this.email = email;
@@ -181,10 +186,58 @@ public abstract class Person {
 		}
 	}
 
+	/**
+	 * @return the phoneNumber1
+	 */
+	public String getPhoneNumber1() {
+		return phoneNumber1;
+	}
+
+	/**
+	 * @param phoneNumber1 the phoneNumber1 to set
+	 */
+	public void setPhoneNumber1(String phoneNumber1) {
+		if (null != phoneNumber1) {
+			if (10 != phoneNumber1.length() && 0 != phoneNumber1.length()) {
+				throw new RuntimeException("Phone number is invalid !!! Length error");
+			} else {
+				this.phoneNumber1 = phoneNumber1;
+			}
+		}
+	}
+
+	/**
+	 * @return the phoneNumber2
+	 */
+	public String getPhoneNumber2() {
+		return phoneNumber2;
+	}
+
+	/**
+	 * @param phoneNumber2 the phoneNumber2 to set
+	 */
+	public void setPhoneNumber2(String phoneNumber2) {
+		if (null != phoneNumber2) {
+			if (10 != phoneNumber2.length() && 0 != phoneNumber2.length()) {
+				throw new RuntimeException("Phone number is invalid !!! Length error");
+			} else {
+				this.phoneNumber2 = phoneNumber2;
+			}
+		}
+	}
+
+	/**
+	 * @param gender the gender to set
+	 */
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
 	@Override
 	public String toString() {
-		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", dob=" + dob + ", gender=" + gender
-				+ ", email=" + email + ", socialNumber=" + socialNumber + "]";
+		return "Person [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", dob=" + dob + ", gender="
+				+ gender + ", email=" + email + ", socialNumber=" + socialNumber + ", phoneNumber1=" + phoneNumber1
+				+ ", phoneNumber2=" + phoneNumber2 + "]";
 	}
 
 }

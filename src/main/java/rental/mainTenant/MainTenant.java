@@ -26,59 +26,34 @@ import rental.person.Person;
 @AttributeOverride(name = "id", column = @Column(name = "ID"))
 public class MainTenant extends Person implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	private String phoneNumber;
-	
+
 	@Enumerated(EnumType.STRING)
-	@Column(name="tenantstatus")
+	@Column(name = "tenantstatus")
 	private TenantStatus mainTenantStatus;
-	
+
 	@OneToMany(mappedBy = "mainTenant", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Address> addresses;
 	@OneToOne(mappedBy = "mainTenant", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Contract contract;
-	
+
 	public MainTenant() {
 		super();
 	}
 
-	public MainTenant(String fistName,Gender gender) {
-		super(fistName,gender);
-	}
-	
-	public MainTenant(String fistName,Gender gender,String email) {
-		super(fistName,gender,email);
+	public MainTenant(String fistName, Gender gender) {
+		super(fistName, gender);
 	}
 
-	public MainTenant(String phoneNumber, TenantStatus mainTenantStatus, List<Address> addresses,
-			Contract contract) {
+	public MainTenant(String fistName, Gender gender, String email) {
+		super(fistName, gender, email);
+	}
+
+	public MainTenant(TenantStatus mainTenantStatus, List<Address> addresses, Contract contract) {
 		super();
-		this.phoneNumber = phoneNumber;
 		this.mainTenantStatus = mainTenantStatus;
 		this.addresses = addresses;
 		this.contract = contract;
-	}
-
-
-	/**
-	 * @return the phoneNumber
-	 */
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	/**
-	 * @param phoneNumber the phoneNumber to set
-	 */
-	public void setPhoneNumber(String phoneNumber) {
-		if (10 != phoneNumber.length() && 0 != phoneNumber.length()) {
-			throw new RuntimeException("Phone number is invalid !!! Length error");
-		} else {
-			this.phoneNumber = phoneNumber;
-		}
 	}
 
 	/**
@@ -88,9 +63,11 @@ public class MainTenant extends Person implements Serializable {
 		return mainTenantStatus;
 	}
 
-	/** Cast the status 
-	 * @param mainTenantStatus the mainTenantStatus to set
-	 * By default status is ACTIVE
+	/**
+	 * Cast the status
+	 * 
+	 * @param mainTenantStatus the mainTenantStatus to set By default status is
+	 *                         ACTIVE
 	 */
 	public void setMainTenantStatus(String mainTenantStatus) {
 		this.mainTenantStatus = TenantStatus.valueOf(mainTenantStatus);
@@ -126,8 +103,8 @@ public class MainTenant extends Person implements Serializable {
 
 	@Override
 	public String toString() {
-		return "MainTenant [phoneNumber=" + phoneNumber + ", mainTenantStatus=" + mainTenantStatus + ", addresses="
-				+ addresses + ", contract=" + contract + super.getSocialNumber() + "]";
+		return "MainTenant [mainTenantStatus=" + mainTenantStatus + ", addresses=" + addresses + ", contract="
+				+ contract + "]";
 	}
 
 }

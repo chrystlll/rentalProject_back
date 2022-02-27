@@ -31,15 +31,12 @@ public class AppConfig {
 				MainTenant mTtest = new MainTenant("Test "+i,Gender.M,"email" +i+"@gmail.com");
 				repMT.save(mTtest);
 			}
-			
-			
-			
-			
+					
 			Renter rT = new Renter("My renter",Gender.M);
 			repRT.save(rT);
 			repMT.save(mT);
 		
-			Address newAdress = new Address("Adresse 123", Country.FRANCE, true, mT,rT);
+			Address newAdress = new Address("Adresse 123", Country.FRANCE, true);
 			newListAddress.add(newAdress);
 			repAd.saveAll(newListAddress);
 		};

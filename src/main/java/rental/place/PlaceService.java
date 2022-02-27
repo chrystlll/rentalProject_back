@@ -1,4 +1,4 @@
-package rental.property;
+package rental.place;
 
 import java.util.List;
 
@@ -6,16 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PropertyService {
+public class PlaceService {
 
-	private final PropertyRepository propertyRepository;
+	private final PlaceRepository propertyRepository;
 
 	@Autowired
-	public PropertyService(PropertyRepository propertyRepository) {
+	public PlaceService(PlaceRepository propertyRepository) {
 		this.propertyRepository = propertyRepository;
 	}
 
-	public List<Property> getProperty() {
+	public List<Place> getProperty() {
 		return propertyRepository.findAll();
 	}
 }

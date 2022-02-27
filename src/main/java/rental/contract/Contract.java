@@ -5,10 +5,13 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -17,7 +20,7 @@ import javax.persistence.Table;
 import rental.enumeration.ContractType;
 import rental.mainTenant.MainTenant;
 import rental.price.Price;
-import rental.vehicle.Vehicle;
+import rental.renter.Renter;
 
 @Entity
 @Table(name = "contract")
@@ -28,30 +31,26 @@ public class Contract {
 	private Long id;
 	private Date startDate;
 	private Date endDate;
-	private Boolean isExist;
-	private Enum<ContractType> contractType;
-
 	@OneToOne(fetch = FetchType.LAZY, optional = false)
 	private MainTenant mainTenant;
-	@OneToMany(mappedBy = "contract", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Set<Vehicle> vehicle;
-	private Float locationtSize;
+	@Enumerated(EnumType.STRING)
+	private ContractType contractType;
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	private Renter renter;
 	@OneToMany(mappedBy = "contract", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<Price> price;
 
-	public Contract(Long id, Date startDate, Date endDate, Boolean isExist) {
+	public Contract(Long id, Date startDate, Date endDate) {
 		super();
 		this.id = id;
 		this.startDate = startDate;
 		this.endDate = endDate;
-		this.isExist = isExist;
 	}
 
-	public Contract(Date startDate, Date endDate, Boolean isExist) {
+	public Contract(Date startDate, Date endDate) {
 		super();
 		this.startDate = startDate;
 		this.endDate = endDate;
-		this.isExist = isExist;
 	}
 
 	public Long getId() {
@@ -92,14 +91,6 @@ public class Contract {
 		this.endDate = endDate;
 	}
 
-	public Boolean getIsExist() {
-		return isExist;
-	}
-
-	public void setIsExist(Boolean isExist) {
-		this.isExist = isExist;
-	}
-
 	/**
 	 * @return the contractType
 	 */
@@ -110,22 +101,8 @@ public class Contract {
 	/**
 	 * @param contractType the contractType to set
 	 */
-	public void setContractType(Enum<ContractType> contractType) {
+	public void setContractType(ContractType contractType) {
 		this.contractType = contractType;
-	}
-
-	/**
-	 * @return the vehicle
-	 */
-	public Set<Vehicle> getVehicle() {
-		return vehicle;
-	}
-
-	/**
-	 * @param vehicle the vehicle to set
-	 */
-	public void setVehicle(Set<Vehicle> vehicle) {
-		this.vehicle = vehicle;
 	}
 
 	/**
@@ -142,24 +119,10 @@ public class Contract {
 		this.price = price;
 	}
 
-	/**
-	 * @return the locationtSize
-	 */
-	public Float getLocationtSize() {
-		return locationtSize;
-	}
-
-	/**
-	 * @param locationtSize the locationtSize to set
-	 */
-	public void setLocationtSize(Float locationtSize) {
-		this.locationtSize = locationtSize;
-	}
-
 	@Override
 	public String toString() {
-		return "Contract [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", isExist=" + isExist
-				+ "]";
+		return "Contract [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", mainTenant=" + mainTenant
+				+ ", contractType=" + contractType + ", renter=" + renter + ", price=" + price + "]";
 	}
 
 }
