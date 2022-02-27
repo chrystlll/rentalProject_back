@@ -1,0 +1,4 @@
+[main] INFO  | rental.RentalApplication                                     | Test: Info Message Logged !!! (LoggerTest.java:37)
+[main] ERROR | rental.RentalApplication                                     | Test: Error Message Logged !!! (LoggerTest.java:38)
+[main] INFO  | rental.RentalApplication                                     | Test: Info Message Logged !!! (LoggerTest.java:37)
+[main] ERROR | rental.RentalApplication                                     | Test: Error Message Logged !!! (LoggerTest.java:38)

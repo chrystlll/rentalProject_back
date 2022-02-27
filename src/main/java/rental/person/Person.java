@@ -1,7 +1,11 @@
 package rental.person;
 
+import java.text.ParseException;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,7 +21,7 @@ import rental.utils.RegExpMatching;
 @MappedSuperclass
 public abstract class Person {
 
-	static Logger logger = LogManager.getLogger(Person.class);
+	static Logger LOGGER = LogManager.getLogger(Person.class);
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "person_sequence")
@@ -25,9 +29,16 @@ public abstract class Person {
 	private long id;
 	private String firstName;
 	private String lastName;
+	
+	@Column(length = 10)
 	private Date dob;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="gender")
 	private Gender gender;
+	
 	private String email;
+	@Column(length = 15)
 	private String socialNumber;
 
 	public Person() {
@@ -38,6 +49,13 @@ public abstract class Person {
 		super();
 		this.firstName = firstName;
 		this.gender = gender;
+	}
+	
+	public Person(String firstName, Gender gender, String email) {
+		super();
+		this.firstName = firstName;
+		this.gender = gender;
+		this.email = email;
 	}
 
 	public Person(String firstName, String lastName, Date dob, Gender gender, String email, String socialNumber) {
@@ -102,8 +120,9 @@ public abstract class Person {
 
 	/**
 	 * @param dob the dob to set
+	 * @throws ParseException 
 	 */
-	public void setDob(Date dob) {
+	public void setDob(Date dob){
 		this.dob = dob;
 	}
 
@@ -117,10 +136,8 @@ public abstract class Person {
 	/** Cast the gender in Enumeration
 	 * @param gender the gender to set
 	 */
-	public void setGender(String gender) {
-		
+	public void setGender(String gender) {	
 		this.gender = Gender.valueOf(gender);
-		
 	}
 
 	/**
@@ -137,8 +154,8 @@ public abstract class Person {
 	 */
 	public void setEmail(String email) {
 		if (!email.isEmpty() && !RegExpMatching.isValidEmail(email)) {
-			logger.error("L'email : " +email+ " est invalid!");;
-			throw new RuntimeException("Email is not valide !!!");
+			LOGGER.error("L'email : " +email+ " est invalide!");;
+			throw new RuntimeException("Email is not valid !!!");
 		} else {
 			this.email = email;
 		}

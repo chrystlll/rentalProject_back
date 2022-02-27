@@ -25,8 +25,16 @@ public class AppConfig {
 		return arg -> {
 			List<Address> newListAddress = new ArrayList<>();
 			
-			MainTenant mT = new MainTenant("My main tenant",Gender.M);
-			//mT.setGender(Gender.M);
+			MainTenant mT = new MainTenant("Toto",Gender.M,"tenant@gmail.com");
+			
+			for (int i = 0; i < 25; i++) {
+				MainTenant mTtest = new MainTenant("Test "+i,Gender.M,"email" +i+"@gmail.com");
+				repMT.save(mTtest);
+			}
+			
+			
+			
+			
 			Renter rT = new Renter("My renter",Gender.M);
 			repRT.save(rT);
 			repMT.save(mT);

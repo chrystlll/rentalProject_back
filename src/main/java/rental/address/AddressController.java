@@ -28,6 +28,7 @@ public class AddressController {
 	public List<Address> getAddress() {
 		return addressService.getAddress();
 	}
+	
 
 	@PostMapping
 	public void registerAddress(@RequestBody Address address) {

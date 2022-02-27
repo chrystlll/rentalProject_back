@@ -7,6 +7,8 @@ import javax.persistence.AttributeOverride;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -28,9 +30,12 @@ public class MainTenant extends Person implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
 	private String phoneNumber;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="tenantstatus")
 	private TenantStatus mainTenantStatus;
+	
 	@OneToMany(mappedBy = "mainTenant", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Address> addresses;
 	@OneToOne(mappedBy = "mainTenant", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -42,6 +47,10 @@ public class MainTenant extends Person implements Serializable {
 
 	public MainTenant(String fistName,Gender gender) {
 		super(fistName,gender);
+	}
+	
+	public MainTenant(String fistName,Gender gender,String email) {
+		super(fistName,gender,email);
 	}
 
 	public MainTenant(String phoneNumber, TenantStatus mainTenantStatus, List<Address> addresses,
