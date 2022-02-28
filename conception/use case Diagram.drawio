@@ -1,0 +1,75 @@
+<mxfile host="app.diagrams.net" modified="2022-02-28T18:10:19.387Z" agent="5.0 (Windows)" etag="DtEyn8nD7YcmCZOlPD8V" version="16.6.4" type="github">
+  <diagram id="fZD9pTI-PNhXSYh-KRmx" name="Page-1">
+    <mxGraphModel dx="1038" dy="1656" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Rx37_lMQSRoVqCimWak8-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="-320" width="690" height="730" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-4" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Rx37_lMQSRoVqCimWak8-1" target="Rx37_lMQSRoVqCimWak8-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-1" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="200" y="140" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-14" value="include" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="Rx37_lMQSRoVqCimWak8-3" target="Rx37_lMQSRoVqCimWak8-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-15" value="include" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="Rx37_lMQSRoVqCimWak8-3" target="Rx37_lMQSRoVqCimWak8-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-3" value="&lt;div&gt;View the &lt;br&gt;&lt;/div&gt;&lt;div&gt;main tenant list&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="10" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-6" value="extend" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="Rx37_lMQSRoVqCimWak8-5" target="Rx37_lMQSRoVqCimWak8-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-19" value="include" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="Rx37_lMQSRoVqCimWak8-5" target="Rx37_lMQSRoVqCimWak8-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-5" value="&lt;div&gt;View the&lt;br&gt;&lt;/div&gt;&lt;div&gt;main tenant&lt;/div&gt;&lt;div&gt;informations &lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="-60" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-7" value="&lt;div&gt;Delete a&lt;br&gt;&lt;/div&gt;&lt;div&gt;main tenant &lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="502" y="50" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-9" value="&lt;div&gt;Filter a&lt;br&gt;&lt;/div&gt;&lt;div&gt;main tenant&lt;/div&gt;&lt;div&gt;by lastName &lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="329" y="-110" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-12" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="Rx37_lMQSRoVqCimWak8-11" target="Rx37_lMQSRoVqCimWak8-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-13" value="extend" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Rx37_lMQSRoVqCimWak8-12">
+          <mxGeometry x="-0.3667" y="1" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-21" value="include" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="Rx37_lMQSRoVqCimWak8-11" target="Rx37_lMQSRoVqCimWak8-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-11" value="&lt;div&gt;View and edit the main tenant address&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="-180" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-17" value="extend" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="Rx37_lMQSRoVqCimWak8-16" target="Rx37_lMQSRoVqCimWak8-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-23" value="include" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="Rx37_lMQSRoVqCimWak8-16" target="Rx37_lMQSRoVqCimWak8-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-16" value="&lt;div&gt;View and edit the main tenant contracts&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="-60" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-18" value="&lt;div&gt;Edit the main tenant &lt;br&gt;&lt;/div&gt;&lt;div&gt;informations&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="-200" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-20" value="&lt;div&gt;Delete the main tenant &lt;br&gt;&lt;/div&gt;&lt;div&gt;address&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="622" y="-300" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx37_lMQSRoVqCimWak8-22" value="&lt;div&gt;Delete the main tenant &lt;br&gt;&lt;/div&gt;&lt;div&gt;contract&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="-160" width="120" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
