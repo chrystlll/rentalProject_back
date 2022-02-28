@@ -1,9 +1,6 @@
 
 package rental.place;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -12,13 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import rental.address.Address;
 import rental.enumeration.PropertyStatus;
-import rental.vehicle.Vehicle;
 
 @Entity
 @Table
@@ -32,12 +27,8 @@ public class Place {
 	@Enumerated(EnumType.STRING)
 	private PropertyStatus propertyStatus;
 	private Float locationtSize;
-
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	private Address address;
-
-	@OneToMany(mappedBy = "place", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Set<Vehicle> vehicle;
 
 	public Place(String name, PropertyStatus propertyStatus) {
 		super();
@@ -45,15 +36,13 @@ public class Place {
 		this.propertyStatus = propertyStatus;
 	}
 
-	public Place(Long id, String name, PropertyStatus propertyStatus, Float locationtSize, Address address,
-			Set<Vehicle> vehicle) {
+	public Place(Long id, String name, PropertyStatus propertyStatus, Float locationtSize, Address address) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.propertyStatus = propertyStatus;
 		this.locationtSize = locationtSize;
 		this.address = address;
-		this.vehicle = vehicle;
 	}
 
 	/**
@@ -82,20 +71,6 @@ public class Place {
 	 */
 	public void setAddress(Address address) {
 		this.address = address;
-	}
-
-	/**
-	 * @return the vehicle
-	 */
-	public Set<Vehicle> getVehicle() {
-		return vehicle;
-	}
-
-	/**
-	 * @param vehicle the vehicle to set
-	 */
-	public void setVehicle(Set<Vehicle> vehicle) {
-		this.vehicle = vehicle;
 	}
 
 	public Place(String name) {
@@ -148,7 +123,7 @@ public class Place {
 	@Override
 	public String toString() {
 		return "Place [id=" + id + ", name=" + name + ", propertyStatus=" + propertyStatus + ", locationtSize="
-				+ locationtSize + ", address=" + address + ", vehicle=" + vehicle + "]";
+				+ locationtSize + ", address=" + address + "]";
 	}
 
 }

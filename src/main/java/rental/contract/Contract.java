@@ -21,6 +21,7 @@ import rental.enumeration.ContractType;
 import rental.mainTenant.MainTenant;
 import rental.price.Price;
 import rental.renter.Renter;
+import rental.vehicle.Vehicle;
 
 @Entity
 @Table(name = "contract")
@@ -40,6 +41,9 @@ public class Contract {
 	@OneToMany(mappedBy = "contract", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<Price> price;
 
+	@OneToMany(mappedBy = "contract", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Set<Vehicle> vehicle;
+	
 	public Contract(Long id, Date startDate, Date endDate) {
 		super();
 		this.id = id;

@@ -11,8 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import rental.contract.Contract;
 import rental.enumeration.VehiculeType;
-import rental.place.Place;
 
 @Entity
 @Table(name = "vehicle")
@@ -29,7 +29,7 @@ public class Vehicle {
 	private VehiculeType vehiculeType;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-	private Place place;
+	private Contract contract;
 
 	public Vehicle(String registrationNumber, String name) {
 		super();
@@ -42,13 +42,13 @@ public class Vehicle {
 		this.name = name;
 	}
 
-	public Vehicle(Long id, String registrationNumber, String name, VehiculeType vehiculeType, Place place) {
+	public Vehicle(Long id, String registrationNumber, String name, VehiculeType vehiculeType, Contract contract) {
 		super();
 		this.id = id;
 		this.registrationNumber = registrationNumber;
 		this.name = name;
 		this.vehiculeType = vehiculeType;
-		this.place = place;
+		this.contract = contract;
 	}
 
 	/**
@@ -108,23 +108,23 @@ public class Vehicle {
 	}
 
 	/**
-	 * @return the place
+	 * @return the contract
 	 */
-	public Place getPlace() {
-		return place;
+	public Contract getContract() {
+		return contract;
 	}
 
 	/**
-	 * @param place the place to set
+	 * @param contract the contract to set
 	 */
-	public void setPlace(Place place) {
-		this.place = place;
+	public void setContract(Contract contract) {
+		this.contract = contract;
 	}
 
 	@Override
 	public String toString() {
 		return "Vehicle [id=" + id + ", registrationNumber=" + registrationNumber + ", name=" + name + ", vehiculeType="
-				+ vehiculeType + ", place=" + place + "]";
+				+ vehiculeType + ", contract=" + contract + "]";
 	}
 
 }
