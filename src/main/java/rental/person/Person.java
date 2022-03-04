@@ -53,8 +53,9 @@ public abstract class Person {
 		this.gender = gender;
 	}
 
-	public Person(String firstName, Gender gender, String email) {
+	public Person(String lastName,String firstName, Gender gender, String email) {
 		super();
+		this.lastName = lastName;
 		this.firstName = firstName;
 		this.gender = gender;
 		this.email = email;

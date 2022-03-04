@@ -45,8 +45,8 @@ public class MainTenant extends Person implements Serializable {
 		super(fistName, gender);
 	}
 
-	public MainTenant(String fistName, Gender gender, String email) {
-		super(fistName, gender, email);
+	public MainTenant(String lastName, String fistName, Gender gender, String email) {
+		super(lastName,fistName, gender, email);
 	}
 
 	public MainTenant(TenantStatus mainTenantStatus, List<Address> addresses, Contract contract) {
@@ -103,7 +103,7 @@ public class MainTenant extends Person implements Serializable {
 
 	@Override
 	public String toString() {
-		return "MainTenant [mainTenantStatus=" + mainTenantStatus + ", addresses=" + addresses + ", contract="
+		return "MainTenant [mainTenantStatus=" + super.toString() + mainTenantStatus + ", addresses=" + addresses + ", contract="
 				+ contract + "]";
 	}
 

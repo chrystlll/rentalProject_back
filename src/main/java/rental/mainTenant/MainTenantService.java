@@ -45,8 +45,8 @@ public class MainTenantService {
 	        CriteriaBuilder cb = em.getCriteriaBuilder();
 	        CriteriaQuery<MainTenant> cq = cb.createQuery(MainTenant.class);
 	        Root<MainTenant> mainTenant = cq.from(MainTenant.class);
-	        Predicate authorNamePredicate = cb.equal(mainTenant.get("email"), email);
-	        cq.where(authorNamePredicate);
+	        Predicate mTPredicate = cb.equal(mainTenant.get("email"), email);
+	        cq.where(mTPredicate);
 	        TypedQuery<MainTenant> query = em.createQuery(cq);
 	        List<MainTenant> listMT = query.getResultList();
 	        if(0 != listMT.size()) {
@@ -83,7 +83,7 @@ public class MainTenantService {
 	}
 
 	public ResponseEntity<MainTenant>updateMaintenant(MainTenant mt) {
-		System.out.println(mt);
+		
 		Boolean searchResult = mainTenantRepository.existsById(mt.getId());
 		if(searchResult) {
 			mt =  mainTenantRepository.saveAndFlush(mt);
