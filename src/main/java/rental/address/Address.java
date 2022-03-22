@@ -90,6 +90,19 @@ public class Address {
 	}
 	
 	
+	
+
+	public Address(String address1, String address2, String zipCode, String city, Country country, Boolean isPrimary,
+			Renter renter) {
+		super();
+		this.address1 = address1;
+		this.address2 = address2;
+		this.zipCode = zipCode;
+		this.city = city;
+		this.country = country;
+		this.isPrimary = isPrimary;
+		this.renter = renter;
+	}
 
 	public Address(String address1, String address2, String zipCode, String city, Country country, Boolean isPrimary,
 			MainTenant mainTenant) {

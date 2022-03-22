@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import rental.entities.MainTenantAndAddress;
-import rental.mainTenant.MainTenant;
-import rental.mainTenant.MainTenantService;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController

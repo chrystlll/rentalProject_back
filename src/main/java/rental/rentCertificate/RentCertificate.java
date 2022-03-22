@@ -1,4 +1,4 @@
-package rental.lease;
+package rental.rentCertificate;
 
 import java.util.Date;
 
@@ -14,11 +14,11 @@ import javax.persistence.Table;
 import rental.enumeration.SendingType;
 
 @Entity
-@Table(name = "lease")
-public class Lease {
+@Table(name = "rentCertificate")
+public class RentCertificate {
 	@Id
-	@SequenceGenerator(name = "lease_sequence", sequenceName = "lease_sequence", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "lease_sequence")
+	@SequenceGenerator(name = "rentCertificate_sequence", sequenceName = "rentCertificate_sequence", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "rentCertificate_sequence")
 	private Long id;
 	private Date startDate;
 	private Date endDate;
@@ -27,11 +27,11 @@ public class Lease {
 	private Date sendingDate;
 	private Boolean isSend;
 
-	public Lease() {
+	public RentCertificate() {
 		super();
 	}
 
-	public Lease(Long id, Date startDate, Date endDate, SendingType sendingType, Date sendingDate, Boolean isSend) {
+	public RentCertificate(Long id, Date startDate, Date endDate, SendingType sendingType, Date sendingDate, Boolean isSend) {
 		super();
 		this.id = id;
 		this.startDate = startDate;

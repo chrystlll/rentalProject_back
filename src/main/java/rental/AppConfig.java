@@ -26,27 +26,26 @@ public class AppConfig {
 			List<Address> newListAddress = new ArrayList<>();
 
 			MainTenant mT = new MainTenant("Dupond", "Eddy", Gender.M, "Eddy@gmail.com");
-
-			for (int i = 0; i < 25; i++) {
+			
+			
+			
+			Renter rT = new Renter("Pierre", "Dupond", Gender.M,"test@tes.com","26655555","665446546");
+			repRT.save(rT);
+			repMT.save(mT);
+			
+			for (int i = 0; i < 15; i++) {
 				MainTenant mTtest = new MainTenant("Nom N°" + i, "Prénom N°" + i, Gender.M, "email" + i + "@gmail.com");
 				repMT.save(mTtest);
 			}
-
-			Renter rT = new Renter("CBN renter", Gender.M);
-			repRT.save(rT);
-			repMT.save(mT);
-
+				
 			Address newAdress = new Address("2 rue Paul Bert", "", "56100", "LORIENT", Country.FRANCE, true, mT);
-
-			for (int i = 0; i < 25; i++) {
-				Address adtest = new Address("Adresse N°" + i, "", "29300", "BREST", Country.FRANCE, true);
-				repAd.save(adtest);
-			}
 
 			for (int i = 0; i < 5; i++) {
 				Address adtest = new Address("Adresse N°" + i, "", "29100", "DOUARNENEZ", Country.FRANCE, true, mT);
 				repAd.save(adtest);
 			}
+			Address mTadress = new Address("2 rue Dupond","", "75100", "PARIS", Country.FRANCE, true, rT);
+			repAd.save(mTadress);
 
 			newListAddress.add(newAdress);
 			repAd.saveAll(newListAddress);

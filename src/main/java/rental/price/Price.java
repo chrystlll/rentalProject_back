@@ -30,27 +30,27 @@ public class Price {
 	@Enumerated(EnumType.STRING)
 	private Currency currency;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-	private Contract contract;
+//	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+//	private Contract contract;
 
-	public Price(long id, Date startDate, Date endDate, Float amount, Currency currency, Contract contract) {
-		super();
-		this.id = id;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.amount = amount;
-		this.currency = currency;
-		this.contract = contract;
-	}
+//	public Price(long id, Date startDate, Date endDate, Float amount, Currency currency, Contract contract) {
+//		super();
+//		this.id = id;
+//		this.startDate = startDate;
+//		this.endDate = endDate;
+//		this.amount = amount;
+//		this.currency = currency;
+//		this.contract = contract;
+//	}
 
-	public Price(Date startDate, Date endDate, Float amount, Currency currency, Contract contract) {
-		super();
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.amount = amount;
-		this.currency = currency;
-		this.contract = contract;
-	}
+//	public Price(Date startDate, Date endDate, Float amount, Currency currency, Contract contract) {
+//		super();
+//		this.startDate = startDate;
+//		this.endDate = endDate;
+//		this.amount = amount;
+//		this.currency = currency;
+//		this.contract = contract;
+//	}
 
 	public Price(long id) {
 		super();
@@ -96,19 +96,19 @@ public class Price {
 	public void setCurrency(Currency currency) {
 		this.currency = currency;
 	}
-
-	public Contract getContract() {
-		return contract;
-	}
-
-	public void setContract(Contract contract) {
-		this.contract = contract;
-	}
-
-	@Override
-	public String toString() {
-		return "Price [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", amount=" + amount
-				+ ", currency=" + currency + ", contract=" + contract + "]";
-	}
+//
+//	public Contract getContract() {
+//		return contract;
+//	}
+//
+//	public void setContract(Contract contract) {
+//		this.contract = contract;
+//	}
+//
+//	@Override
+//	public String toString() {
+//		return "Price [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", amount=" + amount
+//				+ ", currency=" + currency + ", contract=" + contract + "]";
+//	}
 
 }

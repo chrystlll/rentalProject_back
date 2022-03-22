@@ -60,6 +60,19 @@ public abstract class Person {
 		this.gender = gender;
 		this.email = email;
 	}
+	
+	
+
+	public Person(String firstName, String lastName, Gender gender, String email,
+			String phoneNumber1, String phoneNumber2) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.email = email;
+		this.phoneNumber1 = phoneNumber1;
+		this.phoneNumber2 = phoneNumber2;
+	}
 
 	public Person(String firstName, String lastName, Date dob, Gender gender, String email, String socialNumber) {
 		super();

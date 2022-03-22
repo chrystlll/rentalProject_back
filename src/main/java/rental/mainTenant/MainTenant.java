@@ -11,7 +11,6 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import rental.address.Address;
@@ -34,8 +33,10 @@ public class MainTenant extends Person implements Serializable {
 
 	@OneToMany(mappedBy = "mainTenant", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Address> addresses;
-	@OneToOne(mappedBy = "mainTenant", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Contract contract;
+	
+	@OneToMany(mappedBy = "mainTenant", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@com.fasterxml.jackson.annotation.JsonManagedReference
+	private List<Contract> contracts;
 
 	public MainTenant() {
 		super();
@@ -49,11 +50,16 @@ public class MainTenant extends Person implements Serializable {
 		super(lastName,fistName, gender, email);
 	}
 
-	public MainTenant(TenantStatus mainTenantStatus, List<Address> addresses, Contract contract) {
+	public MainTenant(TenantStatus mainTenantStatus, List<Address> addresses) {
 		super();
 		this.mainTenantStatus = mainTenantStatus;
 		this.addresses = addresses;
-		this.contract = contract;
+	}
+	
+	
+	public void MainTenantCon(TenantStatus mainTenantStatus, List<Contract> contracts) {
+		this.mainTenantStatus = mainTenantStatus;
+		this.contracts = contracts;
 	}
 
 	/**
@@ -88,23 +94,39 @@ public class MainTenant extends Person implements Serializable {
 	}
 
 	/**
-	 * @return the contract
+	 * @return the contracts
 	 */
-	public Contract getContract() {
-		return contract;
+	public List<Contract> getContracts() {
+		return contracts;
 	}
 
 	/**
-	 * @param contract the contract to set
+	 * @param contracts the contracts to set
 	 */
-	public void setContract(Contract contract) {
-		this.contract = contract;
+	public void setContracts(List<Contract> contracts) {
+		this.contracts = contracts;
+	}
+
+	/**
+	 * @return the serialversionuid
+	 */
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	/**
+	 * @param mainTenantStatus the mainTenantStatus to set
+	 */
+	public void setMainTenantStatus(TenantStatus mainTenantStatus) {
+		this.mainTenantStatus = mainTenantStatus;
 	}
 
 	@Override
 	public String toString() {
-		return "MainTenant [mainTenantStatus=" + super.toString() + mainTenantStatus + ", addresses=" + addresses + ", contract="
-				+ contract + "]";
+		return "MainTenant [mainTenantStatus=" + mainTenantStatus + ", addresses=" + addresses + ", contracts="
+				+ contracts + "]";
 	}
+
+	
 
 }
