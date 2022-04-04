@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-03-25T15:48:33.171Z" agent="5.0 (Windows)" etag="nDiuklRmOmTAAcIUSO7x" version="17.2.3" type="github">
+<mxfile host="app.diagrams.net" modified="2022-04-04T14:18:46.533Z" agent="5.0 (Windows)" etag="EijhC5X_EhtDgHisKj4R" version="17.4.0" type="github">
   <diagram name="Page-1" id="c4acf3e9-155e-7222-9cf6-157b1a14988f">
     <mxGraphModel dx="1888" dy="1656" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -31,7 +31,7 @@
         <mxCell id="5d2195bd80daf111-5" value="MainTenant" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=10;align=center;" parent="1" vertex="1">
           <mxGeometry x="100" y="100" width="160" height="104" as="geometry" />
         </mxCell>
-        <mxCell id="ndlTsKFOv6vGz2pKuhoK-13" value="mainTenantStatus: enum" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="5d2195bd80daf111-5" vertex="1">
+        <mxCell id="ndlTsKFOv6vGz2pKuhoK-13" value="commonStatus: enum" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="5d2195bd80daf111-5" vertex="1">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
         </mxCell>
         <mxCell id="ndlTsKFOv6vGz2pKuhoK-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=diamond;endFill=0;" parent="1" source="ndlTsKFOv6vGz2pKuhoK-1" target="5d2195bd80daf111-5" edge="1">
@@ -118,7 +118,7 @@
         <mxCell id="ndlTsKFOv6vGz2pKuhoK-42" value="contractType : enum" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="ndlTsKFOv6vGz2pKuhoK-30" vertex="1">
           <mxGeometry y="104" width="160" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="_fEWoL9mflUrf_iSUaeL-1" value="contractStatus : enum" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ndlTsKFOv6vGz2pKuhoK-30">
+        <mxCell id="_fEWoL9mflUrf_iSUaeL-1" value="commonStatus : enum" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="ndlTsKFOv6vGz2pKuhoK-30" vertex="1">
           <mxGeometry y="130" width="160" height="26" as="geometry" />
         </mxCell>
         <mxCell id="ndlTsKFOv6vGz2pKuhoK-38" value="0/n" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
@@ -165,7 +165,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="ndlTsKFOv6vGz2pKuhoK-55" value="Price" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=10;align=center;" parent="1" vertex="1">
-          <mxGeometry x="620" y="540" width="160" height="156" as="geometry" />
+          <mxGeometry x="620" y="540" width="160" height="182" as="geometry" />
         </mxCell>
         <mxCell id="ndlTsKFOv6vGz2pKuhoK-56" value="id:long" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="ndlTsKFOv6vGz2pKuhoK-55" vertex="1">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
@@ -181,6 +181,9 @@
         </mxCell>
         <mxCell id="ndlTsKFOv6vGz2pKuhoK-66" value="currency:enum" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="ndlTsKFOv6vGz2pKuhoK-55" vertex="1">
           <mxGeometry y="130" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hlKuOIlEf_6Uan2PQWCk-1" value="commonStatus:enum" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ndlTsKFOv6vGz2pKuhoK-55">
+          <mxGeometry y="156" width="160" height="26" as="geometry" />
         </mxCell>
         <mxCell id="ndlTsKFOv6vGz2pKuhoK-61" value="1/1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="570" y="566" width="60" height="30" as="geometry" />
