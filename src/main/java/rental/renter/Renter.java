@@ -20,9 +20,9 @@ public class Renter extends Person {
 
 	@OneToOne(mappedBy = "renter", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Address address;
-	
-//	@OneToMany(mappedBy = "renter", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//	private List<Contract> contracts;
+
+	@OneToMany(mappedBy = "renter", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Contract> contracts;
 
 	public Renter() {
 		super();
@@ -31,10 +31,10 @@ public class Renter extends Person {
 	public Renter(String firstname, Gender gender) {
 		super(firstname, gender);
 	}
-	
-	public Renter(String firstName, String lastName, Gender gender, String email,String phoneNumber1,
-	String phoneNumber2) {
-		super(firstName,lastName,gender,email,phoneNumber1,phoneNumber2);
+
+	public Renter(String firstName, String lastName, Gender gender, String email, String phoneNumber1,
+			String phoneNumber2) {
+		super(firstName, lastName, gender, email, phoneNumber1, phoneNumber2);
 	}
 
 	/**
@@ -51,10 +51,23 @@ public class Renter extends Person {
 		this.address = address;
 	}
 
-	@Override
-	public String toString() {
-		return "Renter [address=" + address + "]";
+	/**
+	 * @return the contracts
+	 */
+	public List<Contract> getContracts() {
+		return contracts;
 	}
 
+	/**
+	 * @param contracts the contracts to set
+	 */
+	public void setContracts(List<Contract> contracts) {
+		this.contracts = contracts;
+	}
+
+	@Override
+	public String toString() {
+		return "Renter [address=" + address + ", contracts=" + contracts + "]";
+	}
 
 }

@@ -15,8 +15,8 @@ import javax.persistence.Table;
 
 import rental.address.Address;
 import rental.contract.Contract;
+import rental.enumeration.CommonStatus;
 import rental.enumeration.Gender;
-import rental.enumeration.TenantStatus;
 import rental.person.Person;
 
 @Entity
@@ -29,7 +29,7 @@ public class MainTenant extends Person implements Serializable {
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tenantstatus")
-	private TenantStatus mainTenantStatus;
+	private CommonStatus mainCommonStatus;
 
 	@OneToMany(mappedBy = "mainTenant", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Address> addresses;
@@ -50,33 +50,33 @@ public class MainTenant extends Person implements Serializable {
 		super(lastName,fistName, gender, email);
 	}
 
-	public MainTenant(TenantStatus mainTenantStatus, List<Address> addresses) {
+	public MainTenant(CommonStatus mainCommonStatus, List<Address> addresses) {
 		super();
-		this.mainTenantStatus = mainTenantStatus;
+		this.mainCommonStatus = mainCommonStatus;
 		this.addresses = addresses;
 	}
 	
 	
-	public void MainTenantCon(TenantStatus mainTenantStatus, List<Contract> contracts) {
-		this.mainTenantStatus = mainTenantStatus;
+	public void MainTenantCon(CommonStatus mainCommonStatus, List<Contract> contracts) {
+		this.mainCommonStatus = mainCommonStatus;
 		this.contracts = contracts;
 	}
 
 	/**
-	 * @return the mainTenantStatus
+	 * @return the mainCommonStatus
 	 */
-	public TenantStatus getMainTenantStatus() {
-		return mainTenantStatus;
+	public CommonStatus getMainCommonStatus() {
+		return mainCommonStatus;
 	}
 
 	/**
 	 * Cast the status
 	 * 
-	 * @param mainTenantStatus the mainTenantStatus to set By default status is
+	 * @param mainCommonStatus the mainCommonStatus to set By default status is
 	 *                         ACTIVE
 	 */
-	public void setMainTenantStatus(String mainTenantStatus) {
-		this.mainTenantStatus = TenantStatus.valueOf(mainTenantStatus);
+	public void setMainCommonStatus(String mainCommonStatus) {
+		this.mainCommonStatus = CommonStatus.valueOf(mainCommonStatus);
 	}
 
 	/**
@@ -115,15 +115,15 @@ public class MainTenant extends Person implements Serializable {
 	}
 
 	/**
-	 * @param mainTenantStatus the mainTenantStatus to set
+	 * @param mainCommonStatus the mainCommonStatus to set
 	 */
-	public void setMainTenantStatus(TenantStatus mainTenantStatus) {
-		this.mainTenantStatus = mainTenantStatus;
+	public void setMainCommonStatus(CommonStatus mainCommonStatus) {
+		this.mainCommonStatus = mainCommonStatus;
 	}
 
 	@Override
 	public String toString() {
-		return "MainTenant [mainTenantStatus=" + mainTenantStatus + ", addresses=" + addresses + ", contracts="
+		return "MainTenant [mainCommonStatus=" + mainCommonStatus + ", addresses=" + addresses + ", contracts="
 				+ contracts + "]";
 	}
 

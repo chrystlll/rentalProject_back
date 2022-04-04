@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import rental.entities.MainTenantAndContract;
+import rental.enumeration.CommonStatus;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
@@ -35,9 +37,24 @@ public class ContractController {
 	 * @param: Id (Long)*/
 	@GetMapping("/get/mainTenant/{mTid}")
 	public ResponseEntity<List<Contract>> getContractsByMainTenantId(@PathVariable Long mTid) {
-		return contractService.getContractsByMainTenantId(mTid);
 	
+		return contractService.getContractsByCriteria(mTid,"mainTenant","id");
 	}
+	
+	/** Get all contracts where commonStatus equal status
+	 * @param: status (enum)*/
+	@GetMapping("/get/status/{status}")
+	public ResponseEntity<List<Contract>> getContractsByStatus(@PathVariable CommonStatus status) {
+		return contractService.getContractsByCriteria(status,"commonStatus",null);
+	}
+	
+	/** Get contract by id
+	 * @param: id (Long)*/
+	@GetMapping("/get/id/{id}")
+	public ResponseEntity<Contract> getContractsById(@PathVariable Long id) {
+		return contractService.getContractById(id);
+	}
+	
 	
 	/** Save or Update the contract 
 	 * @param: mTAndContract (MainTenantAndContract)
@@ -47,6 +64,14 @@ public class ContractController {
 	public void registerAddress(@RequestBody MainTenantAndContract mTAndContract) {
 		contractService.addOrUpdateNewContractAndLinkToMT(mTAndContract.getContract(),mTAndContract.getMainTenant());
 		
+	}
+	
+	/** Delete the contract
+	 * @param: id (Long)*/ 
+	@DeleteMapping(path = "{id}")
+	private void deleteAddress(@PathVariable("id") Long id) {
+		// TODO Auto-generated method stub
+		contractService.deleteId(id);
 	}
 	
 	

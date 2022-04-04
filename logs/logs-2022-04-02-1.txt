@@ -1,0 +1,4 @@
+[main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:25)
+[main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:25)
+[main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:25)
+[main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:25)

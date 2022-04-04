@@ -3,6 +3,7 @@ package rental.mainTenant;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import rental.enumeration.TenantStatus;
+import rental.enumeration.CommonStatus;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
@@ -41,7 +42,7 @@ public class MainTenantController {
 	 * */
 	@PostMapping
 	public void registerMainTenant(@RequestBody MainTenant mT) {
-		mT.setMainTenantStatus(TenantStatus.ACTIF.toString());
+		mT.setMainCommonStatus(CommonStatus.ACTIF.toString());
 		mainTenantService.addNewTenant(mT);
 	}
 	
@@ -55,6 +56,26 @@ public class MainTenantController {
 		Boolean result = mainTenantService.getIsMainTenantExist(email);
 		return result;
 	}
+	
+	
+	/*** Get the main tenant in DB
+	 * @param : Email string
+	 * If the main tenant doesn't exist it return false
+	 * Else it returns true
+	 * */
+	@GetMapping("/get/contractId/{id}")
+	public ResponseEntity<MainTenant> getMainTenantByContractId(@PathVariable Long id) {
+		ResponseEntity<List<MainTenant>> listMainTen = mainTenantService.getMainTenantByCriteria(id,"contracts","id");
+		
+		if(1 == listMainTen.getBody().size()) {
+			return new ResponseEntity<MainTenant>(listMainTen.getBody().get(0),HttpStatus.OK);
+		}else {
+			return new ResponseEntity<MainTenant>(HttpStatus.NOT_FOUND);
+		}
+		
+		
+	}
+	
 	
 	/*** Get the main tenant in DB
 	 * @param : Id long

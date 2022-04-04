@@ -27,7 +27,6 @@ public class ContractService {
 	private final ContractRepository contractRepository;
 	private final MainTenantRepository mainTenantRepository;
 
-
 	@Autowired
 	public ContractService(ContractRepository contractRepository, MainTenantRepository mainTenantRepository) {
 		super();
@@ -39,19 +38,8 @@ public class ContractService {
 		return contractRepository.findAll();
 	}
 
-	public ResponseEntity<List<Contract>> getContractsByMainTenantId(Long mTid) {
-		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<Contract> cq = cb.createQuery(Contract.class);
-		Root<Contract> contract = cq.from(Contract.class);
-		Predicate adPredicate = cb.equal(contract.get("mainTenant").get("id"), mTid);
-		cq.where(adPredicate);
-		TypedQuery<Contract> query = em.createQuery(cq);
-		List<Contract> listContr = query.getResultList();
-		return new ResponseEntity<List<Contract>>(listContr, HttpStatus.OK);
-	}
-
 	public void addOrUpdateNewContractAndLinkToMT(Contract contract, MainTenant mainTenant) {
-		
+
 		/** Update contract case */
 
 		if (null != contract.getId()) {
@@ -60,17 +48,68 @@ public class ContractService {
 				// CBN: to be implemented
 				throw new RuntimeException();
 			} else {
-				MainTenant mTenant = mainTenantRepository.getById(mainTenant.getId());
-				contract.setMainTenant(mTenant);
+				if (null != mainTenant) {
+					MainTenant mTenant = mainTenantRepository.getById(mainTenant.getId());
+					contract.setMainTenant(mTenant);
+				}else {
+					MainTenant mTenant = contractRepository.findById(contract.getId()).get().getMainTenant();
+					contract.setMainTenant(mTenant);
+				}
 				contractRepository.saveAndFlush(contract);
 			}
-			
+
 		} else {
 			/** Create contract case */
 			MainTenant mTenant = mainTenantRepository.getById(mainTenant.getId());
 			contract.setMainTenant(mTenant);
 			contractRepository.save(contract);
 		}
+
+	}
+
+	public ResponseEntity<Contract> deleteId(Long id) {
+		// TODO Auto-generated method stub
+		Boolean searchResult = contractRepository.existsById(id);
+		if (searchResult) {
+			Contract contract = new Contract();
+			contract = contractRepository.findById(id).get();
+			contractRepository.deleteById(id);
+			return new ResponseEntity<Contract>(contract, HttpStatus.OK);
+
+		} else {
+			return new ResponseEntity<Contract>(HttpStatus.NOT_FOUND);
+			// throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("No
+			// resource found for id (%s)", addressId));
+
+		}
+	}
+
+	public ResponseEntity<List<Contract>> getContractsByCriteria(Object status, String criteria, String subCriteria) {
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Contract> cq = cb.createQuery(Contract.class);
+		Root<Contract> contract = cq.from(Contract.class);
+		Predicate adPredicate;
+		if (null != subCriteria) {
+			adPredicate = cb.equal(contract.get(criteria).get(subCriteria), status);
+		} else {
+			adPredicate = cb.equal(contract.get(criteria), status);
+		}
+		cq.where(adPredicate);
+		TypedQuery<Contract> query = em.createQuery(cq);
+		List<Contract> listContr = query.getResultList();
+		return new ResponseEntity<List<Contract>>(listContr, HttpStatus.OK);
+	}
+	
+	public ResponseEntity<Contract> getContractById(Long id){
+		
+		Contract contract = new Contract();
+		contract = contractRepository.findById(id).get();
+		if(null != contract) {
+			return new ResponseEntity<Contract>(contract, HttpStatus.OK);
+		}else {
+			return new ResponseEntity<Contract>(HttpStatus.NOT_FOUND);
+		}
+		
 		
 	}
 

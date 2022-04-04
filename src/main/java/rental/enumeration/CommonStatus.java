@@ -1,9 +1,7 @@
 package rental.enumeration;
 
-public enum TenantStatus {
+public enum CommonStatus {
 
 	ACTIF,INACTIF;
-	
-	
 	
 }

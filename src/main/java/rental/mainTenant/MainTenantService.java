@@ -93,4 +93,20 @@ public class MainTenantService {
 			return new ResponseEntity<MainTenant>(HttpStatus.NOT_FOUND);	
 		}
 	}
+	
+	public ResponseEntity<List<MainTenant>> getMainTenantByCriteria(Object search, String criteria, String subCriteria) {
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<MainTenant> cq = cb.createQuery(MainTenant.class);
+		Root<MainTenant> maintenant = cq.from(MainTenant.class);
+		Predicate adPredicate ;
+		if(null != subCriteria) {
+			adPredicate = cb.equal(maintenant.join("contracts").get("id"), search);
+		}else {
+			adPredicate = cb.equal(maintenant.get(criteria), search);	
+		}
+		cq.where(adPredicate);
+		TypedQuery<MainTenant> query = em.createQuery(cq);
+		List<MainTenant> listMT = query.getResultList();
+		return new ResponseEntity<List<MainTenant>>(listMT, HttpStatus.OK);
+	}
 }

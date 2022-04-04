@@ -30,8 +30,6 @@ public class Payment {
 		super();
 	}
 
-	
-
 	public Payment(Long id, Date startDate, Date endDate, PaymentType paymentType, Date paymentDate) {
 		super();
 		this.id = id;
