@@ -22,7 +22,9 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import rental.enumeration.CommonStatus;
 import rental.enumeration.ContractType;
 import rental.mainTenant.MainTenant;
+import rental.payment.Payment;
 import rental.renter.Renter;
+import rental.vehicle.Vehicle;
 import rental.price.Price;
 
 @Entity
@@ -49,13 +51,15 @@ public class Contract {
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	private Renter renter;
-	
-	
+
 	@OneToMany(mappedBy = "contract", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<Price> price;
-//
-//	@OneToMany(mappedBy = "contract", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//	private Set<Vehicle> vehicle;
+
+	@OneToMany(mappedBy = "contract", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Set<Payment> payment;
+
+	@OneToMany(mappedBy = "contract", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Set<Vehicle> vehicle;
 
 	public Contract() {
 		super();
@@ -75,8 +79,9 @@ public class Contract {
 		this.mainTenant = mainTenant;
 		this.contractType = contractType;
 	}
-	
-	public Contract(Date startDate, Date endDate, MainTenant mainTenant, ContractType contractType, CommonStatus commonStatus) {
+
+	public Contract(Date startDate, Date endDate, MainTenant mainTenant, ContractType contractType,
+			CommonStatus commonStatus) {
 		super();
 		this.startDate = startDate;
 		this.endDate = endDate;
@@ -95,7 +100,7 @@ public class Contract {
 		this.contractType = contractType;
 		this.commonStatus = commonStatus;
 	}
-	
+
 	public Contract(Long id, Date startDate, Date endDate, MainTenant mainTenant, ContractType contractType,
 			CommonStatus commonStatus, Renter renter, Set<Price> price) {
 		super();
@@ -221,12 +226,39 @@ public class Contract {
 		this.price = price;
 	}
 
+	/**
+	 * @return the payment
+	 */
+	public Set<Payment> getPayment() {
+		return payment;
+	}
+
+	/**
+	 * @param payment the payment to set
+	 */
+	public void setPayment(Set<Payment> payment) {
+		this.payment = payment;
+	}
+
+	/**
+	 * @return the vehicle
+	 */
+	public Set<Vehicle> getVehicle() {
+		return vehicle;
+	}
+
+	/**
+	 * @param vehicle the vehicle to set
+	 */
+	public void setVehicle(Set<Vehicle> vehicle) {
+		this.vehicle = vehicle;
+	}
+
 	@Override
 	public String toString() {
 		return "Contract [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", mainTenant=" + mainTenant
 				+ ", contractType=" + contractType + ", commonStatus=" + commonStatus + ", renter=" + renter
-				+ ", price=" + price + "]";
+				+ ", price=" + price + ", payment=" + payment + ", vehicle=" + vehicle + "]";
 	}
-
 
 }

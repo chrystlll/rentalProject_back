@@ -28,8 +28,8 @@ public class Vehicle {
 	@Enumerated(EnumType.STRING)
 	private VehiculeType vehiculeType;
 
-//	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-//	private Contract contract;
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	private Contract contract;
 
 	public Vehicle(String registrationNumber, String name) {
 		super();

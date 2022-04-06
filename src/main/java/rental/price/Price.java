@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import rental.contract.Contract;
 import rental.enumeration.CommonStatus;
 import rental.enumeration.Currency;
+import rental.enumeration.DurationType;
 
 @Entity
 @Table(name = "price")
@@ -41,6 +42,13 @@ public class Price {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "commonStatus")
 	private CommonStatus commonStatus;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "durationType")
+	private DurationType durationType;
+	
+	private Integer durationValue;
+	
 
 	public Price() {
 		super();
@@ -79,6 +87,21 @@ public class Price {
 		this.currency = currency;
 		this.contract = contract;
 		this.commonStatus = commonStatus;
+	}
+	
+	
+	public Price(long id, Date startDate, Date endDate, Float amount, Currency currency, Contract contract,
+			CommonStatus commonStatus, DurationType durationType, Integer durationValue) {
+		super();
+		this.id = id;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.amount = amount;
+		this.currency = currency;
+		this.contract = contract;
+		this.commonStatus = commonStatus;
+		this.durationType = durationType;
+		this.durationValue = durationValue;
 	}
 
 	/**
@@ -181,10 +204,41 @@ public class Price {
 		this.commonStatus = commonStatus;
 	}
 
+	/**
+	 * @return the durationType
+	 */
+	public DurationType getDurationType() {
+		return durationType;
+	}
+
+	/**
+	 * @param durationType the durationType to set
+	 */
+	public void setDurationType(DurationType durationType) {
+		this.durationType = durationType;
+	}
+
+	/**
+	 * @return the durationValue
+	 */
+	public Integer getDurationValue() {
+		return durationValue;
+	}
+
+	/**
+	 * @param durationValue the durationValue to set
+	 */
+	public void setDurationValue(Integer durationValue) {
+		this.durationValue = durationValue;
+	}
+
 	@Override
 	public String toString() {
 		return "Price [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", amount=" + amount
-				+ ", currency=" + currency + ", contract=" + contract + ", commonStatus=" + commonStatus + "]";
+				+ ", currency=" + currency + ", contract=" + contract + ", commonStatus=" + commonStatus
+				+ ", durationType=" + durationType + ", durationValue=" + durationValue + "]";
 	}
+
+	
 
 }

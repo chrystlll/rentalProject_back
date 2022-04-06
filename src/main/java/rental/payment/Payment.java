@@ -5,12 +5,17 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import rental.contract.Contract;
 import rental.enumeration.PaymentType;
 
 @Entity
@@ -26,6 +31,10 @@ public class Payment {
 	private PaymentType paymentType;
 	private Date paymentDate;
 
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@JsonBackReference
+	private Contract contract;
+
 	public Payment() {
 		super();
 	}
@@ -38,8 +47,6 @@ public class Payment {
 		this.paymentType = paymentType;
 		this.paymentDate = paymentDate;
 	}
-
-
 
 	/**
 	 * @return the id
@@ -83,17 +90,12 @@ public class Payment {
 		this.endDate = endDate;
 	}
 
-	
-
-
 	/**
 	 * @return the paymentType
 	 */
 	public PaymentType getPaymentType() {
 		return paymentType;
 	}
-
-
 
 	/**
 	 * @param paymentType the paymentType to set
@@ -102,8 +104,6 @@ public class Payment {
 		this.paymentType = paymentType;
 	}
 
-
-
 	/**
 	 * @return the paymentDate
 	 */
@@ -111,21 +111,32 @@ public class Payment {
 		return paymentDate;
 	}
 
-
-
 	/**
 	 * @param paymentDate the paymentDate to set
 	 */
 	public void setPaymentDate(Date paymentDate) {
 		this.paymentDate = paymentDate;
 	}
+	
+	
+	/**
+	 * @return the contract
+	 */
+	public Contract getContract() {
+		return contract;
+	}
 
-
+	/**
+	 * @param contract the contract to set
+	 */
+	public void setContract(Contract contract) {
+		this.contract = contract;
+	}
 
 	@Override
 	public String toString() {
 		return "Payment [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", paymentType="
-				+ paymentType + ", paymentDate=" + paymentDate + "]";
+				+ paymentType + ", paymentDate=" + paymentDate + ", contract=" + contract + "]";
 	}
 
 	
