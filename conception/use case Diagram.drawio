@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2022-04-08T15:03:03.916Z" agent="5.0 (Windows)" etag="aub68zM_MPu6bquDGTme" version="17.4.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-04-08T15:17:35.014Z" agent="5.0 (Windows)" etag="IY1BxSCpLzZ7MofTcql4" version="17.4.1" type="github">
   <diagram id="fZD9pTI-PNhXSYh-KRmx" name="Page-1">
     <mxGraphModel dx="1198" dy="1732" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="Rx37_lMQSRoVqCimWak8-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="270" y="-320" width="690" height="490" as="geometry" />
+          <mxGeometry x="270" y="-320" width="690" height="590" as="geometry" />
         </mxCell>
         <mxCell id="Rx37_lMQSRoVqCimWak8-4" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="Rx37_lMQSRoVqCimWak8-1" target="Rx37_lMQSRoVqCimWak8-3" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -68,6 +68,35 @@
         </mxCell>
         <mxCell id="Rx37_lMQSRoVqCimWak8-22" value="&lt;div&gt;Delete the main tenant &lt;br&gt;&lt;/div&gt;&lt;div&gt;contract&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="800" y="-160" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sVRCvxNib6KYKqbNqdjX-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="sVRCvxNib6KYKqbNqdjX-1" target="sVRCvxNib6KYKqbNqdjX-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="980" y="1" />
+              <mxPoint x="980" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sVRCvxNib6KYKqbNqdjX-1" value="External Process" style="verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.process;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="-30" width="52" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="sVRCvxNib6KYKqbNqdjX-2" value="&lt;div&gt;Add the main tenant &lt;br&gt;&lt;/div&gt;&lt;div&gt;contract&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="50" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sVRCvxNib6KYKqbNqdjX-4" value="include" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;exitX=0.942;exitY=0.813;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="Rx37_lMQSRoVqCimWak8-16" target="sVRCvxNib6KYKqbNqdjX-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="787.5934147094797" y="-41.17502683225143" as="sourcePoint" />
+            <mxPoint x="832.5182971467345" y="-78.76524762227882" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sVRCvxNib6KYKqbNqdjX-6" value="&lt;div&gt;Generate the scheduled Payment&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="170" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sVRCvxNib6KYKqbNqdjX-7" value="extend" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="sVRCvxNib6KYKqbNqdjX-6" target="sVRCvxNib6KYKqbNqdjX-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="803.04" y="15.039999999999964" as="sourcePoint" />
+            <mxPoint x="812.4416477773691" y="60.31865083118828" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
