@@ -22,10 +22,10 @@ public class MainTenantService {
 
 	private final MainTenantRepository mainTenantRepository;
 	static Logger LOGGER = LogManager.getLogger(MainTenantService.class);
-	
+
 	@PersistenceContext
 	EntityManager em;
-	
+
 	@Autowired
 	public MainTenantService(MainTenantRepository mainTenantRepository) {
 		this.mainTenantRepository = mainTenantRepository;
@@ -34,75 +34,78 @@ public class MainTenantService {
 	public List<MainTenant> getMainTenant() {
 		return mainTenantRepository.findAll();
 	}
-	
+
 	public void addNewTenant(MainTenant mT) {
 		mainTenantRepository.save(mT);
-		
+
 	}
-	
-	public Boolean getIsMainTenantExist(String email) {	
-			Boolean result = false;
-	        CriteriaBuilder cb = em.getCriteriaBuilder();
-	        CriteriaQuery<MainTenant> cq = cb.createQuery(MainTenant.class);
-	        Root<MainTenant> mainTenant = cq.from(MainTenant.class);
-	        Predicate mTPredicate = cb.equal(mainTenant.get("email"), email);
-	        cq.where(mTPredicate);
-	        TypedQuery<MainTenant> query = em.createQuery(cq);
-	        List<MainTenant> listMT = query.getResultList();
-	        if(0 != listMT.size()) {
-	        	result = true;
-	        }		
+
+	public Boolean getIsMainTenantExist(String email) {
+		Boolean result = false;
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<MainTenant> cq = cb.createQuery(MainTenant.class);
+		Root<MainTenant> mainTenant = cq.from(MainTenant.class);
+		Predicate mTPredicate = cb.equal(mainTenant.get("email"), email);
+		cq.where(mTPredicate);
+		TypedQuery<MainTenant> query = em.createQuery(cq);
+		List<MainTenant> listMT = query.getResultList();
+		if (0 != listMT.size()) {
+			result = true;
+		}
 		return result;
 	}
 
-	public ResponseEntity<MainTenant>  deleteMainTenant(Long mTId) {
+	public ResponseEntity<MainTenant> deleteMainTenant(Long mTId) {
 		Boolean searchResult = mainTenantRepository.existsById(mTId);
-		if(searchResult) {
+		if (searchResult) {
 			MainTenant mt = new MainTenant();
-			mt =  mainTenantRepository.findById(mTId).get();
+			mt = mainTenantRepository.findById(mTId).get();
 			mainTenantRepository.deleteById(mTId);
-			return new ResponseEntity<MainTenant>(mt,HttpStatus.OK);
-		}else {	
-			LOGGER.error("The main tenant {} doesn't exist",mTId);
-			return new ResponseEntity<MainTenant>(HttpStatus.NOT_FOUND);	
-			
+			return new ResponseEntity<MainTenant>(mt, HttpStatus.OK);
+		} else {
+			LOGGER.error("The main tenant {} doesn't exist", mTId);
+			return new ResponseEntity<MainTenant>(HttpStatus.NOT_FOUND);
+
 		}
 	}
 
 	public ResponseEntity<MainTenant> getMainTenantById(Long id) {
 		Boolean searchResult = mainTenantRepository.existsById(id);
-		if(searchResult) {
+		if (searchResult) {
 			MainTenant mt = new MainTenant();
-			mt =  mainTenantRepository.findById(id).get();
-			return new ResponseEntity<MainTenant>(mt,HttpStatus.OK);
-		}else {	
-			LOGGER.error("The main tenant {} doesn't exist",id);
-			return new ResponseEntity<MainTenant>(HttpStatus.NOT_FOUND);	
-			
+			mt = mainTenantRepository.findById(id).get();
+			return new ResponseEntity<MainTenant>(mt, HttpStatus.OK);
+		} else {
+			LOGGER.error("The main tenant {} doesn't exist", id);
+			return new ResponseEntity<MainTenant>(HttpStatus.NOT_FOUND);
+
 		}
 	}
 
-	public ResponseEntity<MainTenant>updateMaintenant(MainTenant mt) {
-		
+	public ResponseEntity<MainTenant> updateMaintenant(MainTenant mt) {
+
 		Boolean searchResult = mainTenantRepository.existsById(mt.getId());
-		if(searchResult) {
-			mt =  mainTenantRepository.saveAndFlush(mt);
-			return new ResponseEntity<MainTenant>(mt,HttpStatus.OK);
-		}else {	
-			LOGGER.error("The main tenant {} doesn't exist",mt.getId());
-			return new ResponseEntity<MainTenant>(HttpStatus.NOT_FOUND);	
+		if (searchResult) {
+			mt.setContracts(mainTenantRepository.findById(mt.getId()).get().getContracts());
+			mt.setAddresses(mainTenantRepository.findById(mt.getId()).get().getAddresses());
+			mt = mainTenantRepository.saveAndFlush(mt);
+			return new ResponseEntity<MainTenant>(mt, HttpStatus.OK);
+		} else {
+			LOGGER.error("The main tenant {} doesn't exist", mt.getId());
+			return new ResponseEntity<MainTenant>(HttpStatus.NOT_FOUND);
 		}
 	}
-	
-	public ResponseEntity<List<MainTenant>> getMainTenantByCriteria(Object search, String criteria, String subCriteria) {
+
+	public ResponseEntity<List<MainTenant>> getMainTenantByCriteria(Object search, String criteria,
+			String subCriteria) {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<MainTenant> cq = cb.createQuery(MainTenant.class);
 		Root<MainTenant> maintenant = cq.from(MainTenant.class);
-		Predicate adPredicate ;
-		if(null != subCriteria) {
+		Predicate adPredicate;
+		if (null != subCriteria) {
 			adPredicate = cb.equal(maintenant.join("contracts").get("id"), search);
-		}else {
-			adPredicate = cb.equal(maintenant.get(criteria), search);	
+		} else {
+			adPredicate = cb.equal(maintenant.get(criteria), search);
 		}
 		cq.where(adPredicate);
 		TypedQuery<MainTenant> query = em.createQuery(cq);

@@ -32,48 +32,59 @@ public class ContractController {
 	public List<Contract> getContract() {
 		return contractService.getContract();
 	}
-	
-	/** Get all contracts by Main Tenant Id
-	 * @param: Id (Long)*/
+
+	/**
+	 * Get all contracts by Main Tenant Id
+	 * 
+	 * @param: Id (Long)
+	 */
 	@GetMapping("/get/mainTenant/{mTid}")
 	public ResponseEntity<List<Contract>> getContractsByMainTenantId(@PathVariable Long mTid) {
-	
-		return contractService.getContractsByCriteria(mTid,"mainTenant","id");
+		return contractService.getContractsByCriteria(mTid, "mainTenant", "id");
 	}
-	
-	/** Get all contracts where commonStatus equal status
-	 * @param: status (enum)*/
+
+	/**
+	 * Get all contracts where commonStatus equal status
+	 * 
+	 * @param: status (enum)
+	 */
 	@GetMapping("/get/status/{status}")
 	public ResponseEntity<List<Contract>> getContractsByStatus(@PathVariable CommonStatus status) {
-		return contractService.getContractsByCriteria(status,"commonStatus",null);
+		return contractService.getContractsByCriteria(status, "commonStatus", null);
 	}
-	
-	/** Get contract by id
-	 * @param: id (Long)*/
+
+	/**
+	 * Get contract by id
+	 * 
+	 * @param: id (Long)
+	 */
 	@GetMapping("/get/id/{id}")
 	public ResponseEntity<Contract> getContractsById(@PathVariable Long id) {
 		return contractService.getContractById(id);
 	}
-	
-	
-	/** Save or Update the contract 
-	 * @param: mTAndContract (MainTenantAndContract)
-	 * the json contains the contract object + the mainTenant id*/ 
-	
+
+	/**
+	 * Save or Update the contract
+	 * 
+	 * @param: mTAndContract (MainTenantAndContract) the json contains the contract
+	 *                       object + the mainTenant id
+	 */
+
 	@PostMapping
 	public void registerAddress(@RequestBody MainTenantAndContract mTAndContract) {
-		contractService.addOrUpdateNewContractAndLinkToMT(mTAndContract.getContract(),mTAndContract.getMainTenant());
-		
+		contractService.addOrUpdateNewContractAndLinkToMT(mTAndContract.getContract(), mTAndContract.getMainTenant());
+
 	}
-	
-	/** Delete the contract
-	 * @param: id (Long)*/ 
+
+	/**
+	 * Delete the contract
+	 * 
+	 * @param: id (Long)
+	 */
 	@DeleteMapping(path = "{id}")
 	private void deleteAddress(@PathVariable("id") Long id) {
 		// TODO Auto-generated method stub
 		contractService.deleteId(id);
 	}
-	
-	
-	
+
 }

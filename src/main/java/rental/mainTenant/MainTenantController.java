@@ -42,7 +42,7 @@ public class MainTenantController {
 	 * */
 	@PostMapping
 	public void registerMainTenant(@RequestBody MainTenant mT) {
-		mT.setMainCommonStatus(CommonStatus.ACTIF.toString());
+		mT.setCommonStatus(CommonStatus.ACTIF);
 		mainTenantService.addNewTenant(mT);
 	}
 	

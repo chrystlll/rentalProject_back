@@ -16,8 +16,11 @@ import rental.enumeration.CommonStatus;
 import rental.enumeration.ContractType;
 import rental.enumeration.Country;
 import rental.enumeration.Gender;
+import rental.enumeration.PaymentType;
 import rental.mainTenant.MainTenant;
 import rental.mainTenant.MainTenantRepository;
+import rental.payment.Payment;
+import rental.payment.PaymentRepository;
 import rental.price.Price;
 import rental.price.PriceRepository;
 import rental.renter.Renter;
@@ -28,7 +31,7 @@ public class AppConfig {
 
 	/** Test sets */
 	@Bean
-	CommandLineRunner commandLineRunner(PriceRepository repPr,AddressRepository repAd, MainTenantRepository repMT, RenterRepository repRT, ContractRepository repCon) {
+	CommandLineRunner commandLineRunner(PriceRepository repPr,PaymentRepository repPay,AddressRepository repAd, MainTenantRepository repMT, RenterRepository repRT, ContractRepository repCon) {
 		return arg -> {
 			List<Address> newListAddress = new ArrayList<>();
 
@@ -43,6 +46,10 @@ public class AppConfig {
 			Contract contr2 =new Contract(new Date(),new Date(),mT, ContractType.STOCKAGE_BATEAU,CommonStatus.ACTIF);
 			repCon.save(contr);
 			repCon.save(contr2);
+			
+			Payment payment = new Payment(new Date(), PaymentType.ESPECE,contr);
+			
+			repPay.save(payment);
 			
 			Price newPrice = new Price(new Date(),11.55F,rental.enumeration.Currency.€,contr2);
 			Price newPrice2 = new Price(new Date(),11.65F,rental.enumeration.Currency.€,contr2);

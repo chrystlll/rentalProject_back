@@ -28,8 +28,8 @@ public class MainTenant extends Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "tenantstatus")
-	private CommonStatus mainCommonStatus;
+	@Column(name = "commonStatus")
+	private CommonStatus commonStatus;
 
 	@OneToMany(mappedBy = "mainTenant", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Address> addresses;
@@ -50,33 +50,32 @@ public class MainTenant extends Person implements Serializable {
 		super(lastName,fistName, gender, email);
 	}
 
-	public MainTenant(CommonStatus mainCommonStatus, List<Address> addresses) {
+	public MainTenant(CommonStatus commonStatus, List<Address> addresses) {
 		super();
-		this.mainCommonStatus = mainCommonStatus;
+		this.commonStatus = commonStatus;
 		this.addresses = addresses;
 	}
 	
 	
-	public void MainTenantCon(CommonStatus mainCommonStatus, List<Contract> contracts) {
-		this.mainCommonStatus = mainCommonStatus;
+	public void MainTenantCon(CommonStatus commonStatus, List<Contract> contracts) {
+		this.commonStatus = commonStatus;
 		this.contracts = contracts;
 	}
 
+	
+
 	/**
-	 * @return the mainCommonStatus
+	 * @return the commonStatus
 	 */
-	public CommonStatus getMainCommonStatus() {
-		return mainCommonStatus;
+	public CommonStatus getCommonStatus() {
+		return commonStatus;
 	}
 
 	/**
-	 * Cast the status
-	 * 
-	 * @param mainCommonStatus the mainCommonStatus to set By default status is
-	 *                         ACTIVE
+	 * @param commonStatus the commonStatus to set
 	 */
-	public void setMainCommonStatus(String mainCommonStatus) {
-		this.mainCommonStatus = CommonStatus.valueOf(mainCommonStatus);
+	public void setCommonStatus(CommonStatus commonStatus) {
+		this.commonStatus = commonStatus;
 	}
 
 	/**
@@ -115,15 +114,15 @@ public class MainTenant extends Person implements Serializable {
 	}
 
 	/**
-	 * @param mainCommonStatus the mainCommonStatus to set
+	 * @param commonStatus the commonStatus to set
 	 */
-	public void setMainCommonStatus(CommonStatus mainCommonStatus) {
-		this.mainCommonStatus = mainCommonStatus;
+	public void setMainCommonStatus(CommonStatus commonStatus) {
+		this.commonStatus = commonStatus;
 	}
 
 	@Override
 	public String toString() {
-		return "MainTenant [mainCommonStatus=" + mainCommonStatus + ", addresses=" + addresses + ", contracts="
+		return "MainTenant [commonStatus=" + commonStatus + ", addresses=" + addresses + ", contracts="
 				+ contracts + "]";
 	}
 

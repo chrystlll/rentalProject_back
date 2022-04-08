@@ -56,7 +56,6 @@ public class PriceService {
 	}
 
 	public void addOrSavePrice(Contract contract, Price price) {
-		
 
 		// check if contract exist
 		if (priceRepository.existsById(price.getId())) {
@@ -64,17 +63,15 @@ public class PriceService {
 			price.setContract(contract);
 			priceRepository.saveAndFlush(price);
 		} else {
-			
-			if(price.getId() > 0 ) {
-				
-				System.out.println(">0");
-			}else {
+
+			if (price.getId() > 0) {
+			} else {
 				// Case add
-				ResponseEntity<List<?>> listObj  = this.getPricesByCriteria(contract.getId(), "contract", "id");
+				ResponseEntity<List<?>> listObj = this.getPricesByCriteria(contract.getId(), "contract", "id");
 				@SuppressWarnings("unchecked")
 				List<Price> listPrice = (List<Price>) listObj.getBody();
 				for (Price currentPrice : listPrice) {
-					if(null == currentPrice.getEndDate()) {
+					if (null == currentPrice.getEndDate()) {
 						currentPrice.setEndDate(new Date());
 					}
 					currentPrice.setCommonStatus(CommonStatus.INACTIF);
@@ -85,7 +82,5 @@ public class PriceService {
 			price.setCommonStatus(CommonStatus.ACTIF);
 			priceRepository.save(price);
 		}
-
 	}
-
 }

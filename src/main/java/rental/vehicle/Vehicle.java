@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import rental.contract.Contract;
 import rental.enumeration.VehiculeType;
 
@@ -29,7 +31,12 @@ public class Vehicle {
 	private VehiculeType vehiculeType;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@JsonBackReference
 	private Contract contract;
+
+	public Vehicle() {
+		super();
+	}
 
 	public Vehicle(String registrationNumber, String name) {
 		super();
@@ -42,14 +49,14 @@ public class Vehicle {
 		this.name = name;
 	}
 
-//	public Vehicle(Long id, String registrationNumber, String name, VehiculeType vehiculeType, Contract contract) {
-//		super();
-//		this.id = id;
-//		this.registrationNumber = registrationNumber;
-//		this.name = name;
-//		this.vehiculeType = vehiculeType;
-//		this.contract = contract;
-//	}
+	public Vehicle(Long id, String registrationNumber, String name, VehiculeType vehiculeType, Contract contract) {
+		super();
+		this.id = id;
+		this.registrationNumber = registrationNumber;
+		this.name = name;
+		this.vehiculeType = vehiculeType;
+		this.contract = contract;
+	}
 
 	/**
 	 * @return the id
@@ -107,24 +114,24 @@ public class Vehicle {
 		this.vehiculeType = vehiculeType;
 	}
 
-//	/**
-//	 * @return the contract
-//	 */
-//	public Contract getContract() {
-//		return contract;
-//	}
-//
-//	/**
-//	 * @param contract the contract to set
-//	 */
-//	public void setContract(Contract contract) {
-//		this.contract = contract;
-//	}
-//
-//	@Override
-//	public String toString() {
-//		return "Vehicle [id=" + id + ", registrationNumber=" + registrationNumber + ", name=" + name + ", vehiculeType="
-//				+ vehiculeType + ", contract=" + contract + "]";
-//	}
+	/**
+	 * @return the contract
+	 */
+	public Contract getContract() {
+		return contract;
+	}
+
+	/**
+	 * @param contract the contract to set
+	 */
+	public void setContract(Contract contract) {
+		this.contract = contract;
+	}
+
+	@Override
+	public String toString() {
+		return "Vehicle [id=" + id + ", registrationNumber=" + registrationNumber + ", name=" + name + ", vehiculeType="
+				+ vehiculeType + ", contract=" + contract + "]";
+	}
 
 }

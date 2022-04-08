@@ -12,11 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import rental.contract.Contract;
 import rental.enumeration.PaymentType;
+import rental.price.Price;
 
 @Entity
 @Table(name = "payment")
@@ -35,8 +37,18 @@ public class Payment {
 	@JsonBackReference
 	private Contract contract;
 
+	@Transient
+	private Price price;
+
 	public Payment() {
 		super();
+	}
+
+	public Payment(Date startDate, PaymentType paymentType, Contract contract) {
+		super();
+		this.startDate = startDate;
+		this.paymentType = paymentType;
+		this.contract = contract;
 	}
 
 	public Payment(Long id, Date startDate, Date endDate, PaymentType paymentType, Date paymentDate) {
@@ -46,6 +58,18 @@ public class Payment {
 		this.endDate = endDate;
 		this.paymentType = paymentType;
 		this.paymentDate = paymentDate;
+	}
+
+	public Payment(Long id, Date startDate, Date endDate, PaymentType paymentType, Date paymentDate, Contract contract,
+			Price price) {
+		super();
+		this.id = id;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.paymentType = paymentType;
+		this.paymentDate = paymentDate;
+		this.contract = contract;
+		this.price = price;
 	}
 
 	/**
@@ -117,8 +141,7 @@ public class Payment {
 	public void setPaymentDate(Date paymentDate) {
 		this.paymentDate = paymentDate;
 	}
-	
-	
+
 	/**
 	 * @return the contract
 	 */
@@ -133,12 +156,24 @@ public class Payment {
 		this.contract = contract;
 	}
 
+	/**
+	 * @return the price
+	 */
+	public Price getPrice() {
+		return price;
+	}
+
+	/**
+	 * @param price the price to set
+	 */
+	public void setPrice(Price price) {
+		this.price = price;
+	}
+
 	@Override
 	public String toString() {
 		return "Payment [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", paymentType="
-				+ paymentType + ", paymentDate=" + paymentDate + ", contract=" + contract + "]";
+				+ paymentType + ", paymentDate=" + paymentDate + ", contract=" + contract + ", price=" + price + "]";
 	}
-
-	
 
 }
