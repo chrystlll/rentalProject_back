@@ -48,6 +48,7 @@ public class ContractService {
 				// CBN: to be implemented
 				throw new RuntimeException();
 			} else {
+				contract.setPayment(contractRepository.getById(contract.getId()).getPayment());				
 				contract.setPrice(contractRepository.getById(contract.getId()).getPrice());
 				if (null != mainTenant) {
 					MainTenant mTenant = mainTenantRepository.getById(mainTenant.getId());

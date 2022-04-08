@@ -71,7 +71,7 @@ public class ContractController {
 	 */
 
 	@PostMapping
-	public void registerAddress(@RequestBody MainTenantAndContract mTAndContract) {
+	public void registerContract(@RequestBody MainTenantAndContract mTAndContract) {
 		contractService.addOrUpdateNewContractAndLinkToMT(mTAndContract.getContract(), mTAndContract.getMainTenant());
 
 	}
