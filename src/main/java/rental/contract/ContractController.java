@@ -28,7 +28,14 @@ public class ContractController {
 		this.contractService = contractService;
 	}
 
-	@GetMapping
+	/**
+	 * Get all contracts
+	 * 
+	 * @param: no param
+	 * @return: List<Contract>
+	 * @apiNote: url : /getAll
+	 */
+	@GetMapping("/getAll")
 	public List<Contract> getContract() {
 		return contractService.getContract();
 	}
@@ -37,6 +44,8 @@ public class ContractController {
 	 * Get all contracts by Main Tenant Id
 	 * 
 	 * @param: Id (Long)
+	 * @return: ResponseEntity<List<Contract>>
+	 * @apiNote: /get/mainTenant/{mTid}
 	 */
 	@GetMapping("/get/mainTenant/{mTid}")
 	public ResponseEntity<List<Contract>> getContractsByMainTenantId(@PathVariable Long mTid) {
@@ -47,6 +56,8 @@ public class ContractController {
 	 * Get all contracts where commonStatus equal status
 	 * 
 	 * @param: status (enum)
+	 * @return: ResponseEntity<List<Contract>>
+	 * @apiNote: /get/status/{status}
 	 */
 	@GetMapping("/get/status/{status}")
 	public ResponseEntity<List<Contract>> getContractsByStatus(@PathVariable CommonStatus status) {
@@ -57,6 +68,8 @@ public class ContractController {
 	 * Get contract by id
 	 * 
 	 * @param: id (Long)
+	 * @return: ResponseEntity<Contract>
+	 * @apiNote: /get/id/{id}
 	 */
 	@GetMapping("/get/id/{id}")
 	public ResponseEntity<Contract> getContractsById(@PathVariable Long id) {
@@ -68,23 +81,33 @@ public class ContractController {
 	 * 
 	 * @param: mTAndContract (MainTenantAndContract) the json contains the contract
 	 *                       object + the mainTenant id
+	 * @return: ResponseEntity<Contract>
 	 */
 
 	@PostMapping
-	public void registerContract(@RequestBody MainTenantAndContract mTAndContract) {
-		contractService.addOrUpdateNewContractAndLinkToMT(mTAndContract.getContract(), mTAndContract.getMainTenant());
-
+	public ResponseEntity<Contract> saveContract(@RequestBody MainTenantAndContract mTAndContract) {
+		ResponseEntity<Contract> resp = null;
+		if(null != mTAndContract.getContract().getId()) {
+			resp = contractService.updateContractAndLinkToMT(mTAndContract.getContract(),
+					mTAndContract.getMainTenant());
+		}else {
+			resp = contractService.saveContractAndLinkToMT(mTAndContract.getContract(), mTAndContract.getMainTenant());
+		}
+		
+		return resp;
 	}
 
 	/**
 	 * Delete the contract
 	 * 
-	 * @param: id (Long)
+	 * @param: id (Long) => contract id
+	 * @return: ResponseEntity<Contract>
 	 */
 	@DeleteMapping(path = "{id}")
-	private void deleteAddress(@PathVariable("id") Long id) {
+	private ResponseEntity<Contract> deleteContract(@PathVariable("id") Long id) {
 		// TODO Auto-generated method stub
-		contractService.deleteId(id);
+		ResponseEntity<Contract> resp = contractService.deleteContractById(id);
+		return resp;
 	}
 
 }

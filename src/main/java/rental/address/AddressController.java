@@ -29,57 +29,64 @@ public class AddressController {
 		this.addressService = addressService;
 	}
 
-	/** Get all addresses (no params)*/
-	@GetMapping
+	/**
+	 * Get all addresses (no params)
+	 * 
+	 * @param : no params
+	 * @return: List<Adress>
+	 * @apiNote: /getAll
+	 */
+	@GetMapping("/getAll")
 	public List<Address> getAddresses() {
 		return addressService.getAddresses();
 	}
-	
-	/** Get all address by Main Tenant Id
-	 * @param: Id (Long)*/
+
+	/**
+	 * Get all addresses by Main Tenant Id
+	 * 
+	 * @param: Id (Long)
+	 * @return: ResponseEntity<List<Address>> 
+	 * @apiNote: /get/mainTenant/{mTid}
+	 */
 	@GetMapping("/get/mainTenant/{mTid}")
 	public ResponseEntity<List<Address>> getAddressesByMainTenantId(@PathVariable Long mTid) {
 		return addressService.getAddressesByMainTenantId(mTid);
 	}
-	
-	/** Save or Update the address 
-	 * @param: mTAndAddress (MainTenantAndAddress)
-	 * the json contains the Address object + the mainTenant id
-	 * Note: if this address.getIsPrimary is true 
-	 * => All addresses linked to the main tenant have for isPrimary attr value "false"*/ 
-	
+
+	/**
+	 * Save or Update the address 
+	 * @implSpec : AD-01 Note: if this address.getIsPrimary is true  All
+	 * addresses linked to the main tenant have for isPrimary attr value "false".
+	 * 
+	 * @param: mTAndAddress (MainTenantAndAddress) the json witch contains the
+	 *                      address object + the mainTenant id
+	 * @return ResponseEntity<Address>
+	 */
 	@PostMapping
-	public void registerAddress(@RequestBody MainTenantAndAddress mTAndAddress) {
-		addressService.addOrUpdateNewAddressAndLinkToMT(mTAndAddress.getAddress(),mTAndAddress.getMainTenant());
-		
+	public ResponseEntity<Address> saveAddress(@RequestBody MainTenantAndAddress mTAndAddress) {
+		return addressService.addOrUpdateAddressAndLinkToMT(mTAndAddress.getAddress(), mTAndAddress.getMainTenant());
 	}
 
-	/** Delete the address
-	 * @param: addressId (Long)*/ 
+	/**
+	 * Delete the address
+	 * 
+	 * @param: addressId (Long)
+	 * @return: ResponseEntity<Address>
+	 */
 	@DeleteMapping(path = "{addressId}")
-	private void deleteAddress(@PathVariable("addressId") Long addressId) {
+	private ResponseEntity<Address> deleteAddress(@PathVariable("addressId") Long addressId) {
 		// TODO Auto-generated method stub
-		addressService.deleteAddress(addressId);
+		ResponseEntity<Address> add = addressService.deleteAddress(addressId);
+		return add ;
 	}
 
 	/* Update the address by id */
+	@Deprecated
 	@PutMapping(path = "{addressId}")
 	private void updateAddress(@PathVariable("addressId") Long addressId,
 			@RequestParam(required = false) String address1) {
 		// TODO Auto-generated method stub
 		addressService.updateAddress(addressId, address1);
 	}
-	
-	
-	
-
-	/* Update of the complete Address entity with all parameters */
-
-//	@PutMapping(path = "{addressId}")
-//	private void updateCompleteAddressr Long addressId,
-//			@RequestParam(required = false) String address1) {
-//		// TODO Auto-generated method stub
-//		addressService.updateAddress(addressId, address1);
-//	}
 
 }

@@ -12,16 +12,17 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.SequenceGenerator;
 
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import rental.enumeration.Gender;
+import rental.logger.LOGG;
 import rental.utils.RegExpMatching;
+import rental.utils.RentalMessage;
 
 @MappedSuperclass
 public abstract class Person {
 
-	static Logger LOGGER = LogManager.getLogger(Person.class);
+	static Logger LOGGER = LOGG.getLogger(Person.class);
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "person_sequence")
@@ -194,6 +195,7 @@ public abstract class Person {
 	 */
 	public void setSocialNumber(String socialNumber) {
 		if (15 != socialNumber.length() && 0 != socialNumber.length()) {
+			LOGGER.error(RentalMessage.attributeLengthError,socialNumber,15);
 			throw new RuntimeException("Social number is invalid !!! Length error");
 		} else {
 			this.socialNumber = socialNumber;

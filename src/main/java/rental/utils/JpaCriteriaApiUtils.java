@@ -15,10 +15,12 @@ import org.springframework.http.ResponseEntity;
 public class JpaCriteriaApiUtils {
 	
 	
-	@SuppressWarnings("unchecked")
-	public static ResponseEntity<List<?>> getObjectByCriteria(EntityManager em, Object value, String criteria, String subCriteria, Class currentObject) {
+	
+	public static ResponseEntity<List<?>> getObjectByCriteria(EntityManager em, Object value, String criteria, String subCriteria, @SuppressWarnings("rawtypes") Class currentObject) {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
+		@SuppressWarnings("unchecked")
 		CriteriaQuery<?> cq = cb.createQuery(currentObject);
+		@SuppressWarnings("unchecked")
 		Root<?> classSearch = cq.from(currentObject);
 		Predicate adPredicate;
 		if (null != subCriteria) {
@@ -30,8 +32,5 @@ public class JpaCriteriaApiUtils {
 		TypedQuery<?> query = em.createQuery(cq);
 		List<?> listObjects = query.getResultList();
 		return new ResponseEntity<List<?>>(listObjects, HttpStatus.OK);
-		
 	};
-	
-
 }

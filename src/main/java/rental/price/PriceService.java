@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,13 +14,14 @@ import org.springframework.stereotype.Service;
 
 import rental.contract.Contract;
 import rental.enumeration.CommonStatus;
+import rental.logger.LOGG;
 import rental.utils.JpaCriteriaApiUtils;
 
 @Service
 public class PriceService {
 
 	private final PriceRepository priceRepository;
-	static Logger LOGGER = LogManager.getLogger(PriceService.class);
+	static Logger LOGGER = LOGG.getLogger(PriceService.class);
 
 	@PersistenceContext
 	EntityManager em;
@@ -60,7 +60,6 @@ public class PriceService {
 		// check if contract exist
 		if (priceRepository.existsById(price.getId())) {
 			// Case Update
-			price.setContract(contract);
 			priceRepository.saveAndFlush(price);
 		} else {
 
@@ -78,7 +77,6 @@ public class PriceService {
 					priceRepository.save(currentPrice);
 				}
 			}
-			price.setContract(contract);
 			price.setCommonStatus(CommonStatus.ACTIF);
 			priceRepository.save(price);
 		}

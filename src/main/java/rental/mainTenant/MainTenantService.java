@@ -17,11 +17,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import rental.logger.LOGG;
+
 @Service
 public class MainTenantService {
 
 	private final MainTenantRepository mainTenantRepository;
-	static Logger LOGGER = LogManager.getLogger(MainTenantService.class);
+	static Logger LOGGER = LOGG.getLogger(MainTenantService.class);
 
 	@PersistenceContext
 	EntityManager em;

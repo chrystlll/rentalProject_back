@@ -1,7 +1,9 @@
 package rental.price;
 
 import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -10,16 +12,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
-import rental.contract.Contract;
 import rental.enumeration.CommonStatus;
 import rental.enumeration.Currency;
 import rental.enumeration.DurationType;
+import rental.scheduledPayment.ScheduledPayment;
 
 @Entity
 @Table(name = "price")
@@ -35,21 +35,22 @@ public class Price {
 	@Enumerated(EnumType.STRING)
 	private Currency currency;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-	@JsonBackReference
-	private Contract contract;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "commonStatus")
 	private CommonStatus commonStatus;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(name = "durationType")
 	private DurationType durationType;
-	
-	private Integer durationValue;
-	
 
+	private Integer durationValue;
+
+	@OneToMany(mappedBy = "price", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Set<ScheduledPayment> listScheduled;
+
+	
+	
 	public Price() {
 		super();
 	}
@@ -57,51 +58,6 @@ public class Price {
 	public Price(long id) {
 		super();
 		this.id = id;
-	}
-
-	public Price(Date startDate, Float amount, Currency currency, Contract contract) {
-		super();
-		this.startDate = startDate;
-		this.amount = amount;
-		this.currency = currency;
-		this.contract = contract;
-	}
-
-	public Price(long id, Date startDate, Date endDate, Float amount, Currency currency, Contract contract) {
-		super();
-		this.id = id;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.amount = amount;
-		this.currency = currency;
-		this.contract = contract;
-	}
-
-	public Price(long id, Date startDate, Date endDate, Float amount, Currency currency, Contract contract,
-			CommonStatus commonStatus) {
-		super();
-		this.id = id;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.amount = amount;
-		this.currency = currency;
-		this.contract = contract;
-		this.commonStatus = commonStatus;
-	}
-	
-	
-	public Price(long id, Date startDate, Date endDate, Float amount, Currency currency, Contract contract,
-			CommonStatus commonStatus, DurationType durationType, Integer durationValue) {
-		super();
-		this.id = id;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.amount = amount;
-		this.currency = currency;
-		this.contract = contract;
-		this.commonStatus = commonStatus;
-		this.durationType = durationType;
-		this.durationValue = durationValue;
 	}
 
 	/**
@@ -117,8 +73,6 @@ public class Price {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
-	
 
 	/**
 	 * @return the startDate
@@ -177,20 +131,6 @@ public class Price {
 	}
 
 	/**
-	 * @return the contract
-	 */
-	public Contract getContract() {
-		return contract;
-	}
-
-	/**
-	 * @param contract the contract to set
-	 */
-	public void setContract(Contract contract) {
-		this.contract = contract;
-	}
-
-	/**
 	 * @return the commonStatus
 	 */
 	public CommonStatus getCommonStatus() {
@@ -232,11 +172,27 @@ public class Price {
 		this.durationValue = durationValue;
 	}
 
+	
+
+	/**
+	 * @return the listScheduled
+	 */
+	public Set<ScheduledPayment> getListScheduled() {
+		return listScheduled;
+	}
+
+	/**
+	 * @param listScheduled the listScheduled to set
+	 */
+	public void setListScheduled(Set<ScheduledPayment> listScheduled) {
+		this.listScheduled = listScheduled;
+	}
+
 	@Override
 	public String toString() {
 		return "Price [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", amount=" + amount
-				+ ", currency=" + currency + ", contract=" + contract + ", commonStatus=" + commonStatus
-				+ ", durationType=" + durationType + ", durationValue=" + durationValue + "]";
+				+ ", currency=" + currency + ", commonStatus=" + commonStatus + ", durationType=" + durationType
+				+ ", durationValue=" + durationValue + ", listScheduled=" + listScheduled + "]";
 	}
 
 	

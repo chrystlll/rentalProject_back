@@ -1,5 +1,6 @@
 package rental.address;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jdbc.repository.query.Query;
@@ -11,6 +12,9 @@ public interface AddressRepository extends JpaRepository<Address, Long>{
 
 	@Query("SELECT a FROM Address a WHERE a.address1 = ?1")
 	Optional<Address> findAddressByAddress1(String address1);
+	
+	@Query("SELECT a FROM Address a WHERE a.mainTenant.id = ?1")
+	List<Address> findAddressByMainTenantId(Long id);
 	
 	
 }

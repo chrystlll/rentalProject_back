@@ -1,4 +1,4 @@
-package rental.payment;
+package rental.scheduledPayment;
 
 import java.util.List;
 
@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import rental.entities.PaymentAndContract;
+import rental.entities.ScheduledPaymentAndContract;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 @RequestMapping(path = "api/v1/payment")
-public class PaymentController {
+public class ScheduledPaymentController {
 
-	private final PaymentService paymentService;
+	private final ScheduledPaymentService paymentService;
 
 	@Autowired
-	public PaymentController(PaymentService paymentService) {
+	public ScheduledPaymentController(ScheduledPaymentService paymentService) {
 		super();
 		this.paymentService = paymentService;
 	}
@@ -33,7 +33,7 @@ public class PaymentController {
 	 * @param: Id (Long)
 	 */
 	@GetMapping("/get/contract/{id}")
-	public ResponseEntity<List<Payment>> getPaymentsByContractId(@PathVariable Long id) {
+	public ResponseEntity<List<ScheduledPayment>> getPaymentsByContractId(@PathVariable Long id) {
 		return paymentService.getPaymentsByCriteria(id, "contract", "id");
 	}
 
@@ -45,7 +45,7 @@ public class PaymentController {
 	 */
 
 	@PostMapping
-	public void registerPayment(@RequestBody PaymentAndContract paymentAndContract) {
+	public void registerPayment(@RequestBody ScheduledPaymentAndContract paymentAndContract) {
 		paymentService.addOrUpdatePayment(paymentAndContract.getContract(), paymentAndContract.getPayment());
 
 	}

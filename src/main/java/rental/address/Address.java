@@ -88,9 +88,6 @@ public class Address {
 		this.country = country;
 		this.isPrimary = isPrimary;
 	}
-	
-	
-	
 
 	public Address(String address1, String address2, String zipCode, String city, Country country, Boolean isPrimary,
 			Renter renter) {

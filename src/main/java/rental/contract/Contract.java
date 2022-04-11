@@ -1,7 +1,7 @@
 package rental.contract;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -22,10 +22,9 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import rental.enumeration.CommonStatus;
 import rental.enumeration.ContractType;
 import rental.mainTenant.MainTenant;
-import rental.payment.Payment;
 import rental.renter.Renter;
+import rental.scheduledPayment.ScheduledPayment;
 import rental.vehicle.Vehicle;
-import rental.price.Price;
 
 @Entity
 @Table(name = "contract")
@@ -53,13 +52,10 @@ public class Contract {
 	private Renter renter;
 
 	@OneToMany(mappedBy = "contract", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Set<Price> price;
+	private List<ScheduledPayment> payment;
 
 	@OneToMany(mappedBy = "contract", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Set<Payment> payment;
-
-	@OneToMany(mappedBy = "contract", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Set<Vehicle> vehicle;
+	private List<Vehicle> vehicle;
 
 	public Contract() {
 		super();
@@ -102,7 +98,7 @@ public class Contract {
 	}
 
 	public Contract(Long id, Date startDate, Date endDate, MainTenant mainTenant, ContractType contractType,
-			CommonStatus commonStatus, Renter renter, Set<Price> price) {
+			CommonStatus commonStatus, Renter renter) {
 		super();
 		this.id = id;
 		this.startDate = startDate;
@@ -111,7 +107,6 @@ public class Contract {
 		this.contractType = contractType;
 		this.commonStatus = commonStatus;
 		this.renter = renter;
-		this.price = price;
 	}
 
 	/**
@@ -213,44 +208,30 @@ public class Contract {
 	}
 
 	/**
-	 * @return the price
-	 */
-	public Set<Price> getPrice() {
-		return price;
-	}
-
-	/**
-	 * @param price the price to set
-	 */
-	public void setPrice(Set<Price> price) {
-		this.price = price;
-	}
-
-	/**
 	 * @return the payment
 	 */
-	public Set<Payment> getPayment() {
+	public List<ScheduledPayment> getPayment() {
 		return payment;
 	}
 
 	/**
 	 * @param payment the payment to set
 	 */
-	public void setPayment(Set<Payment> payment) {
+	public void setPayment(List<ScheduledPayment> payment) {
 		this.payment = payment;
 	}
 
 	/**
 	 * @return the vehicle
 	 */
-	public Set<Vehicle> getVehicle() {
+	public List<Vehicle> getVehicle() {
 		return vehicle;
 	}
 
 	/**
 	 * @param vehicle the vehicle to set
 	 */
-	public void setVehicle(Set<Vehicle> vehicle) {
+	public void setVehicle(List<Vehicle> vehicle) {
 		this.vehicle = vehicle;
 	}
 
@@ -258,7 +239,7 @@ public class Contract {
 	public String toString() {
 		return "Contract [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", mainTenant=" + mainTenant
 				+ ", contractType=" + contractType + ", commonStatus=" + commonStatus + ", renter=" + renter
-				+ ", price=" + price + ", payment=" + payment + ", vehicle=" + vehicle + "]";
+				+ ", payment=" + payment + ", vehicle=" + vehicle + "]";
 	}
 
 }

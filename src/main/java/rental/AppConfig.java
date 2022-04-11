@@ -19,19 +19,18 @@ import rental.enumeration.Gender;
 import rental.enumeration.PaymentType;
 import rental.mainTenant.MainTenant;
 import rental.mainTenant.MainTenantRepository;
-import rental.payment.Payment;
-import rental.payment.PaymentRepository;
-import rental.price.Price;
 import rental.price.PriceRepository;
 import rental.renter.Renter;
 import rental.renter.RenterRepository;
+import rental.scheduledPayment.ScheduledPayment;
+import rental.scheduledPayment.ScheduledPaymentRepository;
 
 @Configuration
 public class AppConfig {
 
 	/** Test sets */
 	@Bean
-	CommandLineRunner commandLineRunner(PriceRepository repPr,PaymentRepository repPay,AddressRepository repAd, MainTenantRepository repMT, RenterRepository repRT, ContractRepository repCon) {
+	CommandLineRunner commandLineRunner(PriceRepository repPr,ScheduledPaymentRepository repPay,AddressRepository repAd, MainTenantRepository repMT, RenterRepository repRT, ContractRepository repCon) {
 		return arg -> {
 			List<Address> newListAddress = new ArrayList<>();
 
@@ -47,17 +46,11 @@ public class AppConfig {
 			repCon.save(contr);
 			repCon.save(contr2);
 			
-			Payment payment = new Payment(new Date(), PaymentType.ESPECE,contr);
+			ScheduledPayment payment = new ScheduledPayment(new Date(), PaymentType.ESPECE,contr);
 			
 			repPay.save(payment);
 			
-			Price newPrice = new Price(new Date(),11.55F,rental.enumeration.Currency.€,contr2);
-			Price newPrice2 = new Price(new Date(),11.65F,rental.enumeration.Currency.€,contr2);
-			Price newPrice3 = new Price(new Date(),11.55F,rental.enumeration.Currency.€,contr2);
 			
-			repPr.save(newPrice);
-			repPr.save(newPrice2);
-			repPr.save(newPrice3);
 			
 			for (int i = 0; i < 15; i++) {
 				MainTenant mTtest = new MainTenant("Nom N°" + i, "Prénom N°" + i, Gender.M, "email" + i + "@gmail.com");
