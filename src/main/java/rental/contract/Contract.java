@@ -17,7 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import rental.enumeration.CommonStatus;
 import rental.enumeration.ContractType;
@@ -35,11 +35,6 @@ public class Contract {
 	private Long id;
 	private Date startDate;
 	private Date endDate;
-
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-	@JsonBackReference
-	private MainTenant mainTenant;
-
 	@Enumerated(EnumType.STRING)
 	@Column(name = "contractType")
 	private ContractType contractType;
@@ -47,6 +42,10 @@ public class Contract {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "commonStatus")
 	private CommonStatus commonStatus;
+
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private MainTenant mainTenant;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	private Renter renter;
@@ -74,39 +73,6 @@ public class Contract {
 		this.endDate = endDate;
 		this.mainTenant = mainTenant;
 		this.contractType = contractType;
-	}
-
-	public Contract(Date startDate, Date endDate, MainTenant mainTenant, ContractType contractType,
-			CommonStatus commonStatus) {
-		super();
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.mainTenant = mainTenant;
-		this.contractType = contractType;
-		this.commonStatus = commonStatus;
-	}
-
-	public Contract(Long id, Date startDate, Date endDate, MainTenant mainTenant, ContractType contractType,
-			CommonStatus commonStatus) {
-		super();
-		this.id = id;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.mainTenant = mainTenant;
-		this.contractType = contractType;
-		this.commonStatus = commonStatus;
-	}
-
-	public Contract(Long id, Date startDate, Date endDate, MainTenant mainTenant, ContractType contractType,
-			CommonStatus commonStatus, Renter renter) {
-		super();
-		this.id = id;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.mainTenant = mainTenant;
-		this.contractType = contractType;
-		this.commonStatus = commonStatus;
-		this.renter = renter;
 	}
 
 	/**

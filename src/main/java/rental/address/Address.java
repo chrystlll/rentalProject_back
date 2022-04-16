@@ -34,6 +34,7 @@ public class Address {
 	private String address2;
 	private String zipCode;
 	private String city;
+	
 	@Enumerated(EnumType.STRING)
 	private Country country;
 	private Boolean isPrimary;
@@ -41,12 +42,14 @@ public class Address {
 	@OneToOne(fetch = FetchType.LAZY, optional = true)
 	private Renter renter;
 
+
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	private MainTenant mainTenant;
 
 	@OneToMany(mappedBy = "address", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Place> places;
 
+	
 	public Address() {
 		super();
 	}

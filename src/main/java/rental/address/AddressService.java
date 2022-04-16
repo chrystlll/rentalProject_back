@@ -67,7 +67,7 @@ public class AddressService {
 
 			} else {
 				// Entity is found
-				MainTenant mTenant = mainTenantRepository.getById(mt.getId());
+				MainTenant mTenant = mainTenantRepository.findById(mt.getId()).get();
 				address.setMainTenant(mTenant);
 				updateAdressIsPrimary(address, mt.getId());
 				addressRepository.save(address);
@@ -76,7 +76,7 @@ public class AddressService {
 			}
 		} else {
 			/** Create address case */
-			MainTenant mTenant = mainTenantRepository.getById(mt.getId());
+			MainTenant mTenant = mainTenantRepository.findById(mt.getId()).get();
 			address.setMainTenant(mTenant);
 			updateAdressIsPrimary(address, mt.getId());
 			addressRepository.save(address);

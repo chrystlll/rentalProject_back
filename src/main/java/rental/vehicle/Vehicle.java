@@ -11,8 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import rental.contract.Contract;
 import rental.enumeration.VehiculeType;
 
@@ -31,7 +29,6 @@ public class Vehicle {
 	private VehiculeType vehiculeType;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-	@JsonBackReference
 	private Contract contract;
 
 	public Vehicle() {
@@ -55,7 +52,7 @@ public class Vehicle {
 		this.registrationNumber = registrationNumber;
 		this.name = name;
 		this.vehiculeType = vehiculeType;
-		this.contract = contract;
+		//this.contract = contract;
 	}
 
 	/**

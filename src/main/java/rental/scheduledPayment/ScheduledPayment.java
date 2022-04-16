@@ -49,11 +49,11 @@ public class ScheduledPayment {
 	private Date dueDate;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-	@JsonBackReference
+	@JsonBackReference(value="contract-payment")
 	private Contract contract;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-	@JsonBackReference
+	@JsonBackReference(value="price-payment")
 	private Price price;
 
 	private Float amount;

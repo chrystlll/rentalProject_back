@@ -1,8 +1,8 @@
 package rental.person;
 
-import java.text.ParseException;
 import java.util.Date;
 
+import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,12 +14,17 @@ import javax.persistence.SequenceGenerator;
 
 import org.apache.logging.log4j.Logger;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import rental.enumeration.Gender;
 import rental.logger.LOGG;
 import rental.utils.RegExpMatching;
 import rental.utils.RentalMessage;
 
 @MappedSuperclass
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@AttributeOverride(name = "id", column = @Column(name = "ID"))
 public abstract class Person {
 
 	static Logger LOGGER = LOGG.getLogger(Person.class);
@@ -47,43 +52,30 @@ public abstract class Person {
 	public Person() {
 		super();
 	}
-
-	public Person(String firstName, Gender gender) {
-		super();
-		this.firstName = firstName;
-		this.gender = gender;
-	}
-
-	public Person(String lastName,String firstName, Gender gender, String email) {
-		super();
-		this.lastName = lastName;
-		this.firstName = firstName;
-		this.gender = gender;
-		this.email = email;
-	}
 	
 	
 
-	public Person(String firstName, String lastName, Gender gender, String email,
-			String phoneNumber1, String phoneNumber2) {
+	public Person(String firstName, String lastName, String email) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.gender = gender;
 		this.email = email;
-		this.phoneNumber1 = phoneNumber1;
-		this.phoneNumber2 = phoneNumber2;
 	}
 
-	public Person(String firstName, String lastName, Date dob, Gender gender, String email, String socialNumber) {
-		super();
 
+
+	public Person(long id, String firstName, String lastName, Date dob, Gender gender, String email,
+			String socialNumber, String phoneNumber1, String phoneNumber2) {
+		super();
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dob = dob;
 		this.gender = gender;
 		this.email = email;
 		this.socialNumber = socialNumber;
+		this.phoneNumber1 = phoneNumber1;
+		this.phoneNumber2 = phoneNumber2;
 	}
 
 	/**
@@ -137,7 +129,6 @@ public abstract class Person {
 
 	/**
 	 * @param dob the dob to set
-	 * @throws ParseException
 	 */
 	public void setDob(Date dob) {
 		this.dob = dob;
@@ -151,12 +142,10 @@ public abstract class Person {
 	}
 
 	/**
-	 * Cast the gender in Enumeration
-	 * 
 	 * @param gender the gender to set
 	 */
-	public void setGender(String gender) {
-		this.gender = Gender.valueOf(gender);
+	public void setGender(Gender gender) {
+		this.gender = gender;
 	}
 
 	/**
@@ -167,39 +156,10 @@ public abstract class Person {
 	}
 
 	/**
-	 * Control of email by regex
-	 * 
-	 * @param email the email to set
-	 */
-	public void setEmail(String email) {
-		if (!email.isEmpty() && !RegExpMatching.isValidEmail(email)) {
-			LOGGER.error("L'email : " + email + " est invalide!");
-			;
-			throw new RuntimeException("Email is not valid !!!");
-		} else {
-			this.email = email;
-		}
-	}
-
-	/**
 	 * @return the socialNumber
 	 */
 	public String getSocialNumber() {
 		return socialNumber;
-	}
-
-	/**
-	 * Control of social number (max 15 char)
-	 * 
-	 * @param socialNumber the socialNumber to set
-	 */
-	public void setSocialNumber(String socialNumber) {
-		if (15 != socialNumber.length() && 0 != socialNumber.length()) {
-			LOGGER.error(RentalMessage.attributeLengthError,socialNumber,15);
-			throw new RuntimeException("Social number is invalid !!! Length error");
-		} else {
-			this.socialNumber = socialNumber;
-		}
 	}
 
 	/**
@@ -210,23 +170,52 @@ public abstract class Person {
 	}
 
 	/**
+	 * @return the phoneNumber2
+	 */
+	public String getPhoneNumber2() {
+		return phoneNumber2;
+	}
+
+	/**
+	 * Control of email by regex
+	 * 
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		if (!email.isEmpty() && !RegExpMatching.isValidEmail(email)) {
+			LOGGER.error(RentalMessage.emailInvalid,email);
+			throw new RuntimeException(RentalMessage.emailInvalid);
+		} else {
+			this.email = email;
+		}
+	}
+
+	/**
+	 * Control of social number (max 15 char)
+	 * 
+	 * @param socialNumber the socialNumber to set
+	 */
+	public void setSocialNumber(String socialNumber) {
+		if (15 != socialNumber.length() && 0 != socialNumber.length()) {
+			LOGGER.error(RentalMessage.socialNumberInvalid,socialNumber,socialNumber.length());
+			throw new RuntimeException(RentalMessage.socialNumberInvalid);
+		} else {
+			this.socialNumber = socialNumber;
+		}
+	}
+
+	/**
 	 * @param phoneNumber1 the phoneNumber1 to set
 	 */
 	public void setPhoneNumber1(String phoneNumber1) {
 		if (null != phoneNumber1) {
 			if (10 != phoneNumber1.length() && 0 != phoneNumber1.length()) {
-				throw new RuntimeException("Phone number is invalid !!! Length error");
+				LOGGER.error(RentalMessage.phoneNumberInvalid,phoneNumber1,phoneNumber1.length());
+				throw new RuntimeException(RentalMessage.phoneNumberInvalid);
 			} else {
 				this.phoneNumber1 = phoneNumber1;
 			}
 		}
-	}
-
-	/**
-	 * @return the phoneNumber2
-	 */
-	public String getPhoneNumber2() {
-		return phoneNumber2;
 	}
 
 	/**
@@ -242,18 +231,13 @@ public abstract class Person {
 		}
 	}
 
-	/**
-	 * @param gender the gender to set
-	 */
-	public void setGender(Gender gender) {
-		this.gender = gender;
-	}
-
 	@Override
 	public String toString() {
 		return "Person [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", dob=" + dob + ", gender="
 				+ gender + ", email=" + email + ", socialNumber=" + socialNumber + ", phoneNumber1=" + phoneNumber1
 				+ ", phoneNumber2=" + phoneNumber2 + "]";
 	}
+	
+	
 
 }

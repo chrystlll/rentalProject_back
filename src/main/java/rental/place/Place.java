@@ -27,6 +27,7 @@ public class Place {
 	@Enumerated(EnumType.STRING)
 	private PropertyStatus propertyStatus;
 	private Float locationtSize;
+	
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	private Address address;
 

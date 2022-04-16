@@ -1,6 +1,5 @@
 package rental.contract;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,7 +15,6 @@ import org.springframework.stereotype.Service;
 import rental.logger.LOGG;
 import rental.mainTenant.MainTenant;
 import rental.mainTenant.MainTenantRepository;
-import rental.scheduledPayment.ScheduledPayment;
 import rental.scheduledPayment.ScheduledPaymentRepository;
 import rental.utils.JpaCriteriaApiUtils;
 import rental.utils.RentalMessage;
@@ -61,20 +59,20 @@ public class ContractService {
 	public ResponseEntity<Contract> saveContractAndLinkToMT(Contract contract, MainTenant mainTenant) {
 
 		/** Create contract case */
-		MainTenant mTenant = mainTenantRepository.getById(mainTenant.getId());
+		MainTenant mTenant = mainTenantRepository.findById(mainTenant.getId()).get();
 		contract.setMainTenant(mTenant);
 		Contract contrSave = contractRepository.save(contract);
 		if (null == contrSave) {
 			LOGGER.error(RentalMessage.entityNotSaved, contract.getId());
 			return new ResponseEntity<Contract>(HttpStatus.INTERNAL_SERVER_ERROR);
 		} else {
-			ScheduledPayment scheduPay = new ScheduledPayment();
-			scheduPay.setStartDate(contract.getStartDate());
-			ScheduledPayment schedPay = scheduledPayRepository.save(scheduPay);
-			List<ScheduledPayment> listSch = new ArrayList<ScheduledPayment>();
-			listSch.add(schedPay);
-			contract.setPayment(listSch);
-			contractRepository.save(contract);
+		//	ScheduledPayment scheduPay = new ScheduledPayment();
+		//	scheduPay.setStartDate(contract.getStartDate());
+		//	ScheduledPayment schedPay = scheduledPayRepository.save(scheduPay);
+		//	List<ScheduledPayment> listSch = new ArrayList<ScheduledPayment>();
+		//	listSch.add(schedPay);
+		//	contract.setPayment(listSch);
+		//	contractRepository.save(contract);
 			LOGGER.info(RentalMessage.entitySaved, contract.getId());
 			return new ResponseEntity<Contract>(contract, HttpStatus.OK);
 		}
@@ -97,13 +95,13 @@ public class ContractService {
 			return new ResponseEntity<Contract>(HttpStatus.NOT_FOUND);
 		} else {
 			// Contract still exists
-			Contract contr = contractRepository.getById(contract.getId());
+			Contract contr = contractRepository.findById(contract.getId()).get();
 			contract.setPayment(contr.getPayment());
 			contract.setMainTenant(contr.getMainTenant());
 			contract.setRenter(contr.getRenter());
 			contract.setVehicle(contr.getVehicle());
 			if (null != mainTenant) {
-				MainTenant mTenant = mainTenantRepository.getById(mainTenant.getId());
+				MainTenant mTenant = mainTenantRepository.findById(mainTenant.getId()).get();
 				contract.setMainTenant(mTenant);
 			}
 			Contract contrSave = contractRepository.save(contract);

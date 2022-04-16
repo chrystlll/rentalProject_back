@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -40,7 +41,7 @@ public class MainTenantController {
 	 * @param : MainTenant object
 	 * By default the status is ACTIVE 
 	 * */
-	@PostMapping
+	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void registerMainTenant(@RequestBody MainTenant mT) {
 		mT.setCommonStatus(CommonStatus.ACTIF);
 		mainTenantService.addNewTenant(mT);

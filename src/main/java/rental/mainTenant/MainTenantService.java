@@ -10,7 +10,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -88,8 +87,8 @@ public class MainTenantService {
 
 		Boolean searchResult = mainTenantRepository.existsById(mt.getId());
 		if (searchResult) {
-			mt.setContracts(mainTenantRepository.findById(mt.getId()).get().getContracts());
-			mt.setAddresses(mainTenantRepository.findById(mt.getId()).get().getAddresses());
+			//mt.setContracts(mainTenantRepository.findById(mt.getId()).get().getContracts());
+			//mt.setAddresses(mainTenantRepository.findById(mt.getId()).get().getAddresses());
 			mt = mainTenantRepository.saveAndFlush(mt);
 			return new ResponseEntity<MainTenant>(mt, HttpStatus.OK);
 		} else {

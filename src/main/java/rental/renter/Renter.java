@@ -9,32 +9,26 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import rental.address.Address;
 import rental.contract.Contract;
-import rental.enumeration.Gender;
 import rental.person.Person;
 
 @Entity
 @Table(name = "renter")
 public class Renter extends Person {
 
+	@JsonBackReference(value="renter-address")
 	@OneToOne(mappedBy = "renter", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Address address;
 
+	@JsonBackReference(value="renter-contract")
 	@OneToMany(mappedBy = "renter", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Contract> contracts;
 
 	public Renter() {
 		super();
-	}
-
-	public Renter(String firstname, Gender gender) {
-		super(firstname, gender);
-	}
-
-	public Renter(String firstName, String lastName, Gender gender, String email, String phoneNumber1,
-			String phoneNumber2) {
-		super(firstName, lastName, gender, email, phoneNumber1, phoneNumber2);
 	}
 
 	/**
