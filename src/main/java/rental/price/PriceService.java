@@ -1,6 +1,7 @@
 package rental.price;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -72,10 +73,11 @@ public class PriceService {
 	 * @param: commonStatus (CommonStatus)
 	 * @return ResponseEntity<Price>
 	 */
-	public ResponseEntity<Price> getPricesByContractIdAndStatus(Long id, CommonStatus commonStatus) {
-		Price price = priceRepository.findPriceByCommonStatusAndScheduledPayment(commonStatus, id).get();
+	public ResponseEntity<Price> getPricesByContractIdAndStatus(Long id, String commonStatus) {
+		Optional<Price> price = priceRepository.findPriceByCommonStatusAndScheduledPayment(commonStatus, id);
+		
 		if (null != price) {
-			return new ResponseEntity<Price>(price, HttpStatus.OK);
+			return new ResponseEntity<Price>(price.get(),HttpStatus.OK);
 		} else {
 			LOGGER.error("The price with contractId {} doesn't exist", id);
 			return new ResponseEntity<Price>(HttpStatus.NOT_FOUND);

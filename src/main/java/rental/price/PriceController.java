@@ -43,7 +43,8 @@ public class PriceController {
 	 * @return ResponseEntity<Price>
 	 */
 	@GetMapping("/get/contractId/{id}/commonStatus/{commonStatus}")
-	public ResponseEntity<Price> getPricesByContractId(@PathVariable Long id, CommonStatus commonStatus) {
+	public ResponseEntity<Price> getPricesByContractId(@PathVariable Long id, @PathVariable String commonStatus) {
+		System.out.println(commonStatus);
 		return priceService.getPricesByContractIdAndStatus(id,commonStatus);
 	}
 

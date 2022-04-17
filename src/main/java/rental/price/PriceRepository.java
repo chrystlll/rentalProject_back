@@ -18,6 +18,6 @@ public interface PriceRepository extends JpaRepository<Price, Long>{
 	 * @param id (Long) of contract*/
 	
 	@Query(value="SELECT pr.* FROM Price pr, Scheduled_Payment sp, contract c where pr.common_Status in (:commonStatus) and c.id=:id group by c.id",nativeQuery=true)
-	Optional<Price> findPriceByCommonStatusAndScheduledPayment(@Param("commonStatus")CommonStatus commonStatus, @Param("id")Long id);
+	Optional<Price> findPriceByCommonStatusAndScheduledPayment(@Param("commonStatus")String commonStatus, @Param("id")Long id);
 
 }
