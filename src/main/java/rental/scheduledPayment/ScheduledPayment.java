@@ -55,7 +55,6 @@ public class ScheduledPayment {
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JsonBackReference(value="price-payment")
 	private Price price;
-
 	private Float amount;
 
 	@Enumerated(EnumType.STRING)

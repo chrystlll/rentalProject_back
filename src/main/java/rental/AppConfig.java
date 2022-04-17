@@ -21,8 +21,9 @@ public class AppConfig {
 	CommandLineRunner commandLineRunner(PriceRepository repPr,ScheduledPaymentRepository repPay,AddressRepository repAd, MainTenantRepository repMT, RenterRepository repRT, ContractRepository repCon) {
 		return arg -> {
 			
-			MainTenant mT = new MainTenant("Dupond", "Eddy","Eddy@gmail.com",CommonStatus.ACTIF);
-			repMT.save(mT);
+			//MainTenant mT = new MainTenant("Dupond", "lolo","lolo@gmail.com",CommonStatus.ACTIF);
+			
+			//repMT.save(mT);
 			
 		};
 	}

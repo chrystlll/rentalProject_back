@@ -1,0 +1,969 @@
+ 2022-04-16 08:41:15,318 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 08:41:26,357 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 08:41:28,520 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 08:41:28,543 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 08:41:29,731 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 08:41:30,277 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 08:41:30,413 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 08:41:30,426 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 14.695 seconds (JVM running for 17.865) (StartupInfoLogger.java:61)
+ 2022-04-16 08:41:50,695 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 08:41:53,137 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 08:41:53,165 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 08:41:54,603 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 08:41:55,661 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 08:41:55,815 [main] INFO  | org.cbn.demo.AddressTest                                     | Started AddressTest in 11.117 seconds (JVM running for 14.57) (StartupInfoLogger.java:61)
+ 2022-04-16 08:41:55,910 [main] ERROR | rental.address.AddressService                                | Entity Address [id=null, address1=1 rue de test, address2=null, zipCode=null, city=null, country=FRANCE, isPrimary=true, renter=null, mainTenant=null, places=null] not saved (AddressService.java:54)
+ 2022-04-16 08:41:55,970 [SpringApplicationShutdownHook] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Closing JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:651)
+ 2022-04-16 08:41:55,971 [SpringApplicationShutdownHook] INFO  | org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl | HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down' (SchemaDropperImpl.java:526)
+ 2022-04-16 08:43:26,050 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 08:43:26,053 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 2 ms (FrameworkServlet.java:547)
+ 2022-04-16 08:43:26,443 [http-nio-8080-exec-1] WARN  | org.hibernate.engine.jdbc.spi.SqlExceptionHelper             | SQL Error: 1146, SQLState: 42S02 (SqlExceptionHelper.java:137)
+ 2022-04-16 08:43:26,443 [http-nio-8080-exec-1] ERROR | org.hibernate.engine.jdbc.spi.SqlExceptionHelper             | Table 'manage_rental.main_tenant' doesn't exist (SqlExceptionHelper.java:142)
+ 2022-04-16 08:43:52,510 [http-nio-8080-exec-3] ERROR | org.hibernate.id.enhanced.TableStructure                     | could not read a hi value (TableStructure.java:148)
+java.sql.SQLSyntaxErrorException: Table 'manage_rental.person_sequence' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1009) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.id.enhanced.TableStructure.executeQuery(TableStructure.java:216) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.id.enhanced.TableStructure.access$300(TableStructure.java:46) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.id.enhanced.TableStructure$1$1.execute(TableStructure.java:138) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.id.enhanced.TableStructure$1$1.execute(TableStructure.java:126) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jdbc.WorkExecutor.executeReturningWork(WorkExecutor.java:55) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jdbc.AbstractReturningWork.accept(AbstractReturningWork.java:34) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:57) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.id.enhanced.TableStructure$1.getNextValue(TableStructure.java:125) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.id.enhanced.NoopOptimizer.generate(NoopOptimizer.java:40) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.id.enhanced.SequenceStyleGenerator.generate(SequenceStyleGenerator.java:525) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:115) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:185) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:128) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:55) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:774) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:760) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362) ~[spring-orm-5.3.13.jar:5.3.13]
+	at jdk.proxy2.$Proxy126.persist(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:311) ~[spring-orm-5.3.13.jar:5.3.13]
+	at jdk.proxy2.$Proxy126.persist(Unknown Source) ~[?:?]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:624) ~[spring-data-jpa-2.6.0.jar:2.6.0]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:289) ~[spring-data-commons-2.6.0.jar:2.6.0]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137) [spring-data-commons-2.6.0.jar:2.6.0]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121) [spring-data-commons-2.6.0.jar:2.6.0]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:529) [spring-data-commons-2.6.0.jar:2.6.0]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) [spring-data-commons-2.6.0.jar:2.6.0]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:638) [spring-data-commons-2.6.0.jar:2.6.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) [spring-aop-5.3.13.jar:5.3.13]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:163) [spring-data-commons-2.6.0.jar:2.6.0]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:138) [spring-data-commons-2.6.0.jar:2.6.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) [spring-aop-5.3.13.jar:5.3.13]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80) [spring-data-commons-2.6.0.jar:2.6.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) [spring-aop-5.3.13.jar:5.3.13]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) [spring-tx-5.3.13.jar:5.3.13]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) [spring-tx-5.3.13.jar:5.3.13]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) [spring-tx-5.3.13.jar:5.3.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) [spring-aop-5.3.13.jar:5.3.13]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) [spring-tx-5.3.13.jar:5.3.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) [spring-aop-5.3.13.jar:5.3.13]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174) [spring-data-jpa-2.6.0.jar:2.6.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) [spring-aop-5.3.13.jar:5.3.13]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) [spring-aop-5.3.13.jar:5.3.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) [spring-aop-5.3.13.jar:5.3.13]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) [spring-aop-5.3.13.jar:5.3.13]
+	at jdk.proxy2.$Proxy133.save(Unknown Source) [?:?]
+	at rental.mainTenant.MainTenantService.addNewTenant(MainTenantService.java:40) [classes/:?]
+	at rental.mainTenant.MainTenantController.registerMainTenant(MainTenantController.java:47) [classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) [spring-web-5.3.13.jar:5.3.13]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) [spring-web-5.3.13.jar:5.3.13]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) [spring-webmvc-5.3.13.jar:5.3.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) [spring-webmvc-5.3.13.jar:5.3.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) [spring-webmvc-5.3.13.jar:5.3.13]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.3.13.jar:5.3.13]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) [spring-webmvc-5.3.13.jar:5.3.13]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) [spring-webmvc-5.3.13.jar:5.3.13]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.13.jar:5.3.13]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.13.jar:5.3.13]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [tomcat-embed-core-9.0.55.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.13.jar:5.3.13]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.55.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.55.jar:9.0.55]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.13.jar:5.3.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.13.jar:5.3.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.13.jar:5.3.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.13.jar:5.3.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.13.jar:5.3.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.13.jar:5.3.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.55.jar:9.0.55]
+	at java.lang.Thread.run(Thread.java:833) [?:?]
+ 2022-04-16 08:43:52,538 [http-nio-8080-exec-3] WARN  | org.hibernate.engine.jdbc.spi.SqlExceptionHelper             | SQL Error: 1146, SQLState: 42S02 (SqlExceptionHelper.java:137)
+ 2022-04-16 08:43:52,539 [http-nio-8080-exec-3] ERROR | org.hibernate.engine.jdbc.spi.SqlExceptionHelper             | Table 'manage_rental.person_sequence' doesn't exist (SqlExceptionHelper.java:142)
+ 2022-04-16 08:44:08,295 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 08:44:14,183 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 08:44:14,438 [main] WARN  | org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl | GenerationTarget encountered exception accepting command : Error executing DDL "alter table address drop foreign key FKf4yyjqk7m2r3gj62a02pooe21" via JDBC Statement (ExceptionHandlerLoggedImpl.java:27)
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table address drop foreign key FKf4yyjqk7m2r3gj62a02pooe21" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:153) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) [spring-boot-2.6.1.jar:2.6.1]
+	at rental.RentalApplication.main(RentalApplication.java:20) [classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'manage_rental.address' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:768) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	... 35 more
+ 2022-04-16 08:44:14,449 [main] WARN  | org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl | GenerationTarget encountered exception accepting command : Error executing DDL "alter table address drop foreign key FK9gm0b5hmxtc2exo2mpwece2kb" via JDBC Statement (ExceptionHandlerLoggedImpl.java:27)
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table address drop foreign key FK9gm0b5hmxtc2exo2mpwece2kb" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:153) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) [spring-boot-2.6.1.jar:2.6.1]
+	at rental.RentalApplication.main(RentalApplication.java:20) [classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'manage_rental.address' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:768) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	... 35 more
+ 2022-04-16 08:44:14,454 [main] WARN  | org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl | GenerationTarget encountered exception accepting command : Error executing DDL "alter table contract drop foreign key FK166cex44w9ex5e699bnpadx6r" via JDBC Statement (ExceptionHandlerLoggedImpl.java:27)
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table contract drop foreign key FK166cex44w9ex5e699bnpadx6r" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:153) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) [spring-boot-2.6.1.jar:2.6.1]
+	at rental.RentalApplication.main(RentalApplication.java:20) [classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'manage_rental.contract' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:768) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	... 35 more
+ 2022-04-16 08:44:14,460 [main] WARN  | org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl | GenerationTarget encountered exception accepting command : Error executing DDL "alter table contract drop foreign key FKkda1vqci7asttxlqihkn19x5r" via JDBC Statement (ExceptionHandlerLoggedImpl.java:27)
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table contract drop foreign key FKkda1vqci7asttxlqihkn19x5r" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:153) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) [spring-boot-2.6.1.jar:2.6.1]
+	at rental.RentalApplication.main(RentalApplication.java:20) [classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'manage_rental.contract' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:768) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	... 35 more
+ 2022-04-16 08:44:14,466 [main] WARN  | org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl | GenerationTarget encountered exception accepting command : Error executing DDL "alter table place drop foreign key FKglmkxnd26flejsbl3aq4b7mr8" via JDBC Statement (ExceptionHandlerLoggedImpl.java:27)
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table place drop foreign key FKglmkxnd26flejsbl3aq4b7mr8" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:153) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) [spring-boot-2.6.1.jar:2.6.1]
+	at rental.RentalApplication.main(RentalApplication.java:20) [classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'manage_rental.place' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:768) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	... 35 more
+ 2022-04-16 08:44:14,472 [main] WARN  | org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl | GenerationTarget encountered exception accepting command : Error executing DDL "alter table scheduled_payment drop foreign key FK4a538kcin6g1jp8lqkbkfyp4j" via JDBC Statement (ExceptionHandlerLoggedImpl.java:27)
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table scheduled_payment drop foreign key FK4a538kcin6g1jp8lqkbkfyp4j" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:153) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) [spring-boot-2.6.1.jar:2.6.1]
+	at rental.RentalApplication.main(RentalApplication.java:20) [classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'manage_rental.scheduled_payment' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:768) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	... 35 more
+ 2022-04-16 08:44:14,477 [main] WARN  | org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl | GenerationTarget encountered exception accepting command : Error executing DDL "alter table scheduled_payment drop foreign key FKc2ummg48p0cm23ix4g89276lc" via JDBC Statement (ExceptionHandlerLoggedImpl.java:27)
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table scheduled_payment drop foreign key FKc2ummg48p0cm23ix4g89276lc" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:153) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) [spring-boot-2.6.1.jar:2.6.1]
+	at rental.RentalApplication.main(RentalApplication.java:20) [classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'manage_rental.scheduled_payment' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:768) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	... 35 more
+ 2022-04-16 08:44:14,483 [main] WARN  | org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl | GenerationTarget encountered exception accepting command : Error executing DDL "alter table vehicle drop foreign key FKex0gaj8yp4k9iwjy2evhh35hh" via JDBC Statement (ExceptionHandlerLoggedImpl.java:27)
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table vehicle drop foreign key FKex0gaj8yp4k9iwjy2evhh35hh" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:153) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) [spring-boot-2.6.1.jar:2.6.1]
+	at rental.RentalApplication.main(RentalApplication.java:20) [classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'manage_rental.vehicle' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:768) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	... 35 more
+ 2022-04-16 08:44:16,144 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 08:44:16,171 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 08:44:17,248 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 08:44:17,741 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 08:44:17,856 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 08:44:17,874 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 9.412 seconds (JVM running for 11.129) (StartupInfoLogger.java:61)
+ 2022-04-16 08:44:26,643 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 08:44:26,648 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 4 ms (FrameworkServlet.java:547)
+ 2022-04-16 08:45:07,977 [http-nio-8080-exec-6] INFO  | rental.address.AddressService                                | Entity 1 is saved (AddressService.java:83)
+ 2022-04-16 08:46:00,332 [http-nio-8080-exec-2] INFO  | rental.contract.ContractService                              | Entity 1 is saved (ContractService.java:78)
+ 2022-04-16 08:51:04,978 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 08:51:12,466 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 08:51:21,651 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 08:51:24,577 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 08:51:24,624 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 08:51:26,805 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 08:51:27,933 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 08:51:28,194 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 08:51:28,224 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 15.425 seconds (JVM running for 17.999) (StartupInfoLogger.java:61)
+ 2022-04-16 08:51:29,829 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 08:51:29,832 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 3 ms (FrameworkServlet.java:547)
+ 2022-04-16 08:52:00,563 [http-nio-8080-exec-7] INFO  | rental.contract.ContractService                              | Entity 1 is saved (ContractService.java:78)
+ 2022-04-16 08:53:21,184 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 08:53:28,532 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 08:53:30,442 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 08:53:30,466 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 08:53:32,623 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 08:53:33,428 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 08:53:33,619 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 08:53:33,643 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 12.226 seconds (JVM running for 14.445) (StartupInfoLogger.java:61)
+ 2022-04-16 08:53:33,784 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 08:53:33,786 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 2 ms (FrameworkServlet.java:547)
+ 2022-04-16 08:55:17,049 [http-nio-8080-exec-7] INFO  | rental.contract.ContractService                              | Entity 1 is saved (ContractService.java:78)
+ 2022-04-16 08:58:13,964 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 08:58:20,303 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 08:58:22,712 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 08:58:22,737 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 08:58:23,780 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 08:58:24,251 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 08:58:24,365 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 08:58:24,377 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 10.211 seconds (JVM running for 11.559) (StartupInfoLogger.java:61)
+ 2022-04-16 08:58:32,785 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 08:58:32,789 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 2 ms (FrameworkServlet.java:547)
+ 2022-04-16 08:58:53,519 [http-nio-8080-exec-6] INFO  | rental.contract.ContractService                              | Entity 1 is saved (ContractService.java:78)
+ 2022-04-16 09:00:10,451 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 09:00:16,419 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 09:00:18,702 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 09:00:18,725 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 09:00:19,761 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 09:00:20,268 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 09:00:20,381 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 09:00:20,399 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 9.805 seconds (JVM running for 11.113) (StartupInfoLogger.java:61)
+ 2022-04-16 09:00:45,150 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 09:00:45,158 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 7 ms (FrameworkServlet.java:547)
+ 2022-04-16 09:01:05,192 [http-nio-8080-exec-6] INFO  | rental.contract.ContractService                              | Entity 1 is saved (ContractService.java:78)
+ 2022-04-16 09:05:33,635 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 09:05:40,343 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 09:05:42,550 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 09:05:42,568 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 09:05:44,216 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 09:05:44,905 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 09:05:45,074 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 09:05:45,093 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 11.313 seconds (JVM running for 12.976) (StartupInfoLogger.java:61)
+ 2022-04-16 09:06:01,574 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 09:06:01,583 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 7 ms (FrameworkServlet.java:547)
+ 2022-04-16 09:06:21,651 [http-nio-8080-exec-6] INFO  | rental.contract.ContractService                              | Entity 1 is saved (ContractService.java:78)
+ 2022-04-16 09:07:57,836 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 09:08:03,776 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 09:08:06,293 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 09:08:06,319 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 09:08:07,525 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 09:08:08,020 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 09:08:08,130 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 09:08:08,149 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 10.109 seconds (JVM running for 11.512) (StartupInfoLogger.java:61)
+ 2022-04-16 09:12:41,451 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 09:12:47,290 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 09:12:49,631 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 09:12:49,660 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 09:12:50,995 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 09:12:51,588 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 09:12:51,730 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 09:12:51,748 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 10.136 seconds (JVM running for 11.994) (StartupInfoLogger.java:61)
+ 2022-04-16 09:13:58,643 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 09:13:58,647 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 2 ms (FrameworkServlet.java:547)
+ 2022-04-16 09:14:09,330 [http-nio-8080-exec-4] INFO  | rental.contract.ContractService                              | Entity 1 is saved (ContractService.java:78)
+ 2022-04-16 09:15:43,303 [http-nio-8080-exec-9] INFO  | rental.address.AddressService                                | Entity 1 is saved (AddressService.java:83)
+ 2022-04-16 09:18:46,641 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 09:18:52,704 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 09:18:55,223 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 09:18:55,250 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 09:18:56,371 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 09:18:56,925 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 09:18:57,088 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 09:18:57,104 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 10.252 seconds (JVM running for 11.874) (StartupInfoLogger.java:61)
+ 2022-04-16 09:19:04,223 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 09:19:04,228 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 4 ms (FrameworkServlet.java:547)
+ 2022-04-16 09:19:20,103 [http-nio-8080-exec-6] INFO  | rental.contract.ContractService                              | Entity 1 is saved (ContractService.java:78)
+ 2022-04-16 09:40:28,750 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 09:40:35,163 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 09:40:37,553 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 09:40:37,579 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 09:40:38,821 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 09:40:39,398 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 09:40:39,526 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 09:40:39,541 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 10.64 seconds (JVM running for 12.332) (StartupInfoLogger.java:61)
+ 2022-04-16 09:40:45,009 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 09:40:45,012 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 3 ms (FrameworkServlet.java:547)
+ 2022-04-16 09:40:58,981 [http-nio-8080-exec-2] INFO  | rental.contract.ContractService                              | Entity 1 is saved (ContractService.java:78)
+ 2022-04-16 09:42:39,390 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 09:42:45,847 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 09:42:48,443 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 09:42:48,466 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 09:42:49,585 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 09:42:50,113 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 09:42:50,238 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 09:42:50,256 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 10.593 seconds (JVM running for 12.269) (StartupInfoLogger.java:61)
+ 2022-04-16 09:43:03,270 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 09:43:03,278 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 6 ms (FrameworkServlet.java:547)
+ 2022-04-16 09:43:03,725 [http-nio-8080-exec-1] INFO  | rental.contract.ContractService                              | Entity 1 is saved (ContractService.java:78)
+ 2022-04-16 09:46:49,913 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 09:46:57,244 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 09:46:57,978 [main] WARN  | org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl | GenerationTarget encountered exception accepting command : Error executing DDL "drop table if exists contract" via JDBC Statement (ExceptionHandlerLoggedImpl.java:27)
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "drop table if exists contract" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:241) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:153) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) [spring-boot-2.6.1.jar:2.6.1]
+	at rental.RentalApplication.main(RentalApplication.java:20) [classes/:?]
+Caused by: java.sql.SQLException: Cannot drop table 'contract' referenced by a foreign key constraint 'FKex0gaj8yp4k9iwjy2evhh35hh' on table 'vehicle'.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:768) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	... 34 more
+ 2022-04-16 09:46:58,428 [main] WARN  | org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl | GenerationTarget encountered exception accepting command : Error executing DDL "create table contract (id bigint not null, common_status varchar(255), contract_type varchar(255), end_date datetime(6), start_date datetime(6), main_tenant_id bigint, renter_id bigint, primary key (id)) engine=InnoDB" via JDBC Statement (ExceptionHandlerLoggedImpl.java:27)
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table contract (id bigint not null, common_status varchar(255), contract_type varchar(255), end_date datetime(6), start_date datetime(6), main_tenant_id bigint, renter_id bigint, primary key (id)) engine=InnoDB" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlStrings(SchemaCreatorImpl.java:424) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:315) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:167) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:136) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:122) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:164) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) [spring-boot-2.6.1.jar:2.6.1]
+	at rental.RentalApplication.main(RentalApplication.java:20) [classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'contract' already exists
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:768) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	... 34 more
+ 2022-04-16 09:46:59,327 [main] WARN  | org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl | GenerationTarget encountered exception accepting command : Error executing DDL "alter table contract add constraint FK166cex44w9ex5e699bnpadx6r foreign key (main_tenant_id) references main_tenant (id)" via JDBC Statement (ExceptionHandlerLoggedImpl.java:27)
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table contract add constraint FK166cex44w9ex5e699bnpadx6r foreign key (main_tenant_id) references main_tenant (id)" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlStrings(SchemaCreatorImpl.java:424) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:375) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:167) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:136) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:122) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:164) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) [spring-boot-2.6.1.jar:2.6.1]
+	at rental.RentalApplication.main(RentalApplication.java:20) [classes/:?]
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`manage_rental`.`#sql-1030_ab`, CONSTRAINT `FK166cex44w9ex5e699bnpadx6r` FOREIGN KEY (`main_tenant_id`) REFERENCES `main_tenant` (`id`))
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:768) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	... 34 more
+ 2022-04-16 09:46:59,840 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 09:46:59,874 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 09:47:01,563 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 09:47:02,345 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 09:47:02,498 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 09:47:02,517 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 12.308 seconds (JVM running for 14.255) (StartupInfoLogger.java:61)
+ 2022-04-16 09:47:05,635 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 09:47:05,644 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 8 ms (FrameworkServlet.java:547)
+ 2022-04-16 09:47:06,076 [http-nio-8080-exec-2] WARN  | org.hibernate.engine.jdbc.spi.SqlExceptionHelper             | SQL Error: 1062, SQLState: 23000 (SqlExceptionHelper.java:137)
+ 2022-04-16 09:47:06,077 [http-nio-8080-exec-2] ERROR | org.hibernate.engine.jdbc.spi.SqlExceptionHelper             | Duplicate entry '1' for key 'contract.PRIMARY' (SqlExceptionHelper.java:142)
+ 2022-04-16 09:47:06,078 [http-nio-8080-exec-2] INFO  | org.hibernate.engine.jdbc.batch.internal.AbstractBatchImpl   | HHH000010: On release of batch it still contained JDBC statements (AbstractBatchImpl.java:208)
+ 2022-04-16 09:47:41,260 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 09:47:47,791 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 09:47:48,111 [main] WARN  | org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl | GenerationTarget encountered exception accepting command : Error executing DDL "alter table contract drop foreign key FK166cex44w9ex5e699bnpadx6r" via JDBC Statement (ExceptionHandlerLoggedImpl.java:27)
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table contract drop foreign key FK166cex44w9ex5e699bnpadx6r" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:153) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) [spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) [spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) [spring-boot-2.6.1.jar:2.6.1]
+	at rental.RentalApplication.main(RentalApplication.java:20) [classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Can't DROP 'FK166cex44w9ex5e699bnpadx6r'; check that column/key exists
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:768) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	... 35 more
+ 2022-04-16 09:47:50,114 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 09:47:50,142 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 09:47:51,269 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 09:47:51,806 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 09:47:51,923 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 09:47:51,941 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 10.493 seconds (JVM running for 12.253) (StartupInfoLogger.java:61)
+ 2022-04-16 09:48:03,151 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 09:48:03,153 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 1 ms (FrameworkServlet.java:547)
+ 2022-04-16 09:48:03,435 [http-nio-8080-exec-1] INFO  | rental.contract.ContractService                              | Entity 1 is saved (ContractService.java:78)
+ 2022-04-16 09:49:59,572 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 09:50:05,941 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 09:50:08,395 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 09:50:08,428 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 09:50:10,104 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 09:50:10,957 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 09:50:11,130 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 09:50:11,154 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 11.415 seconds (JVM running for 13.131) (StartupInfoLogger.java:61)
+ 2022-04-16 09:51:09,263 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 09:51:09,269 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 5 ms (FrameworkServlet.java:547)
+ 2022-04-16 09:51:09,682 [http-nio-8080-exec-1] INFO  | rental.contract.ContractService                              | Entity 1 is saved (ContractService.java:78)
+ 2022-04-16 09:54:17,953 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 09:54:23,666 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 09:54:26,098 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 09:54:26,124 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 09:54:27,270 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 09:54:27,817 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 09:54:27,930 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 09:54:27,945 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 9.806 seconds (JVM running for 11.795) (StartupInfoLogger.java:61)
+ 2022-04-16 09:54:38,954 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 09:54:38,959 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 5 ms (FrameworkServlet.java:547)
+ 2022-04-16 09:54:39,329 [http-nio-8080-exec-1] INFO  | rental.contract.ContractService                              | Entity 1 is saved (ContractService.java:78)
+ 2022-04-16 14:31:08,547 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 14:31:18,059 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 14:31:18,819 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 14:31:18,835 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 14:31:20,737 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 14:31:21,828 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 14:31:22,006 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 14:31:22,034 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 13.37 seconds (JVM running for 17.628) (StartupInfoLogger.java:61)
+ 2022-04-16 14:39:22,122 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 14:39:22,159 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 32 ms (FrameworkServlet.java:547)
+ 2022-04-16 14:39:25,749 [http-nio-8080-exec-3] INFO  | rental.contract.ContractService                              | Entity 1 exists (ContractService.java:165)
+ 2022-04-16 14:39:47,825 [http-nio-8080-exec-8] INFO  | rental.contract.ContractService                              | Entity 2 is saved (ContractService.java:76)
+ 2022-04-16 14:40:29,758 [http-nio-8080-exec-7] INFO  | rental.address.AddressService                                | Entity 1 is saved (AddressService.java:83)
+ 2022-04-16 14:43:26,871 [http-nio-8080-exec-6] INFO  | rental.contract.ContractService                              | Entity 1 exists (ContractService.java:165)
+ 2022-04-16 14:43:41,290 [http-nio-8080-exec-7] WARN  | org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver | Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot invoke "String.length()" because "socialNumber" is null; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Cannot invoke "String.length()" because "socialNumber" is null<LF> at [Source: (PushbackInputStream); line: 1, column: 241] (through reference chain: rental.entities.MainTenantAndContract["contract"]->rental.contract.Contract["mainTenant"]->rental.mainTenant.MainTenant["socialNumber"])] (AbstractHandlerExceptionResolver.java:208)
+ 2022-04-16 14:44:27,675 [http-nio-8080-exec-9] WARN  | org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver | Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot invoke "String.length()" because "socialNumber" is null; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Cannot invoke "String.length()" because "socialNumber" is null<LF> at [Source: (PushbackInputStream); line: 1, column: 241] (through reference chain: rental.entities.MainTenantAndContract["contract"]->rental.contract.Contract["mainTenant"]->rental.mainTenant.MainTenant["socialNumber"])] (AbstractHandlerExceptionResolver.java:208)
+ 2022-04-16 14:46:29,380 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 14:46:35,020 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 14:46:35,459 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 14:46:35,470 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 14:46:36,431 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 14:46:36,838 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 14:46:36,940 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 14:46:36,952 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 7.435 seconds (JVM running for 8.872) (StartupInfoLogger.java:61)
+ 2022-04-16 14:47:03,219 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 14:47:03,221 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 2 ms (FrameworkServlet.java:547)
+ 2022-04-16 14:47:03,406 [http-nio-8080-exec-1] WARN  | org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver | Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot invoke "String.length()" because "socialNumber" is null; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Cannot invoke "String.length()" because "socialNumber" is null<LF> at [Source: (PushbackInputStream); line: 1, column: 241] (through reference chain: rental.entities.MainTenantAndContract["contract"]->rental.contract.Contract["mainTenant"]->rental.mainTenant.MainTenant["socialNumber"])] (AbstractHandlerExceptionResolver.java:208)
+ 2022-04-16 14:50:23,447 [http-nio-8080-exec-2] INFO  | rental.contract.ContractService                              | Entity 1 is saved (ContractService.java:112)
+ 2022-04-16 14:51:31,981 [http-nio-8080-exec-4] INFO  | rental.contract.ContractService                              | Entity 1 exists (ContractService.java:165)
+ 2022-04-16 14:51:50,573 [http-nio-8080-exec-1] INFO  | rental.contract.ContractService                              | Entity 1 exists (ContractService.java:165)
+ 2022-04-16 14:51:55,894 [http-nio-8080-exec-3] INFO  | rental.contract.ContractService                              | Entity 1 exists (ContractService.java:165)
+ 2022-04-16 14:52:27,279 [http-nio-8080-exec-5] INFO  | rental.contract.ContractService                              | Entity 1 is saved (ContractService.java:112)
+ 2022-04-16 14:52:36,233 [http-nio-8080-exec-7] INFO  | rental.contract.ContractService                              | Entity 1 exists (ContractService.java:165)
+ 2022-04-16 15:00:36,390 [http-nio-8080-exec-4] INFO  | rental.contract.ContractService                              | Entity 1 exists (ContractService.java:175)
+ 2022-04-16 15:24:06,899 [http-nio-8080-exec-1] INFO  | rental.contract.ContractService                              | Entity 1 exists (ContractService.java:175)
+ 2022-04-16 16:09:39,770 [http-nio-8080-exec-5] INFO  | rental.contract.ContractService                              | Entity 3 is saved (ContractService.java:86)
+ 2022-04-16 16:16:56,640 [http-nio-8080-exec-8] INFO  | rental.contract.ContractService                              | Entity 4 is saved (ContractService.java:86)
+ 2022-04-16 16:18:05,997 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 16:18:11,352 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 16:18:11,813 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 16:18:11,822 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 16:18:12,781 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 16:18:13,262 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 16:18:13,386 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 16:18:13,404 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 7.203 seconds (JVM running for 8.292) (StartupInfoLogger.java:61)
+ 2022-04-16 16:18:43,345 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 16:18:43,348 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 3 ms (FrameworkServlet.java:547)
+ 2022-04-16 16:18:43,548 [http-nio-8080-exec-1] INFO  | rental.contract.ContractService                              | Entity 4 is saved (ContractService.java:129)
+ 2022-04-16 16:18:56,842 [http-nio-8080-exec-3] INFO  | rental.contract.ContractService                              | Entity 5 is saved (ContractService.java:93)
+ 2022-04-16 16:48:53,883 [http-nio-8080-exec-6] INFO  | rental.contract.ContractService                              | Entity 1 exists (ContractService.java:182)
+ 2022-04-16 16:48:55,336 [http-nio-8080-exec-7] INFO  | rental.contract.ContractService                              | Entity 1 exists (ContractService.java:182)
+ 2022-04-16 16:49:59,609 [http-nio-8080-exec-1] INFO  | rental.contract.ContractService                              | Entity 1 exists (ContractService.java:182)
+ 2022-04-16 20:48:54,934 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 20:49:03,826 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 20:49:04,514 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 20:49:04,532 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 20:49:06,029 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 20:49:06,728 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 20:49:06,915 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 20:49:06,942 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 11.851 seconds (JVM running for 25.7) (StartupInfoLogger.java:61)
+ 2022-04-16 20:49:42,457 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 20:49:42,465 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 8 ms (FrameworkServlet.java:547)
+ 2022-04-16 20:50:48,001 [http-nio-8080-exec-1] INFO  | rental.contract.ContractService                              | Entity 6 is saved (ContractService.java:176)
+ 2022-04-16 20:51:11,001 [http-nio-8080-exec-7] INFO  | rental.contract.ContractService                              | Entity 6 exists (ContractService.java:265)
+ 2022-04-16 20:51:36,473 [http-nio-8080-exec-10] INFO  | rental.contract.ContractService                              | Entity 6 exists (ContractService.java:265)
+ 2022-04-16 20:54:03,081 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 20:54:09,742 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 20:54:10,343 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 20:54:10,367 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 20:54:11,443 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 20:54:11,939 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 20:54:12,067 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 20:54:12,084 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 8.858 seconds (JVM running for 10.337) (StartupInfoLogger.java:61)
+ 2022-04-16 20:54:27,532 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 20:54:27,538 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 5 ms (FrameworkServlet.java:547)
+ 2022-04-16 20:54:58,832 [http-nio-8080-exec-4] INFO  | rental.contract.ContractService                              | Entity 7 is saved (ContractService.java:176)
+ 2022-04-16 20:55:13,595 [http-nio-8080-exec-9] INFO  | rental.contract.ContractService                              | Entity 7 exists (ContractService.java:265)
+ 2022-04-16 21:05:50,707 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-16 21:05:57,438 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-16 21:05:58,116 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-16 21:05:58,135 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-16 21:05:59,819 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-16 21:06:00,617 [main] WARN  | org.springframework.data.convert.CustomConversions           | Registering converter from class java.time.OffsetDateTime to class org.springframework.data.jdbc.core.convert.JdbcValue as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation. (CustomConversions.java:271)
+ 2022-04-16 21:06:00,793 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-16 21:06:00,815 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 9.787 seconds (JVM running for 11.439) (StartupInfoLogger.java:61)
+ 2022-04-16 21:06:01,731 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-16 21:06:01,736 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 4 ms (FrameworkServlet.java:547)
+ 2022-04-16 21:20:17,126 [http-nio-8080-exec-4] INFO  | rental.contract.ContractService                              | Entity 8 is saved (ContractService.java:178)
+ 2022-04-16 21:39:26,926 [http-nio-8080-exec-9] INFO  | rental.contract.ContractService                              | Entity 8 is saved (ContractService.java:214)
+ 2022-04-16 21:40:08,093 [http-nio-8080-exec-1] INFO  | rental.contract.ContractService                              | Entity 8 is saved (ContractService.java:214)
+ 2022-04-16 21:41:12,516 [http-nio-8080-exec-10] INFO  | rental.contract.ContractService                              | Entity 8 exists (ContractService.java:267)
+ 2022-04-16 21:41:43,660 [http-nio-8080-exec-6] INFO  | rental.contract.ContractService                              | Entity 8 exists (ContractService.java:267)
+ 2022-04-16 21:42:21,987 [http-nio-8080-exec-5] INFO  | rental.contract.ContractService                              | Entity 8 exists (ContractService.java:267)
+ 2022-04-16 21:43:54,623 [http-nio-8080-exec-3] INFO  | rental.address.AddressService                                | Entity 2 is saved (AddressService.java:83)
+ 2022-04-16 21:44:18,132 [http-nio-8080-exec-7] INFO  | rental.contract.ContractService                              | Entity 8 exists (ContractService.java:267)
+ 2022-04-16 21:44:26,232 [http-nio-8080-exec-10] INFO  | rental.contract.ContractService                              | Entity 8 exists (ContractService.java:267)
+ 2022-04-16 21:45:27,898 [http-nio-8080-exec-5] INFO  | rental.contract.ContractService                              | Entity 6 exists (ContractService.java:267)
+ 2022-04-16 21:46:07,583 [http-nio-8080-exec-6] INFO  | rental.contract.ContractService                              | Entity 9 is saved (ContractService.java:178)
+ 2022-04-16 21:46:17,984 [http-nio-8080-exec-1] INFO  | rental.contract.ContractService                              | Entity 9 exists (ContractService.java:267)
+ 2022-04-16 21:50:56,697 [http-nio-8080-exec-5] INFO  | rental.contract.ContractService                              | Entity 9 exists (ContractService.java:267)

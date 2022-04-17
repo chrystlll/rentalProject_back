@@ -16,8 +16,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import rental.enumeration.CommonStatus;
 import rental.enumeration.Currency;
 import rental.enumeration.DurationType;
@@ -45,9 +43,7 @@ public class Price {
 	@Column(name = "durationType")
 	private DurationType durationType;
 
-	private Integer durationValue;
 
-	@JsonBackReference(value="price-payment")
 	@OneToMany(mappedBy = "price", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<ScheduledPayment> listScheduled;
 
@@ -158,19 +154,7 @@ public class Price {
 		this.durationType = durationType;
 	}
 
-	/**
-	 * @return the durationValue
-	 */
-	public Integer getDurationValue() {
-		return durationValue;
-	}
-
-	/**
-	 * @param durationValue the durationValue to set
-	 */
-	public void setDurationValue(Integer durationValue) {
-		this.durationValue = durationValue;
-	}
+	
 
 	/**
 	 * @return the listScheduled
@@ -190,7 +174,7 @@ public class Price {
 	public String toString() {
 		return "Price [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", amount=" + amount
 				+ ", currency=" + currency + ", commonStatus=" + commonStatus + ", durationType=" + durationType
-				+ ", durationValue=" + durationValue + ", listScheduled=" + listScheduled + "]";
+				+ ", listScheduled=" + listScheduled + "]";
 	}
 
 }

@@ -52,8 +52,6 @@ public abstract class Person {
 	public Person() {
 		super();
 	}
-	
-	
 
 	public Person(String firstName, String lastName, String email) {
 		super();
@@ -61,8 +59,6 @@ public abstract class Person {
 		this.lastName = lastName;
 		this.email = email;
 	}
-
-
 
 	public Person(long id, String firstName, String lastName, Date dob, Gender gender, String email,
 			String socialNumber, String phoneNumber1, String phoneNumber2) {
@@ -182,12 +178,15 @@ public abstract class Person {
 	 * @param email the email to set
 	 */
 	public void setEmail(String email) {
-		if (!email.isEmpty() && !RegExpMatching.isValidEmail(email)) {
-			LOGGER.error(RentalMessage.emailInvalid,email);
-			throw new RuntimeException(RentalMessage.emailInvalid);
-		} else {
-			this.email = email;
+		if (null != email) {
+			if (!email.isEmpty() && !RegExpMatching.isValidEmail(email)) {
+				LOGGER.error(RentalMessage.emailInvalid, email);
+				throw new RuntimeException(RentalMessage.emailInvalid);
+			} else {
+				this.email = email;
+			}
 		}
+
 	}
 
 	/**
@@ -196,11 +195,13 @@ public abstract class Person {
 	 * @param socialNumber the socialNumber to set
 	 */
 	public void setSocialNumber(String socialNumber) {
-		if (15 != socialNumber.length() && 0 != socialNumber.length()) {
-			LOGGER.error(RentalMessage.socialNumberInvalid,socialNumber,socialNumber.length());
-			throw new RuntimeException(RentalMessage.socialNumberInvalid);
-		} else {
-			this.socialNumber = socialNumber;
+		if (null != socialNumber) {
+			if (15 != socialNumber.length() && 0 != socialNumber.length()) {
+				LOGGER.error(RentalMessage.socialNumberInvalid, socialNumber, socialNumber.length());
+				throw new RuntimeException(RentalMessage.socialNumberInvalid);
+			} else {
+				this.socialNumber = socialNumber;
+			}
 		}
 	}
 
@@ -210,7 +211,7 @@ public abstract class Person {
 	public void setPhoneNumber1(String phoneNumber1) {
 		if (null != phoneNumber1) {
 			if (10 != phoneNumber1.length() && 0 != phoneNumber1.length()) {
-				LOGGER.error(RentalMessage.phoneNumberInvalid,phoneNumber1,phoneNumber1.length());
+				LOGGER.error(RentalMessage.phoneNumberInvalid, phoneNumber1, phoneNumber1.length());
 				throw new RuntimeException(RentalMessage.phoneNumberInvalid);
 			} else {
 				this.phoneNumber1 = phoneNumber1;
@@ -237,7 +238,5 @@ public abstract class Person {
 				+ gender + ", email=" + email + ", socialNumber=" + socialNumber + ", phoneNumber1=" + phoneNumber1
 				+ ", phoneNumber2=" + phoneNumber2 + "]";
 	}
-	
-	
 
 }

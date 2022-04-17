@@ -1,5 +1,8 @@
 package rental.contract;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,12 +15,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import rental.enumeration.CommonStatus;
+import rental.enumeration.Currency;
+import rental.enumeration.DurationType;
+import rental.enumeration.ScheduledPaymentType;
 import rental.logger.LOGG;
 import rental.mainTenant.MainTenant;
 import rental.mainTenant.MainTenantRepository;
+import rental.price.Price;
+import rental.price.PriceRepository;
+import rental.scheduledPayment.ScheduledPayment;
 import rental.scheduledPayment.ScheduledPaymentRepository;
 import rental.utils.JpaCriteriaApiUtils;
 import rental.utils.RentalMessage;
+import rental.utils.Utils;
 
 @Service
 public class ContractService {
@@ -27,16 +38,18 @@ public class ContractService {
 	private final ContractRepository contractRepository;
 	private final MainTenantRepository mainTenantRepository;
 	private final ScheduledPaymentRepository scheduledPayRepository;
+	private final PriceRepository priceRepository;
 
 	static Logger LOGGER = LOGG.getLogger(ContractService.class);
 
 	@Autowired
 	public ContractService(ContractRepository contractRepository, MainTenantRepository mainTenantRepository,
-			ScheduledPaymentRepository scheduledPayRepository) {
+			ScheduledPaymentRepository scheduledPayRepository, PriceRepository priceRepository) {
 		super();
 		this.contractRepository = contractRepository;
 		this.mainTenantRepository = mainTenantRepository;
 		this.scheduledPayRepository = scheduledPayRepository;
+		this.priceRepository = priceRepository;
 	}
 
 	/**
@@ -54,7 +67,7 @@ public class ContractService {
 	 * 
 	 * @param: Contract contract, MainTenant mainTenant (contains only the id)
 	 * @return: ResponseEntity<Contract>
-	 * @implSpec: CO-01 => CBN TO BE IMPLEMENTED HERE
+	 * @implSpec: CO-01 and CO-02
 	 */
 	public ResponseEntity<Contract> saveContractAndLinkToMT(Contract contract, MainTenant mainTenant) {
 
@@ -66,13 +79,42 @@ public class ContractService {
 			LOGGER.error(RentalMessage.entityNotSaved, contract.getId());
 			return new ResponseEntity<Contract>(HttpStatus.INTERNAL_SERVER_ERROR);
 		} else {
-		//	ScheduledPayment scheduPay = new ScheduledPayment();
-		//	scheduPay.setStartDate(contract.getStartDate());
-		//	ScheduledPayment schedPay = scheduledPayRepository.save(scheduPay);
-		//	List<ScheduledPayment> listSch = new ArrayList<ScheduledPayment>();
-		//	listSch.add(schedPay);
-		//	contract.setPayment(listSch);
-		//	contractRepository.save(contract);
+			// Create SchedulePayment (cf CO-01)
+			
+			ScheduledPayment scheduPay = new ScheduledPayment();
+			scheduPay.setStartDate(contract.getStartDate());
+			scheduPay.setDueDate(contract.getStartDate());
+			scheduPay.setScheduledPaymentGenerationDate(contract.getStartDate());
+			
+			// calculate amount
+			DurationType durationType = contract.getInitialDurationType();
+			Float initialAmount = contract.getInitialAmount();
+			Float amount = Utils.calculateAmountByMonth(durationType, initialAmount);
+			ScheduledPaymentType enumPayType = contract.getScheduledPaymentType();			
+			scheduPay.setAmount(Utils.calculateAmountByPeriod(enumPayType, amount));
+			Date startDate = contract.getStartDate();
+			scheduPay.setEndDate(Utils.calculateEndDate(startDate, enumPayType));
+			
+			// Create Price
+			Price price = new Price();
+			price.setAmount(contract.getInitialAmount());
+			price.setCurrency(Currency.€);
+			price.setDurationType(contract.getInitialDurationType());
+			price.setStartDate(contract.getStartDate());
+			price.setCommonStatus(CommonStatus.ACTIF);
+			priceRepository.save(price);
+			
+			scheduPay.setPrice(price);
+			scheduPay.setContract(contract);
+			scheduPay.setCurrency(Currency.€);
+			
+			// Create scheduledPayment
+			ScheduledPayment schedPay = scheduledPayRepository.save(scheduPay);
+			
+			List<ScheduledPayment> listSch = new ArrayList<ScheduledPayment>();
+			listSch.add(schedPay);
+			contract.setPayment(listSch);
+			contractRepository.save(contract);
 			LOGGER.info(RentalMessage.entitySaved, contract.getId());
 			return new ResponseEntity<Contract>(contract, HttpStatus.OK);
 		}

@@ -1,6 +1,5 @@
 package rental.price;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -12,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import rental.contract.Contract;
 import rental.enumeration.CommonStatus;
 import rental.logger.LOGG;
 import rental.utils.JpaCriteriaApiUtils;
@@ -35,12 +33,25 @@ public class PriceService {
 		return priceRepository.findAll();
 	}
 
+	/**
+	 * Select the list of prices by criterias
+	 * @param: value (Object)
+	 * @param: criteria (String) => attribute name
+	 * @param: subCriteria (String) => sub-attribute name (ex: price.scheduledPayment.id)
+	 * @return ResponseEntity<List<Price>>
+	 */
 	public ResponseEntity<List<?>> getPricesByCriteria(Object value, String criteria, String subCriteria) {
 		ResponseEntity<List<?>> listObj = JpaCriteriaApiUtils.getObjectByCriteria(em, value, criteria, subCriteria,
 				Price.class);
 		return listObj;
 	}
 
+	/**
+	 * Delete the current price by id
+	 * 
+	 * @param: id           (Long)
+	 * @return ResponseEntity<Price>
+	 */
 	public ResponseEntity<Price> deletePrice(Long id) {
 		Boolean searchResult = priceRepository.existsById(id);
 		if (searchResult) {
@@ -52,33 +63,22 @@ public class PriceService {
 			LOGGER.error("The price {} doesn't exist", id);
 			return new ResponseEntity<Price>(HttpStatus.NOT_FOUND);
 		}
-
 	}
 
-	public void addOrSavePrice(Contract contract, Price price) {
-
-		// check if contract exist
-		if (priceRepository.existsById(price.getId())) {
-			// Case Update
-			priceRepository.saveAndFlush(price);
+	/**
+	 * Return the current active price for a specific contract id
+	 * 
+	 * @param: id           (Long)
+	 * @param: commonStatus (CommonStatus)
+	 * @return ResponseEntity<Price>
+	 */
+	public ResponseEntity<Price> getPricesByContractIdAndStatus(Long id, CommonStatus commonStatus) {
+		Price price = priceRepository.findPriceByCommonStatusAndScheduledPayment(commonStatus, id).get();
+		if (null != price) {
+			return new ResponseEntity<Price>(price, HttpStatus.OK);
 		} else {
-
-			if (price.getId() > 0) {
-			} else {
-				// Case add
-				ResponseEntity<List<?>> listObj = this.getPricesByCriteria(contract.getId(), "contract", "id");
-				@SuppressWarnings("unchecked")
-				List<Price> listPrice = (List<Price>) listObj.getBody();
-				for (Price currentPrice : listPrice) {
-					if (null == currentPrice.getEndDate()) {
-						currentPrice.setEndDate(new Date());
-					}
-					currentPrice.setCommonStatus(CommonStatus.INACTIF);
-					priceRepository.save(currentPrice);
-				}
-			}
-			price.setCommonStatus(CommonStatus.ACTIF);
-			priceRepository.save(price);
+			LOGGER.error("The price with contractId {} doesn't exist", id);
+			return new ResponseEntity<Price>(HttpStatus.NOT_FOUND);
 		}
 	}
 }

@@ -21,6 +21,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import rental.enumeration.CommonStatus;
 import rental.enumeration.ContractType;
+import rental.enumeration.DurationType;
+import rental.enumeration.ScheduledPaymentType;
 import rental.mainTenant.MainTenant;
 import rental.renter.Renter;
 import rental.scheduledPayment.ScheduledPayment;
@@ -38,11 +40,21 @@ public class Contract {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "contractType")
 	private ContractType contractType;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "initialDurationType")
+	private DurationType initialDurationType;
+	
+	private float initialAmount;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "commonStatus")
 	private CommonStatus commonStatus;
-
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "scheduledPaymentType")
+	private ScheduledPaymentType scheduledPaymentType;
+	
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private MainTenant mainTenant;
@@ -201,11 +213,56 @@ public class Contract {
 		this.vehicle = vehicle;
 	}
 
+	
+	/**
+	 * @return the scheduledPaymentType
+	 */
+	public ScheduledPaymentType getScheduledPaymentType() {
+		return scheduledPaymentType;
+	}
+
+	/**
+	 * @param scheduledPaymentType the scheduledPaymentType to set
+	 */
+	public void setScheduledPaymentType(ScheduledPaymentType scheduledPaymentType) {
+		this.scheduledPaymentType = scheduledPaymentType;
+	}
+
+	
+	/**
+	 * @return the initialDurationType
+	 */
+	public DurationType getInitialDurationType() {
+		return initialDurationType;
+	}
+
+	/**
+	 * @param initialDurationType the initialDurationType to set
+	 */
+	public void setInitialDurationType(DurationType initialDurationType) {
+		this.initialDurationType = initialDurationType;
+	}
+
+	/**
+	 * @return the initialAmount
+	 */
+	public float getInitialAmount() {
+		return initialAmount;
+	}
+
+	/**
+	 * @param initialAmount the initialAmount to set
+	 */
+	public void setInitialAmount(float initialAmount) {
+		this.initialAmount = initialAmount;
+	}
+
 	@Override
 	public String toString() {
-		return "Contract [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", mainTenant=" + mainTenant
-				+ ", contractType=" + contractType + ", commonStatus=" + commonStatus + ", renter=" + renter
-				+ ", payment=" + payment + ", vehicle=" + vehicle + "]";
+		return "Contract [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", contractType="
+				+ contractType + ", initialDurationType=" + initialDurationType + ", initialAmount=" + initialAmount
+				+ ", commonStatus=" + commonStatus + ", scheduledPaymentType=" + scheduledPaymentType + ", mainTenant="
+				+ mainTenant + ", renter=" + renter + ", payment=" + payment + ", vehicle=" + vehicle + "]";
 	}
 
 }
