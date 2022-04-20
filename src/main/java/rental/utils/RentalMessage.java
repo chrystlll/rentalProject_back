@@ -9,6 +9,7 @@ public class RentalMessage {
 	public static String entityDeleted = "Entity {} is deleted";
 	public static String entitySaved = "Entity {} is saved";
 	public static String entityExist = "Entity {} exists";
+	public static String entityIsNull = "Entity {} is empty or null";
 
 	public static String attributeLengthError = "Attribute length for (%s) needs to be (%s)";
 

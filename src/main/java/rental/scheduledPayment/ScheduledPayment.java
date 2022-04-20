@@ -43,9 +43,9 @@ public class ScheduledPayment {
 	private Date scheduledPaymentGenerationDate;
 
 	@Enumerated(EnumType.STRING)
-	private ScheduledPaymentStatus status;
+	private ScheduledPaymentStatus scheduledPaymentStatus;
 
-	// Due date : Note: if dueDate < Now() => change status
+	// Due date : Note: if dueDate < Now() => change scheduledPaymentStatus
 	private Date dueDate;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
@@ -93,7 +93,7 @@ public class ScheduledPayment {
 	}
 
 	public ScheduledPayment(Long id, Date startDate, Date endDate, PaymentType paymentType, Date paymentDate,
-			Date scheduledPaymentGenerationDate, ScheduledPaymentStatus status, Date dueDate, Contract contract,
+			Date scheduledPaymentGenerationDate, ScheduledPaymentStatus scheduledPaymentStatus, Date dueDate, Contract contract,
 			Price price, Float amount, Currency currency) {
 		super();
 		this.id = id;
@@ -102,7 +102,7 @@ public class ScheduledPayment {
 		this.paymentType = paymentType;
 		this.paymentDate = paymentDate;
 		this.scheduledPaymentGenerationDate = scheduledPaymentGenerationDate;
-		this.status = status;
+		this.scheduledPaymentStatus = scheduledPaymentStatus;
 		this.dueDate = dueDate;
 		this.contract = contract;
 		this.price = price;
@@ -224,17 +224,17 @@ public class ScheduledPayment {
 	}
 
 	/**
-	 * @return the status
+	 * @return the scheduledPaymentStatus
 	 */
 	public ScheduledPaymentStatus getStatus() {
-		return status;
+		return scheduledPaymentStatus;
 	}
 
 	/**
-	 * @param status the status to set
+	 * @param scheduledPaymentStatus the scheduledPaymentStatus to set
 	 */
-	public void setStatus(ScheduledPaymentStatus status) {
-		this.status = status;
+	public void setStatus(ScheduledPaymentStatus scheduledPaymentStatus) {
+		this.scheduledPaymentStatus = scheduledPaymentStatus;
 	}
 
 	/**
@@ -283,7 +283,7 @@ public class ScheduledPayment {
 	public String toString() {
 		return "ScheduledPayment [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", paymentType="
 				+ paymentType + ", paymentDate=" + paymentDate + ", scheduledPaymentGenerationDate="
-				+ scheduledPaymentGenerationDate + ", status=" + status + ", dueDate=" + dueDate + ", contract="
+				+ scheduledPaymentGenerationDate + ", scheduledPaymentStatus=" + scheduledPaymentStatus + ", dueDate=" + dueDate + ", contract="
 				+ contract + ", price=" + price + ", amount=" + amount + ", currency=" + currency + "]";
 	}
 

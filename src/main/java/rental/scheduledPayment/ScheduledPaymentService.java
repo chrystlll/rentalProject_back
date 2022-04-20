@@ -1,6 +1,7 @@
 package rental.scheduledPayment;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,20 +13,34 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import rental.contract.Contract;
+import rental.contract.ContractRepository;
+import rental.enumeration.Currency;
+import rental.enumeration.DurationType;
+import rental.enumeration.ScheduledPaymentStatus;
+import rental.enumeration.ScheduledPaymentType;
 import rental.logger.LOGG;
+import rental.price.Price;
+import rental.price.PriceRepository;
 import rental.utils.JpaCriteriaApiUtils;
+import rental.utils.RentalMessage;
+import rental.utils.Utils;
 
 @Service
 public class ScheduledPaymentService {
 	@PersistenceContext
 	EntityManager em;
 	private final ScheduledPaymentRepository paymentRepository;
+	private final PriceRepository priceRepository;
+	private final ContractRepository contractRepository;
 	static Logger LOGGER = LOGG.getLogger(ScheduledPaymentService.class);
 
 	@Autowired
-	public ScheduledPaymentService(ScheduledPaymentRepository paymentRepository) {
+	public ScheduledPaymentService(ScheduledPaymentRepository paymentRepository, PriceRepository priceRepository,
+			ContractRepository contractRepository) {
 		super();
 		this.paymentRepository = paymentRepository;
+		this.priceRepository = priceRepository;
+		this.contractRepository = contractRepository;
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -35,21 +50,80 @@ public class ScheduledPaymentService {
 		return new ResponseEntity(respListPayment, HttpStatus.OK);
 	}
 
-	public void addOrUpdatePayment(Contract contract, ScheduledPayment payment) {
-		// check if contract exist
-		if (null != payment.getId()) {
-
-			if (paymentRepository.existsById(payment.getId())) {
-				// Case Update
-				payment.setContract(contract);
-				paymentRepository.saveAndFlush(payment);
+	/**
+	 * Add or update the scheduledPayment
+	 * 
+	 * @param: contrat          (Contract) contains id
+	 * @param: scheduledPayment (ScheduledPayment)
+	 * @return: ResponseEntity<ScheduledPayment>
+	 * @implSpec: SCP-01 and SCP-02
+	 */
+	public ResponseEntity<ScheduledPayment> addOrUpdatePayment(Contract contract, ScheduledPayment scheduledPayment) {
+		if (null != scheduledPayment.getId()) {
+			// Case update
+			if (paymentRepository.existsById(scheduledPayment.getId())) {
+				ScheduledPayment schPay = paymentRepository.findById(scheduledPayment.getId()).get();
+				scheduledPayment.setPrice(schPay.getPrice());
+				scheduledPayment.setCurrency(Currency.€);
+				if (null != contract) {
+					scheduledPayment.setContract(contract);
+				} else {
+					scheduledPayment.setContract(schPay.getContract());
+				}
+				// SCP-02
+				if (null != scheduledPayment.getPaymentType()) {
+					scheduledPayment.setStatus(ScheduledPaymentStatus.PAYE);
+				}
+				paymentRepository.save(scheduledPayment);
+				return new ResponseEntity<ScheduledPayment>(scheduledPayment, HttpStatus.OK);
 			} else {
-
+				LOGGER.error(RentalMessage.entityNotFound, scheduledPayment.getId());
+				return new ResponseEntity<ScheduledPayment>(HttpStatus.NOT_FOUND);
 			}
 		} else {
 			// Case add
-			payment.setContract(contract);
-			paymentRepository.save(payment);
+			if (null != contract) {
+				if (null != contract.getId()) {
+					scheduledPayment.setContract(contract);
+					// Add Price : get the active price
+					Price price = priceRepository.findPriceByCommonStatusAndScheduledPayment("ACTIF", contract.getId())
+							.get();
+					scheduledPayment.setPrice(price);
+
+					// Calculate the amount
+
+					DurationType durationType = price.getDurationType();
+					Float initialAmount = price.getAmount();
+					Float amount = Utils.calculateAmountByMonth(durationType, initialAmount);
+
+					// Get the contract info
+
+					contract = contractRepository.findById(contract.getId()).get();
+					ScheduledPaymentType enumPayType = contract.getScheduledPaymentType();
+					scheduledPayment.setAmount(Utils.calculateAmountByPeriod(enumPayType, amount));
+					scheduledPayment.setCurrency(Currency.€);
+
+					// SCP-02
+					if (null != scheduledPayment.getPaymentType()) {
+						scheduledPayment.setStatus(ScheduledPaymentStatus.PAYE);
+					}
+
+					paymentRepository.save(scheduledPayment);
+					return new ResponseEntity<ScheduledPayment>(scheduledPayment, HttpStatus.OK);
+				} else {
+					LOGGER.error(RentalMessage.entityIsNull, "contrat");
+					return new ResponseEntity<ScheduledPayment>(HttpStatus.NO_CONTENT);
+				}
+			} else {
+				LOGGER.error(RentalMessage.entityIsNull, "contrat");
+				return new ResponseEntity<ScheduledPayment>(HttpStatus.NO_CONTENT);
+			}
 		}
+	}
+
+	public ResponseEntity<List<ScheduledPayment>> getPaymentsByContractIdAndStatus(Long id, String commonStatus) {
+		// TODO Auto-generated method stub
+		Optional<List<ScheduledPayment>>  listSch = paymentRepository.findSchedPaymentByCommonStatusAndScheduledPayment(commonStatus, id);
+		return new ResponseEntity<List<ScheduledPayment>>(listSch.get(),HttpStatus.OK);
 	}
 }

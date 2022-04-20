@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import rental.entities.MainTenantAndContract;
 import rental.enumeration.CommonStatus;
 
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping(path = "api/v1/contract")
 public class ContractController {

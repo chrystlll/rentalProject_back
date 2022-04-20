@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import rental.entities.ScheduledPaymentAndContract;
+import rental.enumeration.CommonStatus;
 
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping(path = "api/v1/payment")
+@RequestMapping(path = "api/v1/scheduledPayment")
 public class ScheduledPaymentController {
 
 	private final ScheduledPaymentService paymentService;
@@ -31,11 +32,26 @@ public class ScheduledPaymentController {
 	 * Get all payments by contract Id
 	 * 
 	 * @param: Id (Long)
+	 * @return: ResponseEntity<List<ScheduledPayment>> 
 	 */
 	@GetMapping("/get/contract/{id}")
 	public ResponseEntity<List<ScheduledPayment>> getPaymentsByContractId(@PathVariable Long id) {
 		return paymentService.getPaymentsByCriteria(id, "contract", "id");
 	}
+	
+	
+	/**
+	 * Get all payments by contract Id and commonStatus
+	 * 
+	 * @param: Id (Long)
+	 * @param: commonStatus (String)
+	 * @return: ResponseEntity<List<ScheduledPayment>> 
+	 */
+	@GetMapping("/get/contract/{id}/commonStatus/{commonStatus}")
+	public ResponseEntity<List<ScheduledPayment>> getPaymentsByContractIdAndStatus(@PathVariable Long id, @PathVariable String commonStatus) {
+		return paymentService.getPaymentsByContractIdAndStatus(id, commonStatus);
+	}
+	
 
 	/**
 	 * Save or Update the payment

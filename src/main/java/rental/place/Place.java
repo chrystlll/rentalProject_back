@@ -9,11 +9,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
 import rental.address.Address;
-import rental.enumeration.PropertyStatus;
+import rental.contract.Contract;
+import rental.enumeration.CommonStatus;
 
 @Entity
 @Table
@@ -25,23 +26,26 @@ public class Place {
 	private Long id;
 	private String name;
 	@Enumerated(EnumType.STRING)
-	private PropertyStatus propertyStatus;
+	private CommonStatus commonStatus;
 	private Float locationtSize;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	private Address address;
 
-	public Place(String name, PropertyStatus propertyStatus) {
+//	@OneToOne(fetch = FetchType.LAZY, optional = true)
+//	private Contract contract;
+
+	public Place(String name, CommonStatus commonStatus) {
 		super();
 		this.name = name;
-		this.propertyStatus = propertyStatus;
+		this.commonStatus = commonStatus;
 	}
 
-	public Place(Long id, String name, PropertyStatus propertyStatus, Float locationtSize, Address address) {
+	public Place(Long id, String name, CommonStatus commonStatus, Float locationtSize, Address address) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.propertyStatus = propertyStatus;
+		this.commonStatus = commonStatus;
 		this.locationtSize = locationtSize;
 		this.address = address;
 	}
@@ -108,23 +112,37 @@ public class Place {
 	}
 
 	/**
-	 * @return the propertyStatus
+	 * @return the commonStatus
 	 */
-	public Enum<PropertyStatus> getPropertyStatus() {
-		return propertyStatus;
+	public Enum<CommonStatus> getCommonStatus() {
+		return commonStatus;
 	}
 
 	/**
 	 * @param propertyStatus the propertyStatus to set
 	 */
-	public void setPropertyStatus(PropertyStatus propertyStatus) {
-		this.propertyStatus = propertyStatus;
+	public void setCommonStatus(CommonStatus commonStatus) {
+		this.commonStatus = commonStatus;
 	}
 
-	@Override
-	public String toString() {
-		return "Place [id=" + id + ", name=" + name + ", propertyStatus=" + propertyStatus + ", locationtSize="
-				+ locationtSize + ", address=" + address + "]";
-	}
+//	/**
+//	 * @return the contract
+//	 */
+//	public Contract getContract() {
+//		return contract;
+//	}
+//
+//	/**
+//	 * @param contract the contract to set
+//	 */
+//	public void setContract(Contract contract) {
+//		this.contract = contract;
+//	}
+//
+//	@Override
+//	public String toString() {
+//		return "Place [id=" + id + ", name=" + name + ", commonStatus=" + commonStatus + ", locationtSize="
+//				+ locationtSize + ", address=" + address + ", contract=" + contract + "]";
+//	}
 
 }

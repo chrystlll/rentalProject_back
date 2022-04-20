@@ -1,7 +1,6 @@
 package rental.contract;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -80,21 +79,21 @@ public class ContractService {
 			return new ResponseEntity<Contract>(HttpStatus.INTERNAL_SERVER_ERROR);
 		} else {
 			// Create SchedulePayment (cf CO-01)
-			
+
 			ScheduledPayment scheduPay = new ScheduledPayment();
 			scheduPay.setStartDate(contract.getStartDate());
 			scheduPay.setDueDate(contract.getStartDate());
 			scheduPay.setScheduledPaymentGenerationDate(contract.getStartDate());
-			
+
 			// calculate amount
 			DurationType durationType = contract.getInitialDurationType();
 			Float initialAmount = contract.getInitialAmount();
 			Float amount = Utils.calculateAmountByMonth(durationType, initialAmount);
-			ScheduledPaymentType enumPayType = contract.getScheduledPaymentType();			
+			ScheduledPaymentType enumPayType = contract.getScheduledPaymentType();
 			scheduPay.setAmount(Utils.calculateAmountByPeriod(enumPayType, amount));
 			Date startDate = contract.getStartDate();
 			scheduPay.setEndDate(Utils.calculateEndDate(startDate, enumPayType));
-			
+
 			// Create Price
 			Price price = new Price();
 			price.setAmount(contract.getInitialAmount());
@@ -103,14 +102,14 @@ public class ContractService {
 			price.setStartDate(contract.getStartDate());
 			price.setCommonStatus(CommonStatus.ACTIF);
 			priceRepository.save(price);
-			
+
 			scheduPay.setPrice(price);
 			scheduPay.setContract(contract);
 			scheduPay.setCurrency(Currency.€);
-			
+
 			// Create scheduledPayment
 			ScheduledPayment schedPay = scheduledPayRepository.save(scheduPay);
-			
+
 			List<ScheduledPayment> listSch = new ArrayList<ScheduledPayment>();
 			listSch.add(schedPay);
 			contract.setPayment(listSch);
