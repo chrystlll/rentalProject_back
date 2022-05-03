@@ -70,8 +70,8 @@ public class Contract {
 	@OneToMany(mappedBy = "contract", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Vehicle> vehicle;
 
-//	@OneToOne(mappedBy = "place", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//	private Place place;
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Place place;
 
 	public Contract() {
 		super();
@@ -260,27 +260,27 @@ public class Contract {
 		this.initialAmount = initialAmount;
 	}
 
-//	/**
-//	 * @return the place
-//	 */
-//	public Place getPlace() {
-//		return place;
-//	}
-//
-//	/**
-//	 * @param place the place to set
-//	 */
-//	public void setPlace(Place place) {
-//		this.place = place;
-//	}
-//
-//	@Override
-//	public String toString() {
-//		return "Contract [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", contractType="
-//				+ contractType + ", initialDurationType=" + initialDurationType + ", initialAmount=" + initialAmount
-//				+ ", commonStatus=" + commonStatus + ", scheduledPaymentType=" + scheduledPaymentType + ", mainTenant="
-//				+ mainTenant + ", renter=" + renter + ", payment=" + payment + ", vehicle=" + vehicle + ", place="
-//				+ place + "]";
-//	}
+	/**
+	 * @return the place
+	 */
+	public Place getPlace() {
+		return place;
+	}
+
+	/**
+	 * @param place the place to set
+	 */
+	public void setPlace(Place place) {
+		this.place = place;
+	}
+
+	@Override
+	public String toString() {
+		return "Contract [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", contractType="
+				+ contractType + ", initialDurationType=" + initialDurationType + ", initialAmount=" + initialAmount
+				+ ", commonStatus=" + commonStatus + ", scheduledPaymentType=" + scheduledPaymentType + ", mainTenant="
+				+ mainTenant + ", renter=" + renter + ", payment=" + payment + ", vehicle=" + vehicle + ", place="
+				+ place + "]";
+	}
 
 }

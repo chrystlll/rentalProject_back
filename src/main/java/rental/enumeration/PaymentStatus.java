@@ -1,6 +1,6 @@
 package rental.enumeration;
 
-public enum ScheduledPaymentStatus {
-	
+public enum PaymentStatus {
+
 	PAYE,EN_RETARD,ANNULE 
 }

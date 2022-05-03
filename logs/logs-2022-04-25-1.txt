@@ -1,0 +1,302 @@
+ 2022-04-25 19:57:50,114 [http-nio-8080-exec-5] INFO  | rental.contract.ContractService                              | Entity 1 exists (ContractService.java:206)
+ 2022-04-25 19:57:52,990 [http-nio-8080-exec-6] INFO  | rental.contract.ContractService                              | Entity 1 exists (ContractService.java:206)
+ 2022-04-25 21:05:39,227 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-25 21:05:42,970 [main] ERROR | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Failed to initialize JPA EntityManagerFactory: Unknown mappedBy in: rental.contract.Contract.place, referenced property unknown: rental.place.Place.place (AbstractEntityManagerFactoryBean.java:426)
+ 2022-04-25 21:05:42,971 [main] WARN  | org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext | Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Unknown mappedBy in: rental.contract.Contract.place, referenced property unknown: rental.place.Place.place (AbstractApplicationContext.java:591)
+ 2022-04-25 21:05:42,998 [main] INFO  | org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener | 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled. (ConditionEvaluationReportLoggingListener.java:136)
+ 2022-04-25 21:05:43,017 [main] ERROR | org.springframework.boot.SpringApplication                   | Application run failed (SpringApplication.java:821)
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Unknown mappedBy in: rental.contract.Contract.place, referenced property unknown: rental.place.Place.place
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:414) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) [spring-boot-2.6.3.jar:2.6.3]
+	at rental.RentalApplication.main(RentalApplication.java:20) [classes/:?]
+Caused by: org.hibernate.AnnotationException: Unknown mappedBy in: rental.contract.Contract.place, referenced property unknown: rental.place.Place.place
+	at org.hibernate.cfg.OneToOneSecondPass.doSecondPass(OneToOneSecondPass.java:171) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1653) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1629) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:295) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.15.jar:5.3.15]
+	... 16 more
+ 2022-04-25 21:07:27,226 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-25 21:07:30,507 [main] ERROR | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Failed to initialize JPA EntityManagerFactory: Unknown mappedBy in: rental.contract.Contract.place, referenced property unknown: rental.place.Place.place (AbstractEntityManagerFactoryBean.java:426)
+ 2022-04-25 21:07:30,508 [main] WARN  | org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext | Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Unknown mappedBy in: rental.contract.Contract.place, referenced property unknown: rental.place.Place.place (AbstractApplicationContext.java:591)
+ 2022-04-25 21:07:30,540 [main] INFO  | org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener | 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled. (ConditionEvaluationReportLoggingListener.java:136)
+ 2022-04-25 21:07:30,558 [main] ERROR | org.springframework.boot.SpringApplication                   | Application run failed (SpringApplication.java:821)
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Unknown mappedBy in: rental.contract.Contract.place, referenced property unknown: rental.place.Place.place
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:414) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) [spring-boot-2.6.3.jar:2.6.3]
+	at rental.RentalApplication.main(RentalApplication.java:20) [classes/:?]
+Caused by: org.hibernate.AnnotationException: Unknown mappedBy in: rental.contract.Contract.place, referenced property unknown: rental.place.Place.place
+	at org.hibernate.cfg.OneToOneSecondPass.doSecondPass(OneToOneSecondPass.java:171) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1653) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1629) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:295) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.15.jar:5.3.15]
+	... 16 more
+ 2022-04-25 21:09:17,756 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-25 21:09:21,094 [main] ERROR | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Failed to initialize JPA EntityManagerFactory: Unknown mappedBy in: rental.contract.Contract.place, referenced property unknown: rental.place.Place.place (AbstractEntityManagerFactoryBean.java:426)
+ 2022-04-25 21:09:21,095 [main] WARN  | org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext | Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Unknown mappedBy in: rental.contract.Contract.place, referenced property unknown: rental.place.Place.place (AbstractApplicationContext.java:591)
+ 2022-04-25 21:09:21,131 [main] INFO  | org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener | 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled. (ConditionEvaluationReportLoggingListener.java:136)
+ 2022-04-25 21:09:21,148 [main] ERROR | org.springframework.boot.SpringApplication                   | Application run failed (SpringApplication.java:821)
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Unknown mappedBy in: rental.contract.Contract.place, referenced property unknown: rental.place.Place.place
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:414) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) [spring-boot-2.6.3.jar:2.6.3]
+	at rental.RentalApplication.main(RentalApplication.java:20) [classes/:?]
+Caused by: org.hibernate.AnnotationException: Unknown mappedBy in: rental.contract.Contract.place, referenced property unknown: rental.place.Place.place
+	at org.hibernate.cfg.OneToOneSecondPass.doSecondPass(OneToOneSecondPass.java:171) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1653) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1629) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:295) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.15.jar:5.3.15]
+	... 16 more
+ 2022-04-25 21:10:59,901 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-25 21:11:03,493 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-25 21:11:03,973 [main] WARN  | org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl | GenerationTarget encountered exception accepting command : Error executing DDL "alter table contract drop foreign key FKt2n99iqlgbk4eld6l5imr4ceq" via JDBC Statement (ExceptionHandlerLoggedImpl.java:27)
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table contract drop foreign key FKt2n99iqlgbk4eld6l5imr4ceq" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:153) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) [spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) [spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) [spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) [spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:414) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) [spring-boot-2.6.3.jar:2.6.3]
+	at rental.RentalApplication.main(RentalApplication.java:20) [classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Can't DROP 'FKt2n99iqlgbk4eld6l5imr4ceq'; check that column/key exists
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:768) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	... 35 more
+ 2022-04-25 21:11:04,023 [main] WARN  | org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl | GenerationTarget encountered exception accepting command : Error executing DDL "alter table place drop foreign key FKb33meqc3gxegprlofhh5e0c2" via JDBC Statement (ExceptionHandlerLoggedImpl.java:27)
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table place drop foreign key FKb33meqc3gxegprlofhh5e0c2" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:153) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) [spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) [spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) [spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) [spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:414) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) [spring-boot-2.6.3.jar:2.6.3]
+	at rental.RentalApplication.main(RentalApplication.java:20) [classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Can't DROP 'FKb33meqc3gxegprlofhh5e0c2'; check that column/key exists
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:768) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.4.Final.jar:5.6.4.Final]
+	... 35 more
+ 2022-04-25 21:11:05,292 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-25 21:11:05,298 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-25 21:11:05,973 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-25 21:11:06,392 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-25 21:11:06,402 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 6.415 seconds (JVM running for 7.189) (StartupInfoLogger.java:61)
+ 2022-04-25 21:13:17,022 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-25 21:13:20,760 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-25 21:13:22,212 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-25 21:13:22,221 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-25 21:13:22,857 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-25 21:13:23,274 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-25 21:13:23,281 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 6.184 seconds (JVM running for 7.007) (StartupInfoLogger.java:61)
+ 2022-04-25 21:17:24,298 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-25 21:17:24,302 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 3 ms (FrameworkServlet.java:547)
+ 2022-04-25 21:17:24,400 [http-nio-8080-exec-2] WARN  | org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver | Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'commonstatus' for method parameter type String is not present] (AbstractHandlerExceptionResolver.java:208)
+ 2022-04-25 21:17:30,851 [http-nio-8080-exec-3] WARN  | org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver | Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'commonstatus' for method parameter type String is not present] (AbstractHandlerExceptionResolver.java:208)
+ 2022-04-25 21:18:40,250 [http-nio-8080-exec-4] WARN  | org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver | Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'commonstatus' for method parameter type String is not present] (AbstractHandlerExceptionResolver.java:208)
+ 2022-04-25 21:18:44,934 [http-nio-8080-exec-5] WARN  | org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver | Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'commonstatus' for method parameter type String is not present] (AbstractHandlerExceptionResolver.java:208)
+ 2022-04-25 21:19:17,040 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-25 21:19:21,188 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-25 21:19:22,751 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-25 21:19:22,763 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-25 21:19:23,737 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-25 21:19:24,256 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-25 21:19:24,269 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 7.152 seconds (JVM running for 7.953) (StartupInfoLogger.java:61)
+ 2022-04-25 21:19:37,921 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-25 21:19:37,923 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 1 ms (FrameworkServlet.java:547)
+ 2022-04-25 21:19:38,018 [http-nio-8080-exec-1] WARN  | org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver | Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'commonstatus' for method parameter type String is not present] (AbstractHandlerExceptionResolver.java:208)
+ 2022-04-25 21:20:04,175 [http-nio-8080-exec-2] WARN  | org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver | Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'commonstatus' for method parameter type String is not present] (AbstractHandlerExceptionResolver.java:208)
+ 2022-04-25 21:20:08,912 [http-nio-8080-exec-3] WARN  | org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver | Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'commonstatus' for method parameter type String is not present] (AbstractHandlerExceptionResolver.java:208)
+ 2022-04-25 21:21:00,389 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-25 21:21:04,662 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-25 21:21:06,141 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-25 21:21:06,153 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-25 21:21:07,039 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-25 21:21:07,526 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-25 21:21:07,536 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 7.011 seconds (JVM running for 8.372) (StartupInfoLogger.java:61)
+ 2022-04-25 21:21:16,011 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-25 21:21:16,015 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 3 ms (FrameworkServlet.java:547)
+ 2022-04-25 21:21:16,129 [http-nio-8080-exec-1] WARN  | org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver | Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'commonstatus' for method parameter type String is not present] (AbstractHandlerExceptionResolver.java:208)
+ 2022-04-25 21:23:11,408 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-25 21:23:14,943 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-25 21:23:16,438 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-25 21:23:16,448 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-25 21:23:17,161 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-25 21:23:17,566 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-25 21:23:17,574 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 6.088 seconds (JVM running for 6.814) (StartupInfoLogger.java:61)
+ 2022-04-25 21:23:27,967 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-25 21:23:27,970 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 2 ms (FrameworkServlet.java:547)
+ 2022-04-25 21:25:06,747 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-25 21:25:11,258 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-25 21:25:12,741 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-25 21:25:12,750 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-25 21:25:13,599 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-25 21:25:14,203 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-25 21:25:14,214 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 7.345 seconds (JVM running for 8.523) (StartupInfoLogger.java:61)
+ 2022-04-25 21:25:18,998 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-25 21:25:19,001 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 2 ms (FrameworkServlet.java:547)
+ 2022-04-25 21:27:07,864 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-25 21:27:12,328 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-25 21:27:13,649 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-25 21:27:13,658 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-25 21:27:14,570 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-25 21:27:15,044 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-25 21:27:15,060 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 7.071 seconds (JVM running for 8.228) (StartupInfoLogger.java:61)
+ 2022-04-25 21:27:23,073 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-25 21:27:23,075 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 2 ms (FrameworkServlet.java:547)
+ 2022-04-25 21:29:32,752 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-25 21:29:36,269 [main] INFO  | org.hibernate.tuple.PojoInstantiator                         | HHH000182: No default (no-argument) constructor for class: rental.place.Place (class must be instantiated by Interceptor) (PojoInstantiator.java:47)
+ 2022-04-25 21:29:37,763 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-25 21:29:37,778 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-25 21:29:38,484 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-25 21:29:38,895 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-25 21:29:38,903 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 6.074 seconds (JVM running for 6.845) (StartupInfoLogger.java:61)
+ 2022-04-25 21:29:44,628 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-25 21:29:44,631 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 2 ms (FrameworkServlet.java:547)
+ 2022-04-25 21:31:02,129 [main] INFO  | rental.RentalApplication                                     | Rental application started. (RentalApplication.java:19)
+ 2022-04-25 21:31:07,148 [main] INFO  | org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] (JtaPlatformInitiator.java:52)
+ 2022-04-25 21:31:07,156 [main] INFO  | org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default' (AbstractEntityManagerFactoryBean.java:437)
+ 2022-04-25 21:31:07,883 [main] WARN  | org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning (JpaBaseConfiguration.java:219)
+ 2022-04-25 21:31:08,353 [main] INFO  | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | Tomcat started on port(s): 8080 (http) with context path '' (TomcatWebServer.java:220)
+ 2022-04-25 21:31:08,363 [main] INFO  | rental.RentalApplication                                     | Started RentalApplication in 6.147 seconds (JVM running for 6.932) (StartupInfoLogger.java:61)
+ 2022-04-25 21:31:14,034 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:525)
+ 2022-04-25 21:31:14,036 [http-nio-8080-exec-1] INFO  | org.springframework.web.servlet.DispatcherServlet            | Completed initialization in 2 ms (FrameworkServlet.java:547)

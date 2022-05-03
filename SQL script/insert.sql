@@ -30,13 +30,22 @@ VALUES(2, 120.0, 'INACTIF', '€', 'MOIS', '2021-04-06 02:00:00', '2021-04-06 02:0
 -- Add the relative payments (some are inactive)
 
 INSERT INTO manage_rental.scheduled_payment
-(id, amount, currency, due_date, end_date, payment_date, payment_type, scheduled_payment_generation_date, start_date, status, contract_id, price_id)
-VALUES(1, 1440.0, '€', '2021-04-06 02:00:00', '2022-04-06 02:00:00', NULL, NULL, '2021-04-06 02:00:00', '2021-04-06 02:00:00', NULL, 1, 2);
+(id, amount, currency, due_date, end_date, payment_date, payment_type, scheduled_payment_generation_date, start_date, contract_id, price_id,common_status)
+VALUES(1, 1440.0, '€', '2021-04-06 02:00:00', '2022-04-06 02:00:00', NULL, NULL, '2021-04-06 02:00:00', '2021-04-06 02:00:00', 1, 2,'ACTIF');
 
 INSERT INTO manage_rental.scheduled_payment
-(id, amount, currency, due_date, end_date, payment_date, payment_type, scheduled_payment_generation_date, start_date, status, contract_id, price_id)
-VALUES(2, 1440.0, '€', '2022-04-06 02:00:00', '2023-04-06 02:00:00', NULL, NULL, '2022-04-06 02:00:00', '2022-04-06 02:00:00', NULL, 1, 1);
+(id, amount, currency, due_date, end_date, payment_date, payment_type, scheduled_payment_generation_date, start_date, contract_id, price_id,common_status)
+VALUES(2, 1440.0, '€', '2022-04-06 02:00:00', '2023-04-06 02:00:00', NULL, NULL, '2022-04-06 02:00:00', '2022-04-06 02:00:00',1, 1,'ACTIF');
 
 INSERT INTO manage_rental.scheduled_payment
-(id, amount, currency, due_date, end_date, payment_date, payment_type, scheduled_payment_generation_date, start_date, status, contract_id, price_id)
-VALUES(3, 1440.0, '€', '2023-04-07 02:00:00', '2024-04-07 02:00:00', NULL, NULL, '2023-04-07 02:00:00', '2023-04-07 02:00:00', NULL, 1, 1);
+(id, amount, currency, due_date, end_date, payment_date, payment_type, scheduled_payment_generation_date, start_date, contract_id, price_id,common_status)
+VALUES(3, 1440.0, '€', '2023-04-07 02:00:00', '2024-04-07 02:00:00', NULL, NULL, '2023-04-07 02:00:00', '2023-04-07 02:00:00', 1, 1,'ACTIF');
+
+
+INSERT INTO manage_rental.place
+(id, common_status, location_size, name, address_id, contract_id)
+VALUES(0, 'ACTIF', 0, 'Lieu 1', null, null);
+
+INSERT INTO manage_rental.place
+(id, common_status, location_size, name, address_id, contract_id)
+VALUES(1, 'INACTIF', 0, 'Lieu 2', null, null);

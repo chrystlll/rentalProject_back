@@ -14,9 +14,10 @@ import org.springframework.stereotype.Service;
 
 import rental.contract.Contract;
 import rental.contract.ContractRepository;
+import rental.enumeration.CommonStatus;
 import rental.enumeration.Currency;
 import rental.enumeration.DurationType;
-import rental.enumeration.ScheduledPaymentStatus;
+import rental.enumeration.PaymentStatus;
 import rental.enumeration.ScheduledPaymentType;
 import rental.logger.LOGG;
 import rental.price.Price;
@@ -72,8 +73,16 @@ public class ScheduledPaymentService {
 				}
 				// SCP-02
 				if (null != scheduledPayment.getPaymentType()) {
-					scheduledPayment.setStatus(ScheduledPaymentStatus.PAYE);
+					scheduledPayment.setPaymentStatus(PaymentStatus.PAYE);
+					scheduledPayment.setCommonStatus(CommonStatus.INACTIF);
+				}else {
+					if(scheduledPayment.getPaymentStatus().equals(PaymentStatus.ANNULE)) {
+						scheduledPayment.setCommonStatus(CommonStatus.INACTIF);
+					}else {
+						scheduledPayment.setCommonStatus(CommonStatus.ACTIF);
+					}
 				}
+				
 				paymentRepository.save(scheduledPayment);
 				return new ResponseEntity<ScheduledPayment>(scheduledPayment, HttpStatus.OK);
 			} else {
@@ -105,7 +114,14 @@ public class ScheduledPaymentService {
 
 					// SCP-02
 					if (null != scheduledPayment.getPaymentType()) {
-						scheduledPayment.setStatus(ScheduledPaymentStatus.PAYE);
+						scheduledPayment.setPaymentStatus(PaymentStatus.PAYE);
+						scheduledPayment.setCommonStatus(CommonStatus.INACTIF);
+					}else {
+						if(scheduledPayment.getPaymentStatus().equals(PaymentStatus.ANNULE)) {
+							scheduledPayment.setCommonStatus(CommonStatus.INACTIF);
+						}else {
+							scheduledPayment.setCommonStatus(CommonStatus.ACTIF);
+						}
 					}
 
 					paymentRepository.save(scheduledPayment);
@@ -124,6 +140,7 @@ public class ScheduledPaymentService {
 	public ResponseEntity<List<ScheduledPayment>> getPaymentsByContractIdAndStatus(Long id, String commonStatus) {
 		// TODO Auto-generated method stub
 		Optional<List<ScheduledPayment>>  listSch = paymentRepository.findSchedPaymentByCommonStatusAndScheduledPayment(commonStatus, id);
+		System.out.println(listSch);
 		return new ResponseEntity<List<ScheduledPayment>>(listSch.get(),HttpStatus.OK);
 	}
 }

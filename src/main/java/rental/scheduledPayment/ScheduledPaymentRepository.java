@@ -15,7 +15,7 @@ public interface ScheduledPaymentRepository extends JpaRepository<ScheduledPayme
 	/**Select schPayment by status for a specific contract
 	 * @param commonStatus (CommonStatus) of the schPayment
 	 * @param id (Long) of contract*/
-	@Query(value="SELECT sp.* FROM Scheduled_Payment sp, contract c where sp.common_Status in (:commonStatus) and c.id=:id group by c.id",nativeQuery=true)
+	@Query(value="SELECT sp.* FROM Scheduled_Payment sp, contract c where sp.common_status in (:commonStatus) and c.id=:id",nativeQuery=true)
 	Optional<List<ScheduledPayment>> findSchedPaymentByCommonStatusAndScheduledPayment(@Param("commonStatus")String commonStatus, @Param("id")Long id);
 
 }

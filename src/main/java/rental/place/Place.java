@@ -17,23 +17,29 @@ import rental.contract.Contract;
 import rental.enumeration.CommonStatus;
 
 @Entity
-@Table
+@Table(name = "place")
 public class Place {
 
 	@Id
-	@SequenceGenerator(name = "property_sequence", sequenceName = "property_sequence", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "property_sequence")
+	@SequenceGenerator(name = "place_sequence", sequenceName = "place_sequence", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "place_sequence")
 	private Long id;
 	private String name;
 	@Enumerated(EnumType.STRING)
 	private CommonStatus commonStatus;
-	private Float locationtSize;
+	private Float locationSize;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	private Address address;
 
-//	@OneToOne(fetch = FetchType.LAZY, optional = true)
-//	private Contract contract;
+	@OneToOne(fetch = FetchType.LAZY, optional = true)
+	private Contract contract;
+	
+	
+
+	public Place() {
+		super();
+	}
 
 	public Place(String name, CommonStatus commonStatus) {
 		super();
@@ -41,27 +47,27 @@ public class Place {
 		this.commonStatus = commonStatus;
 	}
 
-	public Place(Long id, String name, CommonStatus commonStatus, Float locationtSize, Address address) {
+	public Place(Long id, String name, CommonStatus commonStatus, Float locationSize, Address address) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.commonStatus = commonStatus;
-		this.locationtSize = locationtSize;
+		this.locationSize = locationSize;
 		this.address = address;
 	}
 
 	/**
-	 * @return the locationtSize
+	 * @return the locationSize
 	 */
 	public Float getLocationtSize() {
-		return locationtSize;
+		return locationSize;
 	}
 
 	/**
-	 * @param locationtSize the locationtSize to set
+	 * @param locationSize the locationSize to set
 	 */
-	public void setLocationtSize(Float locationtSize) {
-		this.locationtSize = locationtSize;
+	public void setLocationtSize(Float locationSize) {
+		this.locationSize = locationSize;
 	}
 
 	/**
@@ -125,24 +131,24 @@ public class Place {
 		this.commonStatus = commonStatus;
 	}
 
-//	/**
-//	 * @return the contract
-//	 */
-//	public Contract getContract() {
-//		return contract;
-//	}
-//
-//	/**
-//	 * @param contract the contract to set
-//	 */
-//	public void setContract(Contract contract) {
-//		this.contract = contract;
-//	}
-//
-//	@Override
-//	public String toString() {
-//		return "Place [id=" + id + ", name=" + name + ", commonStatus=" + commonStatus + ", locationtSize="
-//				+ locationtSize + ", address=" + address + ", contract=" + contract + "]";
-//	}
+	/**
+	 * @return the contract
+	 */
+	public Contract getContract() {
+		return contract;
+	}
+
+	/**
+	 * @param contract the contract to set
+	 */
+	public void setContract(Contract contract) {
+		this.contract = contract;
+	}
+
+	@Override
+	public String toString() {
+		return "Place [id=" + id + ", name=" + name + ", commonStatus=" + commonStatus + ", locationSize="
+				+ locationSize + ", address=" + address + ", contract=" + contract + "]";
+	}
 
 }

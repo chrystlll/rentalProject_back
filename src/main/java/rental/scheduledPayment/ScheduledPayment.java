@@ -16,9 +16,10 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import rental.contract.Contract;
+import rental.enumeration.CommonStatus;
 import rental.enumeration.Currency;
+import rental.enumeration.PaymentStatus;
 import rental.enumeration.PaymentType;
-import rental.enumeration.ScheduledPaymentStatus;
 import rental.price.Price;
 
 @Entity
@@ -41,19 +42,22 @@ public class ScheduledPayment {
 
 	// Date when the payment is generated
 	private Date scheduledPaymentGenerationDate;
+	
+	@Enumerated(EnumType.STRING)
+	private PaymentStatus paymentStatus;
 
 	@Enumerated(EnumType.STRING)
-	private ScheduledPaymentStatus scheduledPaymentStatus;
+	private CommonStatus commonStatus;
 
-	// Due date : Note: if dueDate < Now() => change scheduledPaymentStatus
+	// Due date : Note: if dueDate < Now() => change paystatus
 	private Date dueDate;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-	@JsonBackReference(value="contract-payment")
+	@JsonBackReference(value = "contract-payment")
 	private Contract contract;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-	@JsonBackReference(value="price-payment")
+	@JsonBackReference(value = "price-payment")
 	private Price price;
 	private Float amount;
 
@@ -70,31 +74,12 @@ public class ScheduledPayment {
 		this.paymentType = paymentType;
 		this.contract = contract;
 	}
-
-	public ScheduledPayment(Long id, Date startDate, Date endDate, PaymentType paymentType, Date paymentDate) {
-		super();
-		this.id = id;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.paymentType = paymentType;
-		this.paymentDate = paymentDate;
-	}
+	
+	
 
 	public ScheduledPayment(Long id, Date startDate, Date endDate, PaymentType paymentType, Date paymentDate,
-			Contract contract, Price price) {
-		super();
-		this.id = id;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.paymentType = paymentType;
-		this.paymentDate = paymentDate;
-		this.contract = contract;
-		this.price = price;
-	}
-
-	public ScheduledPayment(Long id, Date startDate, Date endDate, PaymentType paymentType, Date paymentDate,
-			Date scheduledPaymentGenerationDate, ScheduledPaymentStatus scheduledPaymentStatus, Date dueDate, Contract contract,
-			Price price, Float amount, Currency currency) {
+			Date scheduledPaymentGenerationDate, PaymentStatus paymentStatus, CommonStatus commonStatus, Date dueDate,
+			Contract contract, Price price, Float amount, Currency currency) {
 		super();
 		this.id = id;
 		this.startDate = startDate;
@@ -102,7 +87,8 @@ public class ScheduledPayment {
 		this.paymentType = paymentType;
 		this.paymentDate = paymentDate;
 		this.scheduledPaymentGenerationDate = scheduledPaymentGenerationDate;
-		this.scheduledPaymentStatus = scheduledPaymentStatus;
+		this.paymentStatus = paymentStatus;
+		this.commonStatus = commonStatus;
 		this.dueDate = dueDate;
 		this.contract = contract;
 		this.price = price;
@@ -223,19 +209,6 @@ public class ScheduledPayment {
 		this.scheduledPaymentGenerationDate = scheduledPaymentGenerationDate;
 	}
 
-	/**
-	 * @return the scheduledPaymentStatus
-	 */
-	public ScheduledPaymentStatus getStatus() {
-		return scheduledPaymentStatus;
-	}
-
-	/**
-	 * @param scheduledPaymentStatus the scheduledPaymentStatus to set
-	 */
-	public void setStatus(ScheduledPaymentStatus scheduledPaymentStatus) {
-		this.scheduledPaymentStatus = scheduledPaymentStatus;
-	}
 
 	/**
 	 * @return the dueDate
@@ -279,12 +252,37 @@ public class ScheduledPayment {
 		this.currency = currency;
 	}
 
-	@Override
-	public String toString() {
-		return "ScheduledPayment [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", paymentType="
-				+ paymentType + ", paymentDate=" + paymentDate + ", scheduledPaymentGenerationDate="
-				+ scheduledPaymentGenerationDate + ", scheduledPaymentStatus=" + scheduledPaymentStatus + ", dueDate=" + dueDate + ", contract="
-				+ contract + ", price=" + price + ", amount=" + amount + ", currency=" + currency + "]";
+
+	/**
+	 * @return the commonStatus
+	 */
+	public CommonStatus getCommonStatus() {
+		return commonStatus;
 	}
+
+	/**
+	 * @param commonStatus the commonStatus to set
+	 */
+	public void setCommonStatus(CommonStatus commonStatus) {
+		this.commonStatus = commonStatus;
+	}
+
+
+	/**
+	 * @return the paymentStatus
+	 */
+	public PaymentStatus getPaymentStatus() {
+		return paymentStatus;
+	}
+
+	/**
+	 * @param paymentStatus the paymentStatus to set
+	 */
+	public void setPaymentStatus(PaymentStatus paymentStatus) {
+		this.paymentStatus = paymentStatus;
+	}
+
+	
+	
 
 }
