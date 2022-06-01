@@ -1,0 +1,60 @@
+<mxfile host="app.diagrams.net" modified="2022-06-01T08:18:16.776Z" agent="5.0 (Windows)" etag="Hmz9STBgXNUSWiWrj6pm" version="18.2.0" type="github">
+  <diagram id="of0S8UAynmIaNODz66ca" name="Page-1">
+    <mxGraphModel dx="1422" dy="2061" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fSTteMF8z2QigW8o2vhk-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="270" y="-320" width="690" height="810" as="geometry" />
+        </mxCell>
+        <mxCell id="fSTteMF8z2QigW8o2vhk-2" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="fSTteMF8z2QigW8o2vhk-3" target="fSTteMF8z2QigW8o2vhk-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fSTteMF8z2QigW8o2vhk-3" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="150" y="-110" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fSTteMF8z2QigW8o2vhk-5" value="include" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" parent="1" source="fSTteMF8z2QigW8o2vhk-6" target="fSTteMF8z2QigW8o2vhk-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fSTteMF8z2QigW8o2vhk-6" value="&lt;div&gt;View the &lt;br&gt;&lt;/div&gt;&lt;div&gt;place list by status (active or inactive) =&amp;gt; default is active&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="290" y="10" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="fSTteMF8z2QigW8o2vhk-7" value="extend" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" parent="1" source="fSTteMF8z2QigW8o2vhk-9" target="fSTteMF8z2QigW8o2vhk-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fSTteMF8z2QigW8o2vhk-8" value="include" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;" parent="1" source="fSTteMF8z2QigW8o2vhk-9" target="fSTteMF8z2QigW8o2vhk-19" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fSTteMF8z2QigW8o2vhk-9" value="&lt;div&gt;View the place&lt;br&gt;&lt;/div&gt;&lt;div&gt;informations &lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="-60" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="fSTteMF8z2QigW8o2vhk-10" value="&lt;div&gt;Delete a&lt;br&gt;&lt;/div&gt;&lt;div&gt;place&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="180" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="fSTteMF8z2QigW8o2vhk-12" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" parent="1" source="fSTteMF8z2QigW8o2vhk-15" target="fSTteMF8z2QigW8o2vhk-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fSTteMF8z2QigW8o2vhk-13" value="extend" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="fSTteMF8z2QigW8o2vhk-12" vertex="1" connectable="0">
+          <mxGeometry x="-0.3667" y="1" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fSTteMF8z2QigW8o2vhk-15" value="&lt;div&gt;View and edit the address&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="630" y="-180" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="fSTteMF8z2QigW8o2vhk-19" value="&lt;div&gt;Edit the place&lt;br&gt;&lt;/div&gt;&lt;div&gt;informations&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="470" y="-200" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="fSTteMF8z2QigW8o2vhk-25" value="&lt;div&gt;View the contracts&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="680" y="40" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="fSTteMF8z2QigW8o2vhk-26" value="extend" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.933;entryY=0.775;entryDx=0;entryDy=0;dashed=1;entryPerimeter=0;" parent="1" source="fSTteMF8z2QigW8o2vhk-25" target="fSTteMF8z2QigW8o2vhk-9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="690" y="-10" as="sourcePoint" />
+            <mxPoint x="630" y="-10" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
